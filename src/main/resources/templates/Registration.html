@@ -3,165 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-<!--    <style>-->
-<!--        /* Resetting default styles and setting global styles */-->
-<!--        * {-->
-<!--            margin: 0;-->
-<!--            padding: 0;-->
-<!--            box-sizing: border-box;-->
-<!--            font-family: sans-serif;-->
-<!--        }-->
+    <style>
+        /* Resetting default styles and setting global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
 
-<!--        /* Adding asterisk after required fields */-->
-<!--        .required::after {-->
-<!--            content: ' *';-->
-<!--            color: red;-->
-<!--        }-->
+        /* Adding asterisk after required fields */
+        .required::after {
+            content: ' *';
+            color: red;
+        }
 
-<!--        /* Styling the header */-->
-<!--        header {-->
-<!--            background-color: #333;-->
-<!--            color: white;-->
-<!--            text-align: center;-->
-<!--            padding: 10px;-->
-<!--        }-->
+        /* Styling the header */
+        header {
+            background-color: #161b22;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* This ensures the header stays on top of other elements */
+            border-bottom: 1px solid transparent;
+        }
 
-<!--        /* Styling the main section */-->
-<!--        main {-->
-<!--            display: flex;-->
-<!--            justify-content: center;-->
-<!--            align-items: center;-->
-<!--            height: 100vh;-->
-<!--            background-color: #3c3c3c;-->
-<!--        }-->
+        header:hover {
+            background-color: #161b22;
+            color: white;
+            border-bottom: 1px solid #ff7b72;
+        }
 
-<!--        /* Styling the form */-->
-<!--        form {-->
-<!--            display: flex;-->
-<!--            flex-direction: column;-->
-<!--            align-items: center;-->
-<!--            background-color: #ffffff;-->
-<!--            padding: 20px;-->
-<!--            border-radius: 10px;-->
-<!--            width: 500px;-->
-<!--            margin: 0 auto;-->
-<!--            height: 600px;-->
-<!--            flex-wrap: wrap;-->
-<!--        }-->
+        /* Styling the main section */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #22272e;
+            padding-top: 100px; /* added padding-top */
+        }
 
-<!--        /* Styling the first label */-->
-<!--        form label:nth-child(2) {-->
-<!--            margin-top: 20px; /* added margin-top */-->
-<!--        }-->
+        /* Styling the form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #2d333b;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            margin: 0 auto;
+            height: 600px;
+            flex-wrap: wrap;
+            color: aliceblue;
+            border: 1px solid transparent;
+        }
 
-<!--        /*!* Styling the form inputs *!*/-->
-<!--        /*.form-input {*/-->
-<!--        /*    !*margin: 10px;*!*/-->
-<!--        /*    padding: 10px;*/-->
-<!--        /*    font-size: 16px;*/-->
-<!--        /*    border-radius: 5px;*/-->
-<!--        /*    border: 1px solid #ccc;*/-->
-<!--        /*    margin-top: 10px;*/-->
-<!--        /*}*/-->
+        form:hover {
+            background-color: #2d333b;
+            color: white;
+            border-bottom: 1px solid #ff7b72;
+            border-top: 1px solid #fb7998;
+            border-right: 1px solid #d2a8ff;
+            border-left: 1px solid #ff7b72;
+        }
 
+        /* Adding space between gender labels */
+        .gender label {
+            margin-right: 10px;
+            align-items: center;
+        }
 
-<!--        /* Adding space between gender labels */-->
-<!--        .gender label {-->
-<!--            margin-right: 10px;-->
-<!--            align-items: center;-->
-<!--        }-->
+        /* Styling the form inputs */
+        form input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-<!--        /* Styling the form inputs */-->
-<!--        form input {-->
-<!--            margin: 10px;-->
-<!--            padding: 10px;-->
-<!--            font-size: 16px;-->
-<!--            border-radius: 5px;-->
-<!--            border: 1px solid #ccc;-->
-<!--            /*margin-bottom: 20px;*/-->
-<!--        }-->
+        /* Styling the submit button */
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-<!--        /* Styling the submit button */-->
-<!--        form input[type="submit"] {-->
-<!--            background-color: #4CAF50;-->
-<!--            color: white;-->
-<!--            border: none;-->
-<!--            cursor: pointer;-->
-<!--        }-->
+        /* Styling the submit button on hover */
+        form input[type="submit"]:hover {
+            background-color: #46954a;
+            font-weight: bold;
+        }
 
-<!--        /* Styling the submit button on hover */-->
-<!--        form input[type="submit"]:hover {-->
-<!--            background-color: #46954a;-->
-<!--            /*color: black;*/-->
-<!--        }-->
+        /* Styling the reset button on hover */
+        form input[type="reset"]:hover {
+            background-color: #46954a;
+            font-weight: bold;
+        }
 
-<!--        /* Styling the reset button on hover */-->
-<!--        form input[type="reset"]:hover {-->
-<!--            background-color: #46954a;-->
-<!--            /*color: black;*/-->
-<!--        }-->
+        /* Styling the reset button */
+        form input[type="reset"] {
+            background-color: #4CAF50;
+            font-weight: bold;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 
-<!--        /* Styling the reset button */-->
-<!--        form input[type="reset"] {-->
-<!--            background-color: #4CAF50;-->
-<!--            color: white;-->
-<!--            border: none;-->
-<!--            cursor: pointer;-->
-<!--        }-->
+        fieldset {
+            margin-bottom: 20px;
+        }
 
-<!--        fieldset {-->
-<!--            margin-bottom: 20px;-->
-<!--        }-->
+        /* Styling the footer */
+        footer {
+            background-color: #161b22;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-top: 1px solid transparent;
+        }
 
-<!--        /* Styling the footer */-->
-<!--        footer {-->
-<!--            background-color: #333;-->
-<!--            color: white;-->
-<!--            text-align: center;-->
-<!--            padding: 10px;-->
-<!--            position: absolute;-->
-<!--            width: 100%;-->
-<!--            display: flex;-->
-<!--            justify-content: space-between;-->
-<!--            align-items: center;-->
-<!--            flex-wrap: wrap;-->
-<!--        }-->
+        /* Styling the gender section */
+        .gender {
+            display: flex;
+            align-items: center; /* added align-items */
+        }
 
-<!--        /* Styling the gender section */-->
-<!--        .gender {-->
-<!--            display: flex;-->
-<!--            align-items: center; /* added align-items */-->
-<!--        }-->
+        /* Styling the home links */
+        .home {
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+        }
 
-<!--        /* Styling the home links */-->
-<!--        .home {-->
-<!--            text-decoration: none;-->
-<!--            color: white;-->
-<!--            margin: 10px;-->
-<!--        }-->
+        /* Styling the footer buttons */
+        footer input[type="button"] {
+            background-color: #5865f2;
+            font-weight: bold;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
 
-<!--        /* Styling the footer buttons */-->
-<!--        footer input[type="button"] {-->
-<!--            background-color: #4CAF50;-->
-<!--            color: white;-->
-<!--            border: none;-->
-<!--            cursor: pointer;-->
-<!--            padding: 10px;-->
-<!--            flex-wrap: wrap;-->
-<!--        }-->
+        /* Styling the footer buttons on hover */
+        footer input[type="button"]:hover {
+            background-color: #7983f5;
+            font-weight: bold;
+            text-decoration: underline;
+        }
 
-<!--        /* Styling the footer buttons on hover */-->
-<!--        footer input[type="button"]:hover {-->
-<!--            background-color: #46954a;-->
+        .h1 {
+            margin-bottom: 10px;
+        }
 
-<!--        }-->
+        .logo:hover {
+            color: #46954a;
+            text-decoration: underline;
+        }
 
-<!--        .h1 {-->
-<!--            margin-bottom: 10px;-->
-<!--        }-->
+        .footer:hover {
+            border-top: 1px solid #ff7b72;
+        }
 
+        .req {
+            margin-bottom: 15px;
+        }
 
-<!--    </style>-->
+        /*form input[type="text"]:focus,*/
+        /*form input[type="password"]:focus,*/
+        /*form input[type="email"]:focus {*/
+        /*    border:2px solid deeppink; !* replace with your desired color *!*/
+        /*}*/
+    </style>
 </head>
 <body>
 <!-- Header section starts here -->
@@ -174,8 +203,11 @@
 <!-- Main section starts here -->
 <main>
     <!-- Registration form starts here -->
+
+
+    
     <form action="">
-        <p>Fields marked with an asterisk (*) are mandatory</p>
+        <p class="req">Fields marked with an asterisk (*) are mandatory</p>
         <label class="required" for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="enter username" required class="form-input">
         <label class="required" for="password">Password:</label>
@@ -208,7 +240,7 @@
 <!-- Footer section starts here -->
 <footer class="footer">
     <div>
-        <p>&copy; 2021 Tunehub</p>
+        <p class="logo">&copy; 2021 Tunehub</p>
     </div>
     <div>
         <a class="home" href="index.html"><input type="button" value="Home"></a>
