@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tunehub</title>
+</head>
+<body>
+<p>hello </p>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        /* ...existing styles... */
+
+        /* Styling the form inputs */
+        .form-input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* ...existing styles... */
+    </style>
+</head>
+<body>
+<!-- Header section starts here -->
+<header>
+    <h1>Welcome to Tunehub</h1>
+    <p>Register to get started</p>
+</header>
+<!-- Header section ends here -->
+
+<!-- Main section starts here -->
+<main>
+    <!-- Registration form starts here -->
+    <form action="">
+        <p>Fields marked with an asterisk (*) are mandatory</p>
+        <label class="required" for="username" >Username:</label>
+        <input type="text" id="username" name="username" placeholder="enter username" required class="form-input">
+        <label class="required" for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder=" enter password" required class="form-input">
+        <label class="required" for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="enter email address" required class="form-input">
+
+        <!-- Gender selection starts here -->
+
+        <fieldset class="gender">
+            <legend class="required">Gender:</legend>
+            <input type="radio" id="male" name="gender" value="M">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="F">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="O">
+            <label for="other">Other</label>
+        </fieldset>
+        <!-- Gender selection ends here -->
+
+        <label class="required" for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="enter present address" required class="form-input">
+        <input type="submit" value="Register" class="form-input">
+        <input type="reset" value="Reset" class="form-input">
+    </form>
+    <!-- Registration form ends here -->
+</main>
+<!-- Main section ends here -->
+
+<!-- Footer section starts here -->
+<footer class="footer">
+    <div>
+        <p>&copy; 2021 Tunehub</p>
+    </div>
+    <div>
+        <a class="home" href="index.html"><input type="button" value="Home"></a>
+        <a class="home" href="#"><input type="button" value="Top"></a>
+    </div>
+</footer>
+<!-- Footer section ends here -->
+</body>
+</html>
+
+
