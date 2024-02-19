@@ -3,224 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-        <style>
-            /* Resetting default styles and setting global styles */
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: sans-serif;
-            }
+    <style>
+        /* Resetting default styles and setting global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
 
-            /* Adding asterisk after required fields */
-            .required::after {
-                content: ' *';
-                color: red;
-            }
+        /* Adding asterisk after required fields */
+        .required::after {
+            content: ' *';
+            color: red;
+        }
 
-            /* Styling the header */
-            header {
-                background-color: #161b22;
-                color: white;
-                text-align: center;
-                padding: 10px;
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000; /* This ensures the header stays on top of other elements */
-                border-bottom: 1px solid transparent;
-            }
+        /* Styling the header */
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            top: 0;
+            width: 100%;
+            border-bottom: 2px solid black;
+        }
 
-            header:hover {
-                background-color: #161b22;
-                color: white;
-                border-bottom: 1px solid #ff7b72;
-            }
+        header:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-bottom: 2px solid #ff7b72;
+        }
 
-            /* Styling the main section */
-            main {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #22272e;
-                padding-top: 100px; /* added padding-top */
-            }
+        /* Styling the main section */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffffff;
+            padding-top: 20px;
+            padding-bottom: 20px; /* Add padding at the bottom */
+        }
 
-            /* Styling the form */
-            form {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-color: #2d333b;
-                padding: 20px;
-                border-radius: 10px;
-                width: 500px;
-                margin: 0 auto;
-                height: auto;
-                flex-wrap: wrap;
-                color: aliceblue;
-                border: 1px solid transparent;
-            }
-
-            form fieldset label {
-                margin-right: 5px; /* Adjust margin as needed */
-            }
+        /* Styling the form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px;
+            /*border-radius: 10px;*/
+            width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            /*color: aliceblue;*/
+            color: #000000;
+            border: 2px solid black;
+            height: auto;
+        }
 
 
+        form label{
+            font-weight: bold;
+        }
 
-            form:hover {
-                background-color: #2d333b;
-                color: white;
-                border-bottom: 1px solid #ff7b72;
-                border-top: 1px solid #fb7998;
-                border-right: 1px solid #d2a8ff;
-                border-left: 1px solid #ff7b72;
-            }
-
-            /* Adding space between gender labels */
-            .gender label {
-                margin-right: 10px;
-                align-items: center;
-            }
-
-            /* Styling the form inputs */
-            form input {
-                margin: 10px;
-                padding: 10px;
-                font-size: 16px;
-                border-radius: 5px;
-                border: 2px solid transparent;
-                width: 100%; /* Add this line */
-            }
-
-            /* Styling the submit button */
-            form input[type="submit"] {
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                cursor: pointer;
-                font-weight: bold;
-            }
-
-            /* Styling the submit button on hover */
-            form input[type="submit"]:hover {
-                background-color: #46954a;
-                font-weight: bold;
-            }
-
-            /* Styling the reset button on hover */
-            form input[type="reset"]:hover {
-                background-color: #46954a;
-                font-weight: bold;
-            }
-
-            /* Styling the reset button */
-            form input[type="reset"] {
-                background-color: #4CAF50;
-                font-weight: bold;
-                color: white;
-                border: none;
-                cursor: pointer;
-            }
-
-            fieldset {
-                margin-bottom: 20px;
-            }
-            form fieldset {
-                margin: 10px;
-                padding: 10px;
-                border-radius: 5px;
-                border: 2px solid transparent;
-                width: 50%;
-                /*margin-right: unset;*/
-            }
+        form fieldset  {
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        form fieldset label {
+            font-weight: normal;
+        }
 
 
 
-            /* Styling the footer */
-            footer {
-                background-color: #161b22;
-                color: white;
-                text-align: center;
-                padding: 10px;
-                position: absolute;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-                border-top: 1px solid transparent;
-            }
+        form:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-bottom: 2px solid #ff7b72;
+            border-top: 2px solid #fb7998;
+            border-right: 2px solid #d2a8ff;
+            border-left: 2px solid #ff7b72;
+        }
+
+        /* Adding space between gender labels */
+        .gender label {
+            margin-right: 10px;
+            align-items: center;
+        }
+
+        /* Styling the form inputs */
+        form input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            /*border-radius: 5px;*/
+            border: 2px solid black;
+            width: 100%;
+        }
+
+        /* Styling the submit button */
+        form input[type="submit"] {
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        form input[type="submit"]:hover {
+            font-weight: bold;
+            background-color: #8a05ff;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Styling the reset button */
+        form input[type="reset"] {
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+
+        /* Styling the reset button on hover */
+        form input[type="reset"]:hover {
+            font-weight: bold;
+            background-color: #8a05ff;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        fieldset {
+            margin-bottom: 20px;
+        }
+
+        form fieldset {
+            margin: 10px;
+            padding: 10px;
+            /*border-radius: 5px;*/
+            border: 2px solid transparent;
+            width: 50%;
+        }
+
+        /* Styling the footer */
+        footer {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-top: 2px solid black;
+            margin: 0 auto;
+        }
+
+        /* Styling the gender section */
+        .gender, .role {
+            display: flex;
+            align-items: center;
+            outline: none;
+        }
+
+        /* Styling the home links */
+        .home {
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+        }
+
+        /* Styling the footer buttons */
+        footer input[type="button"] {
+            background-color: #ffffff;
+            font-weight: bold;
+            color: black;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            flex-wrap: wrap;
+            /*border-radius: 10px;*/
+        }
+
+        /* Styling the footer buttons on hover */
+        footer input[type="button"]:hover {
+            background-color: #000000;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .h1 {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #8a05ff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .footer:hover {
+            border-top: 2px solid #ff7b72;
+        }
+
+        .req {
+            margin-bottom: 15px;
+        }
 
 
 
-            /* Styling the gender section */
-            .gender,.role {
-                display: flex;
-                align-items: center; /* added align-items */
-                /*width: 100%;*/
-                outline: none;
-                /*justify-content: */
-            }
 
-            /* Styling the home links */
-            .home {
-                text-decoration: none;
-                color: white;
-                margin: 10px;
-            }
 
-            /* Styling the footer buttons */
-            footer input[type="button"] {
-                background-color: #5865f2;
-                font-weight: bold;
-                color: white;
-                border: none;
-                cursor: pointer;
-                padding: 10px;
-                flex-wrap: wrap;
-                border-radius: 10px;
-            }
 
-            /* Styling the footer buttons on hover */
-            footer input[type="button"]:hover {
-                background-color: #7983f5;
-                font-weight: bold;
-                text-decoration: underline;
-            }
 
-            .h1 {
-                margin-bottom: 10px;
-            }
+        /* Style for radio buttons */
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid black; /* Border color for unchecked state */
+            background-color: #fff; /* Background color for unchecked state */
+            margin-right: 5px;
+            position: relative;
+        }
 
-            .logo:hover {
-                color: #46954a;
-                text-decoration: underline;
-            }
+        /* Style for checked state of radio buttons */
+        input[type="radio"]:checked {
+            background-color: #ff1818; /* Background color for checked state */
+            border-color: #ff0505; /* Border color for checked state */
+        }
 
-            .footer:hover {
-                border-top: 1px solid #ff7b72;
-            }
+        /* Hide the default radio button */
+        input[type="radio"]::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-            .req {
-                margin-bottom: 15px;
-            }
 
-            form input[type="text"]:focus,
-            form input[type="password"]:focus,
-            form input[type="email"]:focus {
-                border:2px solid #4CAF50; /* replace with your desired color */
-                width: 100%; /* Change this line */
-                outline: none;
-            }
-        </style>
+
+    </style>
 </head>
 <body>
 <!-- Header section starts here -->
 <header>
     <h1 class="h1">Welcome to Tunehub</h1>
-    <p>Register to get started</p>
+    <h4>Register to get started</h4>
 </header>
 <!-- Header section ends here -->
 
@@ -228,7 +274,7 @@
 <main>
     <!-- Registration form starts here -->
     <form action="register" method="post">
-        <p class="req">Fields marked with an asterisk (*) are mandatory</p>
+        <h5  class="req">Fields marked with an asterisk (*) are mandatory</h5>
         <label class="required" for="username">Name:</label>
         <input type="text" id="username" name="username" placeholder="enter username" required class="form-input">
         <label class="required" for="email">Email:</label>
@@ -246,7 +292,6 @@
             <input type="radio" id="other" name="gender" value="other">
             <label for="other">Other</label>
         </fieldset>
-        <!--fieldset class role admin customer-->
 
         <fieldset class="role">
             <legend class="required">Role:</legend>
@@ -256,6 +301,7 @@
             <label for="customer">Customer</label>
         </fieldset>
         <!-- Gender selection ends here -->
+
         <label class="required" for="address">Address:</label>
         <input type="text" id="address" name="address" placeholder="enter present address" required class="form-input">
         <input type="submit" value="Register" class="form-input">
@@ -271,7 +317,7 @@
         <p class="logo">&copy; 2021 Tunehub</p>
     </div>
     <div>
-        <a class="home" href="index.html"><input type="button" value="Home"></a>
+        <a class="home" href="home.html"><input type="button" value="Home"></a>
         <a class="home" href="#"><input type="button" value="Top"></a>
     </div>
 </footer>
