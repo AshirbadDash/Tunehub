@@ -1,7 +1,10 @@
 package com.kodnest.projecttunehub.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.hibernate.boot.beanvalidation.IntegrationException;
 
 /**
  * Entity class for User.
@@ -9,9 +12,11 @@ import jakarta.persistence.Id;
  * Each instance of this class represents a single row in the User table.
  */
 @Entity
+
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String userid; // Unique identifier for the user
     private String username; // Username of the user
     private String email; // Email of the user
@@ -26,6 +31,54 @@ public class User {
      */
     public User() {
         super();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     /**
@@ -69,6 +122,17 @@ public class User {
     public void setUserid(String userid) {
         this.userid = userid;
     }
+
+
+
+
+
+
+
+
+
+
+
 
     // Similar comments for other getters and setters...
 

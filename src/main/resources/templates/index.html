@@ -2,38 +2,224 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tunehub</title>
-</head>
-<body>
-<p>hello </p>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
     <title>Registration</title>
-    <style>
-        /* ...existing styles... */
+        <style>
+            /* Resetting default styles and setting global styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
 
-        /* Styling the form inputs */
-        .form-input {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+            /* Adding asterisk after required fields */
+            .required::after {
+                content: ' *';
+                color: red;
+            }
 
-        /* ...existing styles... */
-    </style>
+            /* Styling the header */
+            header {
+                background-color: #161b22;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000; /* This ensures the header stays on top of other elements */
+                border-bottom: 1px solid transparent;
+            }
+
+            header:hover {
+                background-color: #161b22;
+                color: white;
+                border-bottom: 1px solid #ff7b72;
+            }
+
+            /* Styling the main section */
+            main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #22272e;
+                padding-top: 100px; /* added padding-top */
+            }
+
+            /* Styling the form */
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #2d333b;
+                padding: 20px;
+                border-radius: 10px;
+                width: 500px;
+                margin: 0 auto;
+                height: auto;
+                flex-wrap: wrap;
+                color: aliceblue;
+                border: 1px solid transparent;
+            }
+
+            form fieldset label {
+                margin-right: 5px; /* Adjust margin as needed */
+            }
+
+
+
+            form:hover {
+                background-color: #2d333b;
+                color: white;
+                border-bottom: 1px solid #ff7b72;
+                border-top: 1px solid #fb7998;
+                border-right: 1px solid #d2a8ff;
+                border-left: 1px solid #ff7b72;
+            }
+
+            /* Adding space between gender labels */
+            .gender label {
+                margin-right: 10px;
+                align-items: center;
+            }
+
+            /* Styling the form inputs */
+            form input {
+                margin: 10px;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+                border: 2px solid transparent;
+                width: 100%; /* Add this line */
+            }
+
+            /* Styling the submit button */
+            form input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            /* Styling the submit button on hover */
+            form input[type="submit"]:hover {
+                background-color: #46954a;
+                font-weight: bold;
+            }
+
+            /* Styling the reset button on hover */
+            form input[type="reset"]:hover {
+                background-color: #46954a;
+                font-weight: bold;
+            }
+
+            /* Styling the reset button */
+            form input[type="reset"] {
+                background-color: #4CAF50;
+                font-weight: bold;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            fieldset {
+                margin-bottom: 20px;
+            }
+            form fieldset {
+                margin: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                border: 2px solid transparent;
+                width: 50%;
+                /*margin-right: unset;*/
+            }
+
+
+
+            /* Styling the footer */
+            footer {
+                background-color: #161b22;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                position: absolute;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                border-top: 1px solid transparent;
+            }
+
+
+
+            /* Styling the gender section */
+            .gender,.role {
+                display: flex;
+                align-items: center; /* added align-items */
+                /*width: 100%;*/
+                outline: none;
+                /*justify-content: */
+            }
+
+            /* Styling the home links */
+            .home {
+                text-decoration: none;
+                color: white;
+                margin: 10px;
+            }
+
+            /* Styling the footer buttons */
+            footer input[type="button"] {
+                background-color: #5865f2;
+                font-weight: bold;
+                color: white;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                flex-wrap: wrap;
+                border-radius: 10px;
+            }
+
+            /* Styling the footer buttons on hover */
+            footer input[type="button"]:hover {
+                background-color: #7983f5;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            .h1 {
+                margin-bottom: 10px;
+            }
+
+            .logo:hover {
+                color: #46954a;
+                text-decoration: underline;
+            }
+
+            .footer:hover {
+                border-top: 1px solid #ff7b72;
+            }
+
+            .req {
+                margin-bottom: 15px;
+            }
+
+            form input[type="text"]:focus,
+            form input[type="password"]:focus,
+            form input[type="email"]:focus {
+                border:2px solid #4CAF50; /* replace with your desired color */
+                width: 100%; /* Change this line */
+                outline: none;
+            }
+        </style>
 </head>
 <body>
 <!-- Header section starts here -->
 <header>
-    <h1>Welcome to Tunehub</h1>
+    <h1 class="h1">Welcome to Tunehub</h1>
     <p>Register to get started</p>
 </header>
 <!-- Header section ends here -->
@@ -41,28 +227,35 @@
 <!-- Main section starts here -->
 <main>
     <!-- Registration form starts here -->
-    <form action="">
-        <p>Fields marked with an asterisk (*) are mandatory</p>
-        <label class="required" for="username" >Username:</label>
+    <form action="register" method="post">
+        <p class="req">Fields marked with an asterisk (*) are mandatory</p>
+        <label class="required" for="username">Name:</label>
         <input type="text" id="username" name="username" placeholder="enter username" required class="form-input">
-        <label class="required" for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder=" enter password" required class="form-input">
         <label class="required" for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="enter email address" required class="form-input">
+        <label class="required" for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder=" enter password" required class="form-input">
 
         <!-- Gender selection starts here -->
-
         <fieldset class="gender">
             <legend class="required">Gender:</legend>
-            <input type="radio" id="male" name="gender" value="M">
+            <input type="radio" id="male" name="gender" value="male">
             <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="F">
+            <input type="radio" id="female" name="gender" value="female">
             <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="O">
+            <input type="radio" id="other" name="gender" value="other">
             <label for="other">Other</label>
         </fieldset>
-        <!-- Gender selection ends here -->
+        <!--fieldset class role admin customer-->
 
+        <fieldset class="role">
+            <legend class="required">Role:</legend>
+            <input type="radio" id="admin" name="role" value="admin">
+            <label for="admin">Admin</label>
+            <input type="radio" id="customer" name="role" value="customer">
+            <label for="customer">Customer</label>
+        </fieldset>
+        <!-- Gender selection ends here -->
         <label class="required" for="address">Address:</label>
         <input type="text" id="address" name="address" placeholder="enter present address" required class="form-input">
         <input type="submit" value="Register" class="form-input">
@@ -75,7 +268,7 @@
 <!-- Footer section starts here -->
 <footer class="footer">
     <div>
-        <p>&copy; 2021 Tunehub</p>
+        <p class="logo">&copy; 2021 Tunehub</p>
     </div>
     <div>
         <a class="home" href="index.html"><input type="button" value="Home"></a>
@@ -85,5 +278,3 @@
 <!-- Footer section ends here -->
 </body>
 </html>
-
-
