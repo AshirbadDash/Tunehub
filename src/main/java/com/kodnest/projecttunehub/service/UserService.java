@@ -7,7 +7,7 @@ public interface UserService {
     public String addUser(User user);
 
 
+    boolean emailExists(String email);
 
-
-
+    boolean validateUser(String email, String password);
 }
