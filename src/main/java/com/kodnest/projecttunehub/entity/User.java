@@ -124,16 +124,6 @@ public class User {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     // Similar comments for other getters and setters...
 
     /**
