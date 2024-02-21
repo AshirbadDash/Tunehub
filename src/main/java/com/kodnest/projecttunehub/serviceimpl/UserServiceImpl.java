@@ -1,6 +1,5 @@
 package com.kodnest.projecttunehub.serviceimpl;
 
-import com.kodnest.projecttunehub.entity.Song;
 import com.kodnest.projecttunehub.entity.User;
 import com.kodnest.projecttunehub.repository.UserRepository;
 import com.kodnest.projecttunehub.service.UserService;
@@ -38,12 +37,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean emailExists(String email) {
-        if (userRepository.findByEmail(email) != null) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return userRepository.findByEmail(email) != null;
     }
 
     /**
@@ -55,19 +49,13 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean validateUser(String email, String password) {
-        if (userRepository.findByEmail(email) == null) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
             return false;
         }
-        User user = userRepository.findByEmail(email);
 
         String db_password = user.getPassword();
-
-
-        if (password.equals(db_password)) {
-            return true;
-        } else {
-            return false;
-        }
+        return password.equals(db_password);
     }
 
     @Override
@@ -76,9 +64,6 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByEmail(email);
         return user.getRole();
     }
-
-
-
 
 
 }
