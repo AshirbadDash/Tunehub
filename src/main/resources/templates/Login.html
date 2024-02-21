@@ -9,7 +9,7 @@
 <h2>User Login</h2>
 <form action="validate" method="post">
 
-    <label for="email">Username</label>
+    <label for="email">Email</label>
     <input type="text" id="email" name="email" placeholder="email">
     <br>
     <br>
@@ -20,5 +20,9 @@
     <input type="submit" value="Login">
 
 </form>
+<script>
+    // Select the form and reset it when the page loads
+    document.getElementById('loginForm').reset();
+</script>
 </body>
 </html>

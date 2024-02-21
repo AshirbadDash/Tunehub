@@ -1,5 +1,6 @@
 package com.kodnest.projecttunehub.controller;
 
+import com.kodnest.projecttunehub.entity.Song;
 import com.kodnest.projecttunehub.entity.User;
 import com.kodnest.projecttunehub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,26 +31,47 @@ public class UserController {
         boolean status = userService.emailExists(email);
         if (!status) {
             userService.addUser(user);
-            return "Home";
+               String role = userService.getRole(email);
+
+            if (role.equals("admin")) {
+                return "Admin";
+            } else {
+
+                return "Customer";
+            }
         } else {
             System.out.println("User already exists with this email id. Please try with another email id.");
-            return "Registration";
+            return "Login";
         }
     }
 
     /**
      * Handles the POST request for validating a user's credentials.
      *
-     * @param email The email of the user.
+     * @param email    The email of the user.
      * @param password The password of the user.
      * @return The name of the home view if validation is successful, otherwise redirects to the login page.
      */
     @PostMapping("/validate")
     public String validate(@RequestParam("email") String email, @RequestParam("password") String password) {
         if (userService.validateUser(email, password)) {
-            return "Home";
+
+            String role = userService.getRole(email);
+
+            if (role.equals("admin")) {
+                return "Admin";
+            } else {
+
+                return "Customer";
+            }
         } else {
             return "Login";
         }
     }
+
+
+
+
+
+
 }
