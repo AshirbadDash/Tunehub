@@ -100,6 +100,8 @@
         @media screen and (max-width: 600px) {
             /* Adjust the form width and padding for smaller screens */
             form {
+            display: flex;
+            flex-direction: column;
                 width: 90%;
                 padding: 10px;
             }
@@ -130,10 +132,18 @@
     <!-- Admin dashboard content goes here -->
 
 
+    <div>
 
-    <form action="addSong" method="post">
-        <input type="submit" value="ADD-SONG">
-    </form>
+        <form action="newSong" >
+            <input type="submit" value="ADD-SONGS">
+
+        </form>
+
+        <form action="viewSongs" >
+            <input type="submit" value="VIEW-SONGS">
+        </form>
+    </div>
 </main>
+
 </body>
 </html>

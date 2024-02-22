@@ -28,4 +28,11 @@ public class NavController {
     public String registerUser() {
         return "Registration";
     }
+
+    @GetMapping(path = "/newSong")
+    public String newSong() {
+        return "NewSong";
+    }
+
+
 }

@@ -22,7 +22,7 @@
         }
 
         h1:hover{
-            border-bottom: 2px solid #8a05ff;
+            border-bottom: 2px solid #fb7998;
             transition: background-color 0.3s ease;
         }
         main{
@@ -61,9 +61,41 @@
             border: 2px solid black;
             transition: background-color 0.3s ease;
         }
+
+
+
+    /*MAKE THE BODY SPLIT POLIGONAL AND HAVE 2 DIFF COLOR*/
+
+        /*body::before, body::after {*/
+        /*    content: '';*/
+        /*    position: fixed;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    width: 50%;*/
+        /*    height: 100%;*/
+        /*    background: linear-gradient(45deg, #fb7998, #8a05ff);*/
+        /*    z-index: -1;*/
+        /*}*/
+
+        /*body::before {*/
+        /*    clip-path: polygon(0 0, 0 100vh, 100% 100vh);*/
+        /*}*/
+
+        /*body::after {*/
+        /*    left: 50%;*/
+        /*    clip-path: polygon(100% 0, 0 0, 100% 100%);*/
+        /*}*/
+
+        /*body{*/
+        /*    background: linear-gradient(45deg, #fb7998, #8a05ff);*/
+        /*}*/
+
+
     </style>
 </head>
 <body>
+
+
 <h1>Welcome to TUNEHUB</h1>
 <main>
 <a class="button" href="login">LOGIN</a>
@@ -71,5 +103,6 @@
 <br>
 <a class="button" href="registration">REGISTER</a>
 </main>
+
 </body>
 </html>

@@ -14,26 +14,48 @@ public class SongServiceImpl implements SongService {
     @Autowired
     SongRepository SongRepository;
 
+
+
 //    @Override
 //    public String addSong(Song song) {
+//        // Check if the song already exists in the database by name
+////        List<Song> existingSongs = SongRepository.findByName(song.getName());
+//
+//        // If the song already exists, return a message
+////        if (!existingSongs.isEmpty()) {
+////            return "Song already exists";
+//        }
+//
+//        // If the song does not exist, save it and return a success message
 //        SongRepository.save(song);
-//        return "Song added successfully";
+//        return "Song added successfully!";
 //    }
+
 
     @Override
     public String addSong(Song song) {
-        // Check if the song already exists in the database by name
-        List<Song> existingSongs = SongRepository.findByName(song.getName());
-
-        // If the song already exists, return a message
-        if (!existingSongs.isEmpty()) {
-            return "Song already exists";
-        }
-
-        // If the song does not exist, save it and return a success message
         SongRepository.save(song);
-        return "Song added successfully!";
+        return "Song added successfully";
+
+
     }
+
+    @Override
+    public List<Song> viewSong(Song song) {
+        return SongRepository.findAll();
+    }
+
+    @Override
+  public  boolean songExists(String name){
+        Song song = SongRepository.findByName(name);
+        if (song == null) {
+            return false;
+        }
+        return true;
+
+    }
+
+
 }
 
 //

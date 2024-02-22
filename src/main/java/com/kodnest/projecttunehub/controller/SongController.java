@@ -4,7 +4,6 @@ import com.kodnest.projecttunehub.entity.Song;
 import com.kodnest.projecttunehub.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -14,11 +13,29 @@ public class SongController {
     @Autowired
     private SongService songService;
 
-    @PostMapping  ("/addSong")
+
+    @PostMapping("/viewSong")
+    public String viewSong(@ModelAttribute Song song) {
+        songService.viewSong(song);
+        return "Song added";
+    }
+
+    @PostMapping("/addSong")
     public String addSong(@ModelAttribute Song song) {
-        songService.addSong(song);
+
+        boolean songStatus = songService.songExists(song.getName());
+        if (!songStatus) {
+            songService.addSong(song);
+            return "NewSong";
+        } else {
+            System.out.println("Song already exists with this name. Please try with another name.");
+
+        }
+        return "Admin";
+
+
 //        return "redirect:/";
-        return "NewSong";
+
     }
 
 
