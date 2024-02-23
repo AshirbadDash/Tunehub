@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SONGS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #000000;
+            color: white;
+            border: 2px solid #ffffff;
+
+        }
+        th:hover {
+            background-color: #8a05ff;
+            color: black;
+            border: 2px solid #f6f6f6;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>SONGS</h1>
+</header>
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="songs:${song}">
+            <td th:text="${songs.name}"></td>
+            <td th:text="${songs.artist}">song artist</td>
+            <td th:text="${songs.genre}">song genre</td>
+            <td th:utext="${songs.link}">song play</td>
+        </tr>
+        <tr th:each="songs:${song}">
+            <td th:text="${songs.name}"></td>
+            <td th:text="${songs.artist}">song artist</td>
+            <td th:text="${songs.genre}">song genre</td>
+            <td th:utext="${songs.link}">song play</td>
+        </tr>
+
+
+        </tbody>
+        
+    </table>
+</main>
+</body>
+</html>

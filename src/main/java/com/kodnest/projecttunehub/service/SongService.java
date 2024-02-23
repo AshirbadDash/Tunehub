@@ -10,9 +10,10 @@ public interface SongService {
 
 
 
-   public  List<Song> viewSong(Song song);
+   public  List<Song> viewSongs();
+
 
    public  boolean songExists(String name);
 
-//    boolean songExists(String name);
+
 }

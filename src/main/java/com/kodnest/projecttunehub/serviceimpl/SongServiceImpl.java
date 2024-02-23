@@ -41,8 +41,9 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public List<Song> viewSong(Song song) {
-        return SongRepository.findAll();
+    public List<Song> viewSongs() {
+        List<Song> songs = SongRepository.findAll();
+        return songs;
     }
 
     @Override

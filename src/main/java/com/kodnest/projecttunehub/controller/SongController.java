@@ -4,8 +4,12 @@ import com.kodnest.projecttunehub.entity.Song;
 import com.kodnest.projecttunehub.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class SongController {
@@ -14,10 +18,13 @@ public class SongController {
     private SongService songService;
 
 
-    @PostMapping("/viewSong")
-    public String viewSong(@ModelAttribute Song song) {
-        songService.viewSong(song);
-        return "Song added";
+    @GetMapping ("/viewSongs")
+    public String viewSong( Model model) {
+        List <Song> songList= songService.viewSongs();
+        model.addAttribute("song", songList);
+
+        System.out.println(songList);
+        return "DisplaySongs";
     }
 
     @PostMapping("/addSong")
