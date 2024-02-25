@@ -1,19 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/customer.css}">
     <title>Customer</title>
 </head>
 <body>
- <h1>Customer</h1>
+<header>
+    <h1>Customer Dashboard</h1>
+</header>
 
- <form action="viewSongs" >
-     <input type="submit" value="VIEW-SONGS">
+
+ <form action="playSongs">
+<div>
+     <input type="submit" value="PLAY-SONGS">
+</div>
  </form>
-
 
 </body>
 </html>

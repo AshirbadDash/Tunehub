@@ -3,129 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <style>
-        /* Resetting default styles and setting global styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-        }
-
-        /* Styling the header */
-        header {
-            background-color: #ffffff;
-            color: #000000;
-            text-align: center;
-            padding: 10px;
-            top: 0;
-            width: 100%;
-            border-bottom: 2px solid black;
-        }
-
-        header:hover {
-            background-color: #ffffff;
-            color: #000000;
-            border-bottom: 2px solid #ff7b72;
-        }
-
-        /* Styling the main section */
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #ffffff;
-            padding-top: 20px;
-            padding-bottom: 20px; /* Add padding at the bottom */
-        }
-
-        /* Styling the form */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 20px;
-            /*border-radius: 10px;*/
-            width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            /*color: aliceblue;*/
-            color: #000000;
-            border: 2px solid black;
-            height: auto;
-        }
-
-        form label {
-            font-weight: bold;
-        }
-
-        form:hover {
-            background-color: #ffffff;
-            color: #000000;
-            border-bottom: 2px solid #ff7b72;
-            border-top: 2px solid #fb7998;
-            border-right: 2px solid #d2a8ff;
-            border-left: 2px solid #ff7b72;
-        }
-
-        /* Styling the form inputs */
-        form input {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            /*border-radius: 5px;*/
-            border: 2px solid black;
-            width: 100%;
-        }
-
-        /* Styling the submit button */
-        form input[type="submit"] {
-            background-color: #000000;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        form input[type="submit"]:hover {
-            font-weight: bold;
-            background-color: #8a05ff;
-            color: white;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Add media queries for responsiveness */
-        @media screen and (max-width: 600px) {
-            /* Adjust the form width and padding for smaller screens */
-            form {
-                width: 90%;
-                padding: 10px;
-            }
-
-            /* Adjust the form input width for smaller screens */
-            form input {
-                width: 90%;
-            }
-
-            /* Adjust the header text size for smaller screens */
-            header h1, header h4 {
-                font-size: 1.2em;
-            }
-        }
-        main {
-            background-color: #ffffff;
-
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/login.css}">
+    <link rel="stylesheet" href="../static/login.css">
 </head>
 <body>
 <header>
     <h1>User Login</h1>
 </header>
+
 <main>
-    <form action="validate" method="post">
+    <form id="loginForm" action="validate" method="post">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" placeholder="email">
         <label for="password">Password</label>
@@ -133,6 +20,7 @@
         <input type="submit" value="Login">
     </form>
 </main>
+
 <script>
     // Select the form and reset it when the page loads
     document.getElementById('loginForm').reset();

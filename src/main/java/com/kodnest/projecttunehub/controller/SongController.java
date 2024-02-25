@@ -18,13 +18,30 @@ public class SongController {
     private SongService songService;
 
 
-    @GetMapping ("/viewSongs")
-    public String viewSong( Model model) {
-        List <Song> songList= songService.viewSongs();
+    @GetMapping("/viewSongs")
+    public String viewSong(Model model) {
+        List<Song> songList = songService.viewSongs();
         model.addAttribute("song", songList);
 
         System.out.println(songList);
         return "DisplaySongs";
+    }
+
+    @GetMapping("/playSongs")
+    public String playSong(Model model) {
+        boolean PremiumUser = false;
+
+
+        if (PremiumUser) {
+            List<Song> songList = songService.viewSongs();
+            model.addAttribute("song", songList);
+            return "DisplaySongs";
+        } else {
+
+            return "Subsciption";
+
+        }
+
     }
 
     @PostMapping("/addSong")
