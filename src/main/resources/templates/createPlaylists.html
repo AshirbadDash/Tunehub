@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>PLAYLIST</title>
+  </head>
+  <body>
+    <div
+      class="bg-black font-mono text-white flex min-h-screen flex-col items-center pt-16 sm:justify-center sm:pt-0"
+    >
+      <form action="addPlaylists" method="post" class="m-10">
+        <label for="playlistName" class="text-white">Playlist Name:</label>
+        <input
+          class="bg-gray-800 text-white m-10 font-mono"
+          type="text"
+          id="playlistName"
+          name="playlistName"
+          required
+        />
+        <br />
+        <div th:each="songs:${song}">
+          <input
+            type="checkbox"
+            th:name="songs"
+            th:value="${songs.id}"
+            name=""
+            id=""
+          />
+          <label th:text="${songs.name}" class="text-white"></label>
+        </div>
+
+        <input
+          type="submit"
+          value="Create Playlist"
+          class="hover:bg-blue-500 hover:text-white font-mono bg-white text-black p-2 rounded-lg m-10"
+        />
+      </form>
+    </div>
+  </body>
+</html>

@@ -7,21 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * UserServiceImpl class that implements the UserService interface.
- * This class provides the methods to manage users in the application.
+ * Service implementation for managing Users.
+ * This class implements the UserService interface.
  */
 @Service
 public class UserServiceImpl implements UserService {
 
-    // UserRepository instance for interacting with the database.
+    /**
+     * The UserRepository that this service will use to interact with the database.
+     */
     @Autowired
     public UserRepository userRepository;
 
     /**
-     * Adds a new user to the database.
+     * Adds a user to the database.
      *
-     * @param user The user to be added.
-     * @return A string message indicating the operation's result.
+     * @param user The user to add
+     * @return A string indicating the status of the operation
      */
     @Override
     public String addUser(User user) {
@@ -30,10 +32,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Checks if a user with the given email already exists in the database.
+     * Checks if an email exists in the database.
      *
-     * @param email The email to check.
-     * @return true if the email exists, false otherwise.
+     * @param email The email to check
+     * @return A boolean indicating whether the email exists
      */
     @Override
     public boolean emailExists(String email) {
@@ -43,9 +45,9 @@ public class UserServiceImpl implements UserService {
     /**
      * Validates a user's credentials.
      *
-     * @param email    The email of the user.
-     * @param password The password of the user.
-     * @return true if the credentials are valid, false otherwise.
+     * @param email The email of the user
+     * @param password The password of the user
+     * @return A boolean indicating whether the credentials are valid
      */
     @Override
     public boolean validateUser(String email, String password) {
@@ -58,12 +60,15 @@ public class UserServiceImpl implements UserService {
         return password.equals(db_password);
     }
 
+    /**
+     * Retrieves the role of a user.
+     *
+     * @param email The email of the user
+     * @return The role of the user
+     */
     @Override
     public String getRole(String email) {
-
         User user = userRepository.findByEmail(email);
         return user.getRole();
     }
-
-
 }

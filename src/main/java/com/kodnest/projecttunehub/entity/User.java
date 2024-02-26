@@ -4,26 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import org.hibernate.boot.beanvalidation.IntegrationException;
 
 /**
- * Entity class for User.
- * This class is used to map the User table in the database.
- * Each instance of this class represents a single row in the User table.
+ * Represents a User entity in the application.
+ * This class is a JPA entity that maps to the User table in the database.
+ * Each instance of this class corresponds to a single row in the User table.
  */
 @Entity
-
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String userid; // Unique identifier for the user
-    private String username; // Username of the user
-    private String email; // Email of the user
-    private String password; // Password of the user
-    private String gender; // Gender of the user
-    private String role; // Role of the user
-    private String address; // Address of the user
+    private String userid; // The unique identifier for the user
+
+    private String username; // The username of the user
+    private String email; // The email of the user
+    private String password; // The password of the user
+    private String gender; // The gender of the user
+    private String role; // The role of the user
+    private String address; // The address of the user
+    private boolean isPremium; // The premium status of the user
 
     /**
      * Default constructor.
@@ -33,67 +33,20 @@ public class User {
         super();
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     /**
      * Parameterized constructor.
      * Initializes a new instance of the User class with the given details.
      *
-     * @param userid   Unique identifier for the user
-     * @param username Username of the user
-     * @param email    Email of the user
-     * @param password Password of the user
-     * @param gender   Gender of the user
-     * @param role     Role of the user
-     * @param address  Address of the user
+     * @param userid   The unique identifier for the user
+     * @param username The username of the user
+     * @param email    The email of the user
+     * @param password The password of the user
+     * @param gender   The gender of the user
+     * @param role     The role of the user
+     * @param address  The address of the user
+     * @param isPremium The premium status of the user
      */
-    public User(String userid, String username, String email, String password, String gender, String role, String address) {
+    public User(String userid, String username, String email, String password, String gender, String role, String address, boolean isPremium) {
         this.userid = userid;
         this.username = username;
         this.email = email;
@@ -101,9 +54,10 @@ public class User {
         this.gender = gender;
         this.role = role;
         this.address = address;
+        this.isPremium = isPremium;
     }
 
-    // Getters and setters for each field with appropriate comments
+    // Getters and setters for each field
 
     /**
      * Returns the unique identifier of the user.
@@ -123,8 +77,131 @@ public class User {
         this.userid = userid;
     }
 
+    /**
+     * Returns the username of the user.
+     *
+     * @return The username of the user
+     */
+    public String getUsername() {
+        return username;
+    }
 
-    // Similar comments for other getters and setters...
+    /**
+     * Sets the username of the user.
+     *
+     * @param username The username of the user
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * Returns the email of the user.
+     *
+     * @return The email of the user
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Sets the email of the user.
+     *
+     * @param email The email of the user
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Returns the password of the user.
+     *
+     * @return The password of the user
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets the password of the user.
+     *
+     * @param password The password of the user
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Returns the gender of the user.
+     *
+     * @return The gender of the user
+     */
+    public String getGender() {
+        return gender;
+    }
+
+    /**
+     * Sets the gender of the user.
+     *
+     * @param gender The gender of the user
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    /**
+     * Returns the role of the user.
+     *
+     * @return The role of the user
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets the role of the user.
+     *
+     * @param role The role of the user
+     */
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    /**
+     * Returns the address of the user.
+     *
+     * @return The address of the user
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Sets the address of the user.
+     *
+     * @param address The address of the user
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * Returns the premium status of the user.
+     *
+     * @return The premium status of the user
+     */
+    public boolean isPremium() {
+        return isPremium;
+    }
+
+    /**
+     * Sets the premium status of the user.
+     *
+     * @param isPremium The premium status of the user
+     */
+    public void setPremium(boolean isPremium) {
+        this.isPremium = isPremium;
+    }
 
     /**
      * Returns a string representation of the User object.
@@ -141,6 +218,7 @@ public class User {
                 ", gender='" + gender + '\'' +
                 ", role='" + role + '\'' +
                 ", address='" + address + '\'' +
+                ", isPremium=" + isPremium +
                 '}';
     }
 }

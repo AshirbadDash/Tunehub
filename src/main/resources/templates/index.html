@@ -1,23 +1,65 @@
-<!doctype html>
-<html lang="en" xmlns:th="https://thymeleaf.org" >
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TUNEHUB</title>
-    <link rel="stylesheet" th:href="@{/index.css}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunehub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-
-
-<h1>Welcome to TUNEHUB</h1>
-<main>
-<a class="button" href="login">LOGIN</a>
-<br>
-<br>
-<a class="button" href="registration">REGISTER</a>
-</main>
-
+<div
+        class="bg-black text-white flex min-h-screen flex-col items-center pt-16 sm:justify-center sm:pt-0"
+>
+  <a href="#">
+    <div
+            class="text-foreground font-semibold text-2xl tracking-tighter mx-auto flex items-center gap-2"
+    >
+      <div>
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+        >
+          <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672Zm-7.518-.267A8.25 8.25 0 1 1 20.25 10.5M8.288 14.212A5.25 5.25 0 1 1 17.25 10.5"
+          />
+        </svg>
+      </div>
+      Tunehub
+    </div>
+  </a>
+  <div class="relative mt-12 w-full max-w-lg sm:mt-10">
+    <div
+            class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
+    ></div>
+    <div class="p-6 pt-0">
+      <div
+              class="group relative rounded-lg border focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30"
+      >
+        <a href="login">
+          <button
+                  class="font-semibold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2 mx-5"
+                  type="submit"
+          >
+            LOGIN
+          </button>
+        </a>
+        <a href="registration">
+          <button
+                  class="font-semibold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2 mx-28"
+                  type="submit"
+          >
+            REGISTER
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

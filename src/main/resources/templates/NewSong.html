@@ -1,30 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SONGS</title>
-    <link rel="stylesheet" th:href="@{/newSong.css}">
-</head>
-<body>
-<header>
-    <h1>SONGS</h1>
-</header>
-<main>
-    <form action="addSong" method="post">
+    <link rel="stylesheet" th:href="@{/newSong.css}" />
+  </head>
+  <body>
+    <header>
+      <h1>SONGS</h1>
+    </header>
+    <main>
+      <form action="addSong" method="post">
         <label class="required" for="songName">Song Name:</label>
-        <input type="text" id="songName" name="name" required>
+        <input type="text" id="songName" name="name" required />
         <label class="required" for="artist">Artist:</label>
-        <input type="text" id="artist" name="artist" required>
+        <input type="text" id="artist" name="artist" required />
         <label class="required" for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" required>
+        <input type="text" id="genre" name="genre" required />
         <label class="required" for="songLink">Song Link:</label>
-        <input type="text" id="songLink" name="link"required>
-        <input type="submit" value="ADD" class="button">
-        <input type="reset" value="RESET" class="button">
-    </form>
-</main>
-</body>
+        <input type="text" id="songLink" name="link" required />
+        <input type="submit" value="ADD" class="button" />
+        <input type="reset" value="RESET" class="button" />
+      </form>
+    </main>
+  </body>
 </html>

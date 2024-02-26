@@ -4,16 +4,31 @@ import com.kodnest.projecttunehub.entity.Song;
 
 import java.util.List;
 
-
+/**
+ * Service interface for managing Songs.
+ */
 public interface SongService {
-    public  String addSong(Song song);
 
+    /**
+     * Adds a song.
+     *
+     * @param song The song to add
+     * @return A string indicating the status of the operation
+     */
+    public String addSong(Song song);
 
+    /**
+     * Retrieves all songs.
+     *
+     * @return A list of all songs
+     */
+    public List<Song> viewSongs();
 
-   public  List<Song> viewSongs();
-
-
-   public  boolean songExists(String name);
-
-
+    /**
+     * Checks if a song exists by its name.
+     *
+     * @param name The name of the song
+     * @return A boolean indicating whether the song exists
+     */
+    public boolean songExists(String name);
 }

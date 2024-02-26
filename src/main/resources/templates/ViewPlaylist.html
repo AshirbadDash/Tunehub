@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PLAYLIST</title>
+</head>
+<body>
+<header>
+    <h1>PLAYLIST</h1>
+</header>
+
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+<!--            <th>Artist</th>-->
+<!--            <th>Genre</th>-->
+<!--            <th>Link</th>-->
+<!--        </tr>-->
+        </thead>
+        <tbody>
+        <tr th:each="songs:${song}">
+            <td th:text="${songs.name}"></td>
+<!--            <td th:text="${songs.artist}">song artist</td>-->
+<!--            <td th:text="${songs.genre}">song genre</td>-->
+<!--            <td>-->
+<!--                <audio controls><source th:src="${songs.link}" /></audio>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+
+
+</body>
+</html>

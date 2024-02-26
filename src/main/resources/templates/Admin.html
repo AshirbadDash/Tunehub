@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" th:href="@{/admin.css}">
-<!--    <link rel="stylesheet" href="../static/admin.css">-->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<header>
-    <div class="top-banner flex">
-        <div class="container">
-            <div class="small-bold-text">
-                🎶TUNEHUB
+<body class="font-mono font-bold">
+
+
+
+<div class="bg-black text-white flex min-h-screen flex-col items-center pt-16 sm:justify-center sm:pt-0">
+
+    <header class="fixed top-0 w-full bg-black text-white p-4 font-bold">
+        <div class="flex justify-center items-center">
+            <div class="hover:bg-blue-500 hover:text-white px-2">🎶TUNEHUB</div>
+        </div>
+        <nav class="text-center border-b border-white">
+            <h1>ADMIN DASHBOARD</h1>
+        </nav>
+    </header>
+
+    <main class="pt-16 flex flex-col items-center">
+
+        <div>
+            <div>
+                <form action="newSong" class="mb-4">
+                    <input
+                            type="submit"
+                            value="ADD SONGS"
+                            class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    />
+                </form>
+
+                <form action="viewSongs" class="mb-4">
+                    <input type="submit" value="VIEW SONGS" class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
+                </form>
+                <form action="createPlaylists" class="mb-4">
+                    <input type="submit" value="CREATE PLAYLIST"
+                           class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
+                </form>
+                <form action="updatePlaylist" class="mb-4">
+                    <input type="submit" value="UPDATE PLAYLIST"
+                           class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
+                </form>
+
+                <form action="viewPlaylists">
+                    <input type="submit" value="VIEW PLAYLISTS"
+                           class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
+                </form>
+
             </div>
         </div>
-    </div>
-
-    <nav>
-        <div class="container">
-            <h1>ADMIN DASHBOARD</h1>
-        </div>
-    </nav>
-</header>
-
-<main>
-    <div class="flex">
-        <div class="container">
-            <form action="newSong">
-                <input type="submit" value="ADD SONGS" class="primary-button">
-            </form>
-
-            <form action="viewSongs">
-                <input type="submit" value="VIEW SONGS" class="primary-button">
-            </form>
-        </div>
-    </div>
-</main>
+    </main>
+</div>
 </body>
 </html>
