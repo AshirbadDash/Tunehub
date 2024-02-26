@@ -12,13 +12,13 @@ body {
 }
 
 header {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #002c6f;
+  color: #ffffff;
   text-align: center;
   padding: 10px;
   top: 0;
   width: 100%;
-  border-bottom: 2px solid #f81d0a;
+  border-bottom: 2px solid #ffffff;
   transition: border-bottom 0.3s ease-in-out;
 }
 

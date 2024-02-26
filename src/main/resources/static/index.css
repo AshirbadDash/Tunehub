@@ -12,20 +12,22 @@ body {
 }
 
 header {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #002c6f;
+  color: #ffffff;
   text-align: center;
   padding: 10px;
   top: 0;
   width: 100%;
-  border-bottom: 2px solid #f81d0a;
+  border-bottom: 1px solid #ffffff;
   transition: border-bottom 0.3s ease-in-out;
 }
 
 header:hover {
   background-color: #002c6f;
   color: #ffffff;
-  border-bottom: 2px solid #00102a;
+  border-bottom: 1px solid #00102a;
+  transition: 0.6s  ;
+
 }
 
 .container {

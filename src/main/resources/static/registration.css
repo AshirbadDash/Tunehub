@@ -14,7 +14,7 @@
 
 /* Styling the header */
 header {
-  background-color: #ffffff;
+  /*background-color: #8a05ff;*/
   color: #000000;
   text-align: center;
   padding: 10px;
@@ -35,7 +35,7 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #fcfcfc;
   padding-top: 20px;
   padding-bottom: 20px; /* Add padding at the bottom */
 }
@@ -106,7 +106,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   font-weight: bold;
-  background-color: #8a05ff;
+  background-color: #1b1f23;
   color: white;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -123,7 +123,7 @@ form input[type="reset"] {
 /* Styling the reset button on hover */
 form input[type="reset"]:hover {
   font-weight: bold;
-  background-color: #8a05ff;
+  background-color: #1b1f23;
   color: white;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -142,8 +142,8 @@ form fieldset {
 
 /* Styling the footer */
 footer {
-  background-color: #ffffff;
-  color: #000000;
+  /*background-color: #6db33f;*/
+  color: #fffdfd;
   text-align: center;
   padding: 10px;
   width: 100%;
@@ -201,7 +201,7 @@ footer input[type="button"]:hover {
 }
 
 .logo:hover {
-  color: #8a05ff;
+  color: #002c6f;
   font-weight: bold;
   text-decoration: underline;
 }
