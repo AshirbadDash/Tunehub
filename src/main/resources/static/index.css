@@ -1,55 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  /*box-sizing: border-box;*/
+  font-family: "Poppins", sans-serif;
 }
 
-h1 {
+body {
+  background-color: #002c6f;
+}
+
+header {
+  background-color: #ffffff;
+  color: #000000;
   text-align: center;
-  border-bottom: 2px solid #000;
-  padding: 20px;
-  align-items: center;
+  padding: 10px;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid #f81d0a;
+  transition: border-bottom 0.3s ease-in-out;
 }
 
-h1:hover {
-  border-bottom: 2px solid #fb7998;
-  transition: background-color 0.3s ease;
+header:hover {
+  background-color: #002c6f;
+  color: #ffffff;
+  border-bottom: 2px solid #00102a;
 }
-main {
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  /*background: #f5f5f5;*/
+  flex-direction: column;
 }
-form {
-  margin: 0 auto;
-  width: 300px;
-}
-label,
-input {
-  display: block;
+
+/* CSS */
+.button-52 {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid white;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: 0.2s;
   margin-bottom: 20px;
 }
-input[type="submit"] {
-  margin-top: 30px;
-}
-/* Styling the buttons */
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  background-color: #101010;
-  color: white;
-  /*border-radius: 4px;*/
-  transition: background-color 0.3s ease;
-  margin: 20px;
-  border: 2px solid black;
-}
-.button:hover {
+
+.button-52:after {
+  content: "";
   background-color: #ffffff;
-  color: #000000;
-  border: 2px solid black;
-  transition: background-color 0.3s ease;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
 }

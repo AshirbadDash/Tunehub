@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Admin Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-mono font-bold">
-
-
-
-<div class="bg-black text-white flex min-h-screen flex-col items-center pt-16 sm:justify-center sm:pt-0">
-
-    <header class="fixed top-0 w-full bg-black text-white p-4 font-bold">
-        <div class="flex justify-center items-center">
-            <div class="hover:bg-blue-500 hover:text-white px-2">🎶TUNEHUB</div>
-        </div>
-        <nav class="text-center border-b border-white">
-            <h1>ADMIN DASHBOARD</h1>
-        </nav>
+    <link rel="stylesheet" th:href="@{/admin.css}" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Dashboard</h1>
+      <h4>Manage your songs and playlists</h4>
     </header>
 
-    <main class="pt-16 flex flex-col items-center">
-
-        <div>
-            <div>
-                <form action="newSong" class="mb-4">
-                    <input
-                            type="submit"
-                            value="ADD SONGS"
-                            class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                    />
-                </form>
-
-                <form action="viewSongs" class="mb-4">
-                    <input type="submit" value="VIEW SONGS" class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
-                </form>
-                <form action="createPlaylists" class="mb-4">
-                    <input type="submit" value="CREATE PLAYLIST"
-                           class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
-                </form>
-                <form action="updatePlaylist" class="mb-4">
-                    <input type="submit" value="UPDATE PLAYLIST"
-                           class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
-                </form>
-
-                <form action="viewPlaylists">
-                    <input type="submit" value="VIEW PLAYLISTS"
-                           class="py-3 px-4 inline-flex items-center gap-x-2 rounded-t-md text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"/>
-                </form>
-
-            </div>
-        </div>
-    </main>
-</div>
-</body>
+    <div class="container">
+      <button class="button-52" onclick="location.href='viewSongs'">
+        VIEW SONGS
+      </button>
+      <button class="button-52" onclick="location.href='createPlaylists'">
+        CREATE PLAYLIST
+      </button>
+      <button class="button-52" onclick="location.href='updatePlaylist'">
+        UPDATE PLAYLIST
+      </button>
+      <button class="button-52" onclick="location.href='viewPlaylists'">
+        VIEW PLAYLISTS
+      </button>
+    </div>
+  </body>
 </html>
