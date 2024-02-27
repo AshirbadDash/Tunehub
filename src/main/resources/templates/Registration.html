@@ -4,6 +4,9 @@
     <meta charset="UTF-8"/>
     <title>Registration</title>
     <link rel="stylesheet" th:href="@{/registration.css}"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 </head>
 <body>
 <!-- Header section starts here -->
@@ -15,6 +18,23 @@
 
 <!-- Main section starts here -->
 <main>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            VANTA.GLOBE({
+                el: "main",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00
+            })
+        });
+    </script>
+
+
     <!-- Registration form starts here -->
     <form action="register" method="post" autocomplete="off">
         <h5 class="req">Fields marked with an asterisk (*) are mandatory</h5>

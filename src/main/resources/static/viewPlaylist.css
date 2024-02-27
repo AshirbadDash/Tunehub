@@ -1,5 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
 body {
-    background-color: #f5f5f5;
+    background-color: #222426;
     font-family: Arial, sans-serif;
 }
 
@@ -14,10 +21,17 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    font-weight: bold;
+    background: #222426;
+    color: white;
+}
+table:hover {
+    background-color: #1b1f23;
+    color: white;
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #070707;
 }
 
 th, td {
@@ -42,16 +56,26 @@ ul{
     /*background-color: #333;*/
 }
 
-/*#invertedcursor {*/
-/*    position: absolute;*/
-/*    width: 40px;*/
-/*    height: 40px;*/
-/*    background: #fff;*/
-/*    border-radius: 50%;*/
-/*    top: var(--y, 0);*/
-/*    left: var(--x, 0);*/
-/*    transform: translate(-50%, -50%);*/
-/*    z-index: 2;*/
-/*    mix-blend-mode: difference;*/
-/*    transition: transform .2s;*/
-/*}*/
+.button {
+     /*Default styles for the button /*/
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .button:hover {
+    /*/ Styles for the button when hovered *!*/
+    background-color: white;
+    color: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.song-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -10,18 +10,18 @@ body {
 }
 
 header {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #002c6f;
+  color: #ffffff;
   padding: 10px 0;
   text-align: center;
-  border-bottom: 2px solid #937270;
+  border-bottom: 1px solid #ffffff;
     transition: border-bottom 0.3s;
 }
 
 header:hover {
   background-color: #002c6f;
-  color: #000000;
-  border-bottom: 2px solid #00102a;
+  color: #ffffff;
+  border-bottom: 1px solid #00102a;
 }
 
 main {
@@ -37,14 +37,14 @@ table {
 table,
 th,
 td {
-  border: 1px solid #ddd;
+  border: 1px solid #0a0a0a;
   padding: 8px;
 }
 
 th {
   background-color: #ffffff;
   color: #000000;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
 }
 
 th:hover {

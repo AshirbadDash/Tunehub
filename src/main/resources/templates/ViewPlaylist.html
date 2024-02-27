@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PLAYLIST</title>
     <link rel="stylesheet" th:href="@{/ViewPlaylist.css}"/>
@@ -16,6 +17,29 @@
 <!--</script>-->
 
 <!--<div id="invertedcursor"></div>-->
+<!--<button type="submit" class="button">TEST</button>-->
+
+
+
+
+<!--<script src="three.r134.min.js"></script>-->
+<!--<script src="vanta.globe.min.js"></script>-->
+<!--<script>-->
+<!--    VANTA.GLOBE({-->
+<!--        el: "#your-element-selector",-->
+<!--        mouseControls: true,-->
+<!--        touchControls: true,-->
+<!--        gyroControls: false,-->
+<!--        minHeight: 200.00,-->
+<!--        minWidth: 200.00,-->
+<!--        scale: 1.00,-->
+<!--        scaleMobile: 1.00-->
+<!--    })-->
+<!--</script>-->
+
+
+
+
 <header>
     <h1>PLAYLIST</h1>
 </header>
@@ -36,14 +60,38 @@
             <td th:text="${all.name}"></td>
             <td>
                 <ul>
-                    <li th:each="s1:${all.songs}">
-                        <span th:text="${s1.name}"></span>
-                        <audio controls>
-                            <source th:src="${s1.link}">
-                        </audio>
+                    <li class="audio" th:each="s1:${all.songs}">
+                        <div class="song-item">
+                            <span th:text="${s1.name}"></span>
+                            <audio controls>
+                                <source th:src="${s1.link}">
+                            </audio>
+                        </div>
                     </li>
+
+
+                    <!--                    <li class="audio" th:each="s1:${all.songs}">-->
+                    <!--                        <span th:text="${s1.name}"></span>-->
+                    <!--                        <audio controls>-->
+                    <!--                            <source th:src="${s1.link}" type="audio/mpeg">-->
+                    <!--                            Your browser does not support the audio element.-->
+                    <!--                        </audio>-->
+                    <!--                    </li>-->
+                    <!--                    -->
                 </ul>
             </td>
+
+
+            <!--            <td>-->
+            <!--                <ul>-->
+            <!--                    <li th:each="s1:${all.songs}">-->
+            <!--                        <span th:text="${s1.name}"></span>-->
+            <!--                        <button onclick="window.open('${s1.link}', '_blank')">Play Song</button>-->
+            <!--                    </li>-->
+            <!--                </ul>-->
+            <!--            </td>-->
+
+
         </tr>
         </tbody>
     </table>

@@ -55,11 +55,12 @@ header:hover {
   touch-action: manipulation;
   transition: 0.2s;
   margin-bottom: 20px;
+  color: white;
 }
 
 .button-52:after {
   content: "";
-  background-color: #ffffff;
+  background-color: transparent;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -78,4 +79,33 @@ header:hover {
   .button-52 {
     padding: 13px 50px 13px;
   }
+}
+#ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #98465f white;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: orange;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 20px;
+  border: 3px solid orange;
 }
