@@ -6,6 +6,8 @@ import com.kodnest.projecttunehub.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Service implementation for managing Playlists.
  * This class implements the PlaylistService interface.
@@ -27,5 +29,11 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Override
     public void addPlaylist(Playlist playlist) {
         playlistRepository.save(playlist);
+    }
+
+    @Override
+    public List<Playlist> fetchAllPlaylists() {
+        List<Playlist> allplaylist = playlistRepository.findAll();
+        return allplaylist;
     }
 }

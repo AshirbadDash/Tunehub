@@ -13,9 +13,8 @@ public interface SongService {
      * Adds a song.
      *
      * @param song The song to add
-     * @return A string indicating the status of the operation
      */
-    public String addSong(Song song);
+    public void addSong(Song song);
 
     /**
      * Retrieves all songs.
@@ -31,4 +30,6 @@ public interface SongService {
      * @return A boolean indicating whether the song exists
      */
     public boolean songExists(String name);
+
+   public void updateSong(Song song);
 }

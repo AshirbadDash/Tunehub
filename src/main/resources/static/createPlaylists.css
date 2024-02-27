@@ -11,20 +11,20 @@ header {
   padding: 10px;
   top: 0;
   width: 100%;
-  border-bottom: 2px solid #f81d0a;
+  border-bottom: 2px solid #000000;
   transition: border-bottom 0.3s ease-in-out;
 }
 
 header:hover {
-  background-color: #8a05ff;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   border-bottom: 2px solid #00102a;
 }
 
 body {
   font-family: "Roboto", sans-serif;
-  background: #48008c;
-  color: #ffffff;
+    background-color: #ffffff;
+  color: #000000;
   font-weight: bold;
 }
 
@@ -54,8 +54,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-
   flex-direction: column;
+  margin: 20px;
 }
 /* CSS */
 .button-52 {
@@ -64,7 +64,7 @@ body {
   letter-spacing: 1px;
   padding: 13px 20px 13px;
   outline: 0;
-  border: 1px solid white;
+  border: 1px solid #000000;
   cursor: pointer;
   position: relative;
   background-color: rgba(0, 0, 0, 0);
@@ -74,11 +74,12 @@ body {
   transition: 0.2s;
   margin-bottom: 20px;
   margin-top: 20px;
+color: white;
 }
 
 .button-52:after {
   content: "";
-  background-color: #ffffff;
+  background-color: #000000;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -100,4 +101,14 @@ body {
 }
 .checkbox {
   margin-bottom: 10px;
+}
+
+.box{
+border:2px solid black;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  padding: 50px;
+
+
 }

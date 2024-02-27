@@ -84,7 +84,7 @@ form input {
 
 .button:hover {
   font-weight: bold;
-  background-color: #8a05ff;
+  background-color: #1db954;
   color: white;
   transition: background-color 0.3s, color 0.3s;
 }

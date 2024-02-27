@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" th:href="@{/createPlaylists.css}" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" th:href="@{/createPlaylists.css}"/>
 
     <title>PLAYLIST</title>
-  </head>
-  <body>
-    <header>
-      <h1>CREATE PLAYLIST</h1>
-    </header>
+</head>
+<body>
+<header>
+    <h1>CREATE PLAYLIST</h1>
+</header>
 
-    <div class="container">
-      <form action="addPlaylists" method="post">
+<div class="container">
+    <div class="box">
+
+    <form action="addPlaylists" method="post">
         <label for="playlistName" class="text-white">Playlist Name:</label>
         <input
-          class="input-field"
-          type="text"
-          id="playlistName"
-          name="playlistName"
-          required
+                class="input-field"
+                type="text"
+                id="playlistName"
+                name="name"
+                required
         />
-        <br />
+        <br/>
         <div th:each="songs:${song}" class="checkbox">
-          <input
-            type="checkbox"
-            th:name="songs"
-            th:value="${songs.id}"
-            name=""
-            id=""
-          />
-          <label th:text="${songs.name}" class="text-white"></label>
+            <input
+                    type="checkbox"
+                    th:name="songs"
+                    th:value="${songs.id}"
+            />
+            <label  th:text="${songs.name}" ></label>
         </div>
 
         <button class="button-52">CREATE</button>
-      </form>
+    </form>
     </div>
-  </body>
+</div>
+</body>
 </html>

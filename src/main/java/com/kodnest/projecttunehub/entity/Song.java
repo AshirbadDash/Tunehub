@@ -12,7 +12,7 @@ import java.util.List;
 public class Song {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; // The unique identifier for the song
 
     private String name; // The name of the song

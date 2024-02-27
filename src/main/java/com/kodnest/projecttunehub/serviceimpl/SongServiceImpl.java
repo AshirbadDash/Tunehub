@@ -25,12 +25,10 @@ public class SongServiceImpl implements SongService {
      * Adds a song to the database.
      *
      * @param song The song to add
-     * @return A string indicating the status of the operation
      */
     @Override
-    public String addSong(Song song) {
+    public void addSong(Song song) {
         SongRepository.save(song);
-        return "Song added successfully";
     }
 
     /**
@@ -57,5 +55,10 @@ public class SongServiceImpl implements SongService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void updateSong(Song song) {
+        SongRepository.save(song);
     }
 }

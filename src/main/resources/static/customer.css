@@ -11,14 +11,14 @@ body {
 
 h1 {
   text-align: center;
-  /*color: #000000;*/
+  color: #000000;
   margin-top: 20px;
   font-size: 40px;
 }
 
 header {
   background-color: #fee63c;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
   padding: 10px;
   top: 0;
@@ -29,7 +29,7 @@ header {
 
 header:hover {
   background-color: #fee63c;
-  color: #ffffff;
+  color: #000000;
   border-bottom: 2px solid #ffffff;
     transition: 0.6s;
 }

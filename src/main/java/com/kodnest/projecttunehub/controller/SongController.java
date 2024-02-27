@@ -65,12 +65,12 @@ public class SongController {
     public String addSong(@ModelAttribute Song song) {
         boolean songStatus = songService.songExists(song.getName());
 
-        if (!songStatus) {
+//        if (!songStatus) {
             songService.addSong(song);
             return "NewSong";
-        } else {
-            System.out.println("Song already exists with this name. Please try with another name.");
-            return "Admin";
-        }
+////        } else {
+//            System.out.println("Song already exists with this name. Please try with another name.");
+//            return "Admin";
+//        }
     }
 }

@@ -107,8 +107,6 @@ public class Playlist {
     public String toString() {
         return "Playlist{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", songs=" + songs +
-                '}';
+                ", name='" + name + '\'' +  '}';
     }
 }
