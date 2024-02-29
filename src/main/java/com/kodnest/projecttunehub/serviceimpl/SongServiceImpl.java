@@ -19,17 +19,26 @@ public class SongServiceImpl implements SongService {
      * The SongRepository that this service will use to interact with the database.
      */
     @Autowired
-    SongRepository SongRepository;
+    SongRepository songRepository;
 
     /**
      * Adds a song to the database.
      *
      * @param song The song to add
      */
-    @Override
+//    @Override
+//    public void addSong(Song song) {
+//
+//        SongRepository.save(song);
+//    }
     public void addSong(Song song) {
-        SongRepository.save(song);
+        if (song.getName() != null && song.getArtist() != null && song.getGenre() != null && song.getLink() != null) {
+            songRepository.save(song);
+        } else {
+            System.out.println("Song contains null or empty values. Not adding to the database.");
+        }
     }
+
 
     /**
      * Retrieves all songs from the database.
@@ -38,7 +47,7 @@ public class SongServiceImpl implements SongService {
      */
     @Override
     public List<Song> viewSongs() {
-        List<Song> songs = SongRepository.findAll();
+        List<Song> songs = songRepository.findAll();
         return songs;
     }
 
@@ -50,7 +59,7 @@ public class SongServiceImpl implements SongService {
      */
     @Override
     public boolean songExists(String name) {
-        Song song = SongRepository.findByName(name);
+        Song song = songRepository.findByName(name);
         if (song == null) {
             return false;
         }
@@ -59,6 +68,6 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public void updateSong(Song song) {
-        SongRepository.save(song);
+        songRepository.save(song);
     }
 }

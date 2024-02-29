@@ -39,4 +39,12 @@ public interface UserService {
      * @return The role of the user
      */
     String getRole(String email);
+
+
+
+    public  User getUser(String email);
+
+    public User updateUser(User user);
+
+
 }

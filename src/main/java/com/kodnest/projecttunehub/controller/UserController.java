@@ -2,8 +2,10 @@ package com.kodnest.projecttunehub.controller;
 
 import com.kodnest.projecttunehub.entity.User;
 import com.kodnest.projecttunehub.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,19 +38,53 @@ public class UserController {
      * @param user The user to be registered.
      * @return The name of the home view if registration is successful, otherwise stays on the same page.
      */
+//    @PostMapping("/register")
+//    public String addUser(@ModelAttribute User user) {
+//        String email = user.getEmail();
+//        String premium=  user.isPremium();
+//        boolean status = userService.emailExists(email);
+//        if (!status) {
+//            userService.addUser(user);
+//            String role = userService.getRole(email);
+////            String premium = user.isPremium(email) ? "Premium" : "Free";
+//
+//
+//            if (role.equals("admin")) {
+//                return "Admin";
+//            } else {
+////
+////
+////                if (premium.equals("Premium")) {
+////                    return "PremiumUser";
+////                } else {
+////                    return "Customer";
+////                }
+//
+//                return "Customer";
+//            }
+//        } else {
+//            System.out.println("User already exists with this email id. Please try with another email id.");
+//            return "Login";
+//        }
+//    }
+
+
     @PostMapping("/register")
     public String addUser(@ModelAttribute User user) {
         String email = user.getEmail();
+        boolean isPremium = user.isPremium();
         boolean status = userService.emailExists(email);
         if (!status) {
             userService.addUser(user);
             String role = userService.getRole(email);
-
             if (role.equals("admin")) {
                 return "Admin";
             } else {
-
-                return "Customer";
+                if (isPremium) {
+                    return "PremiumUser";
+                } else {
+                    return "Customer";
+                }
             }
         } else {
             System.out.println("User already exists with this email id. Please try with another email id.");
@@ -56,10 +92,15 @@ public class UserController {
         }
     }
 
+
+
+
     @PostMapping("/validate")
-    public String validate(@RequestParam("email") String email, @RequestParam("password") String password) {
+    public String validate(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
         if (userService.validateUser(email, password)) {
             String role = userService.getRole(email);
+
+            session.setAttribute("email", email);
             // Reset the count of login attempts after successful login
             loginAttempts.put(email, 0);
             return role.equals("admin") ? "Admin" : "Customer";
@@ -75,5 +116,13 @@ public class UserController {
         }
     }
 
+//
+
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "Login";
+    }
 
 }

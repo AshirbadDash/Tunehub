@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>pay</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <style>
-    body
-    {
+    body {
         background-color: #414141;
         font-family: Arial, sans-serif;
     }
+
     h1 {
         color: white;
     }
+
     p {
         color: white;
     }
-    nav{
+
+    nav {
         text-align: center;
         margin-top: 25px;
         border-bottom: 2px solid #f1f1f1;
         padding: 2px;
     }
-    .container{
+
+    .container {
         text-align: center;
         margin-top: 25px;
     }
-    button{
+
+    button {
 
         background-color: #1db954;
         color: white;
@@ -43,22 +49,81 @@
 </style>
 <body>
 <nav>
-<h1>Why Premium</h1>
-<p>With Premium, you can play millions of songs, ad-free, on-demand, and offline.</p>
-
+    <h1>Why Premium</h1>
+    <p>With Premium, you can play millions of songs, ad-free, on-demand, and offline.</p>
 
 
 </nav>
 
 <main>
     <div class="container">
-    <form>
-        <button type="submit">PAY</button>
-    </form>
+        <form id="payment-form">
+            <button type="submit" class="buy-button">PAY</button>
+        </form>
     </div>
 
 </main>
 
+<script>
+    $(document).ready(function () {
+        $(".buy-button").click(function (e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+
+
+            createOrder();
+        });
+    });
+
+    function createOrder() {
+
+        $.post("/createOrder")
+            .done(function (order) {
+                order = JSON.parse(order);
+                var options = {
+                    "key": "rzp_test_nyLo8f8zHUX1ZS",
+                    "amount": order.amount_due.toString(),
+                    "currency": "INR",
+                    "name": "Tune Hub",
+                    "description": "Test Transaction",
+                    "order_id": order.id,
+                    "handler": function (response) {
+                        verifyPayment(response.razorpay_order_id, response.razorpay_payment_id, response.razorpay_signature);
+                    },
+                    "prefill": {
+                        "name": "Your Name",
+                        "email": "test@example.com",
+                        "contact": "9999999999"
+                    },
+                    "notes": {
+                        "address": "Your Address"
+                    },
+                    "theme": {
+                        "color": "#3399cc"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            })
+            .fail(function (error) {
+                console.error("Error:", error);
+            });
+    }
+
+    function verifyPayment(orderId, paymentId, signature) {
+        $.post("/verify", {orderId: orderId, paymentId: paymentId, signature: signature})
+            .done(function (isValid) {
+                if (isValid) {
+                    console.log("Payment successful");
+                } else {
+                    console.log("Payment failed");
+                }
+            })
+            .fail(function (error) {
+                console.error("Error:", error);
+            });
+    }
+</script>
 
 
 </body>

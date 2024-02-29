@@ -19,7 +19,7 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
      * @param name The name of the song
      * @return The song with the given name
      */
-    Song findByName(String name);
+   public Song findByName(String name);
 
     // Method to find a list of songs by name is commented out
     // List<Song> findByName(String name);
