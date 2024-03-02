@@ -1,117 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Registration</title>
-    <link rel="stylesheet" th:href="@{/registration.css}"/>
+    <link rel="stylesheet" th:href="@{/registration.css}" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-</head>
-<body>
-<!-- Header section starts here -->
-<header>
-    <h1 class="h1">Welcome to Tunehub</h1>
-    <h4>Register to get started</h4>
-</header>
-<!-- Header section ends here -->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>-->
+  </head>
+  <body>
+    <!-- Header section starts here -->
+    <header>
+      <h1 class="h1">Welcome to Tunehub</h1>
+      <h4>Register to get started</h4>
+    </header>
+    <!-- Header section ends here -->
 
-<!-- Main section starts here -->
-<main>
+    <!-- Main section starts here -->
+    <main>
+      <!--    <script>-->
+      <!--        window.addEventListener("DOMContentLoaded", () => {-->
+      <!--            VANTA.GLOBE({-->
+      <!--                el: "main",-->
+      <!--                mouseControls: true,-->
+      <!--                touchControls: true,-->
+      <!--                gyroControls: false,-->
+      <!--                minHeight: 200.00,-->
+      <!--                minWidth: 200.00,-->
+      <!--                scale: 1.00,-->
+      <!--                scaleMobile: 1.00-->
+      <!--            })-->
+      <!--        });-->
+      <!--    </script>-->
 
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            VANTA.GLOBE({
-                el: "main",
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 1.00
-            })
-        });
-    </script>
-
-
-    <!-- Registration form starts here -->
-    <form action="register" method="post" autocomplete="off">
+      <!-- Registration form starts here -->
+      <form action="register" method="post" autocomplete="off">
         <h5 class="req">Fields marked with an asterisk (*) are mandatory</h5>
         <label class="required" for="username">Name:</label>
         <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="enter username"
-                required
-                class="form-input"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="enter username"
+          required
+          class="form-input"
         />
         <label class="required" for="email">Email:</label>
         <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="enter email address"
-                required
-                class="form-input "
+          type="email"
+          id="email"
+          name="email"
+          placeholder="enter email address"
+          required
+          class="form-input"
         />
         <label class="required" for="password">Password:</label>
         <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder=" enter password"
-                required
-                class="form-input"
+          type="password"
+          id="password"
+          name="password"
+          placeholder=" enter password"
+          required
+          class="form-input"
         />
 
         <!-- Gender selection starts here -->
         <fieldset class="gender">
-            <legend class="required">Gender:</legend>
-            <input type="radio" id="male" name="gender" value="male"/>
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female"/>
-            <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="other"/>
-            <label for="other">Other</label>
+          <legend class="required">Gender:</legend>
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="other" />
+          <label for="other">Other</label>
         </fieldset>
 
         <fieldset class="role">
-            <legend class="required">Role:</legend>
-            <input type="radio" id="admin" name="role" value="admin"/>
-            <label for="admin">Admin</label>
-            <input type="radio" id="customer" name="role" value="customer"/>
-            <label for="customer">Customer</label>
+          <legend class="required">Role:</legend>
+          <input type="radio" id="admin" name="role" value="admin" />
+          <label for="admin">Admin</label>
+          <input type="radio" id="customer" name="role" value="customer" />
+          <label for="customer">Customer</label>
         </fieldset>
         <!-- Gender selection ends here -->
 
         <label class="required" for="address">Address:</label>
         <input
-                type="text"
-                id="address"
-                name="address"
-                placeholder="enter present address"
-                required
-                class="form-input"
+          type="text"
+          id="address"
+          name="address"
+          placeholder="enter present address"
+          required
+          class="form-input"
         />
-        <input type="submit" value="Register" class="form-input"/>
-        <input type="reset" value="Reset" class="form-input"/>
-    </form>
-    <!-- Registration form ends here -->
-</main>
-<!-- Main section ends here -->
+        <input type="submit" value="Register" class="form-input" />
+        <input type="reset" value="Reset" class="form-input" />
+      </form>
+      <!-- Registration form ends here -->
+    </main>
+    <!-- Main section ends here -->
 
-<!-- Footer section starts here -->
-<footer class="footer">
-    <div>
+    <!-- Footer section starts here -->
+    <footer class="footer">
+      <div>
         <p class="logo">&copy; 2021 Tunehub</p>
-    </div>
-    <div>
-        <a class="home" href="login"><input type="button" value="Login"/></a>
-        <a class="home" href="#"><input type="button" value="Top"/></a>
-    </div>
-</footer>
-<!-- Footer section ends here -->
-</body>
+      </div>
+      <div>
+        <a class="home" href="login"><input type="button" value="Login" /></a>
+        <a class="home" href="#"><input type="button" value="Top" /></a>
+      </div>
+    </footer>
+    <!-- Footer section ends here -->
+  </body>
 </html>

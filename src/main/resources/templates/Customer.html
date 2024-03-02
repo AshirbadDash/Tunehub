@@ -8,6 +8,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" th:href="@{/customer.css}" />
+    <link rel="stylesheet" href="../static/customer.css" />
     <title>Customer</title>
   </head>
   <body>
@@ -15,37 +16,48 @@
       <h1>Customer Dashboard</h1>
     </header>
 
-<div>
+    <!--<div class="container">-->
 
-<!--    <button class="button-52" onclick="location.href='playSongs'">-->
-<!--      PLAY SONGS-->
-<!--    </button>-->
+    <div th:if="${isPremium}" class="premium">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="songs:${song}">
+            <td th:text="${songs.name}"></td>
+            <td th:text="${songs.artist}">song artist</td>
+            <td th:text="${songs.genre}">song genre</td>
+            <td>
+              <audio controls>
+                <source th:src="${songs.link}" />
+              </audio>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <form action="playSongs">
-      <button class="button-52">
-      GET PREMIUM
-    </button>
-  </form>
+    <!--    <form action="viewSongs">-->
+    <!--        <button class="button-52">-->
+    <!--            VIEW SONGS-->
+    <!--        </button>-->
+    <!--    </form>-->
+    <!--</div>-->
+    <div th:unless="${isPremium}" class="non-premium">
+      <form action="playSongs">
+        <button class="button-52">GET PREMIUM</button>
+      </form>
 
-  <form action="logout">
-      <button class="button-52">
-      LOGOUT
-    </button>
-  </form>
- <form action="viewSongs">
-      <button class="button-52">
-        VIEW SONGS
-    </button>
-  </form>
-
-
-
-
-</div>
-<!--    <form action="playSongs">-->
-<!--      <div>-->
-<!--        <input type="submit" value="PLAY SONGS" />-->
-<!--      </div>-->
-<!--    </form>-->
+      <form action="logout">
+        <button class="button-52">LOGOUT</button>
+      </form>
+    </div>
+    <!--    </div>-->
   </body>
 </html>

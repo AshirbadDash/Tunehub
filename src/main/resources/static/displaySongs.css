@@ -15,7 +15,7 @@ header {
   padding: 10px 0;
   text-align: center;
   border-bottom: 1px solid #ffffff;
-    transition: border-bottom 0.3s;
+  transition: border-bottom 0.3s;
 }
 
 header:hover {
@@ -55,7 +55,6 @@ th:hover {
 /*tr:nth-child(even) {*/
 /*  background-color: #ffffff;*/
 /*}*/
-
 
 tr {
   background-color: #ffffff;

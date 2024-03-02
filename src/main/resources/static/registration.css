@@ -1,289 +1,279 @@
 /* Resetting default styles and setting global styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 /* Adding asterisk after required fields */
 .required::after {
-    content: " *";
-    color: red;
+  content: " *";
+  color: red;
 }
 
 /* Styling the header */
 header {
-    background-color: #c02f61;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    top: 0;
-    width: 100%;
-    border-bottom: 2px solid black;
-    transition: border-bottom 0.3s ease-in-out;
+  /*background-color: #c;*/
+  color: #000000;
+  text-align: center;
+  padding: 10px;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid black;
+  transition: border-bottom 0.3s ease-in-out;
 }
 
 header:hover {
-    background-color: #c02f61;
-    color: #ffffff;
-    border-bottom: 2px solid #ffffff;
-    transition: 0.6s;
+  /*background-color: #c02f61;*/
+  color: #000000;
+  border-bottom: 2px solid #00102a;
+  transition: 0.6s;
 }
 
 /* Styling the main section */
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #222222;
-    padding-top: 20px;
-    padding-bottom: 20px; /* Add padding at the bottom */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #052d23;
+  padding-top: 20px;
+  padding-bottom: 20px; /* Add padding at the bottom */
 }
 
 /* Styling the form */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
-    padding: 20px;
-    /*border-radius: 10px;*/
-    width: 500px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    /*color: aliceblue;*/
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    height: auto;
-    outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #8fa397;
+  padding: 20px;
+  /*border-radius: 10px;*/
+  width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  /*color: aliceblue;*/
+  color: #030303;
+  border: 2px solid #000000;
+  height: auto;
+  outline: none;
 }
 
 form label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 form fieldset {
-    margin-right: 5px;
-    font-weight: bold;
+  margin-right: 5px;
+  font-weight: bold;
 }
 
 form fieldset label {
-    font-weight: normal;
-}
-
-form:hover {
-    background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;  
-    /*border-bottom: 2px solid #ff7b72;*/
-    /*border-top: 2px solid #fb7998;*/
-    /*border-right: 2px solid #d2a8ff;*/
-    /*border-left: 2px solid #ff7b72;*/
+  font-weight: normal;
 }
 
 /* Adding space between gender labels */
 .gender label {
-    margin-right: 10px;
-    align-items: center;
+  margin-right: 10px;
+  align-items: center;
 }
 
 /* Styling the form inputs */
 form input {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-    /*border-radius: 5px;*/
-    border: 2px solid black;
-    width: 100%;
-    outline: none;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  /*border-radius: 5px;*/
+  border: 2px solid black;
+  width: 100%;
+  outline: none;
 }
 
 /* Styling the submit button */
 form input[type="submit"] {
-    background-color: #000000;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 form input[type="submit"]:hover {
-    font-weight: bold;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Styling the reset button */
 form input[type="reset"] {
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    background-color: black;
-    color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
 
 /* Styling the reset button on hover */
 form input[type="reset"]:hover {
-    font-weight: bold;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 fieldset {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 form fieldset {
-    margin: 10px;
-    padding: 10px;
-    /*border-radius: 5px;*/
-    border: 2px solid transparent;
-    width: 50%;
+  margin: 10px;
+  padding: 10px;
+  /*border-radius: 5px;*/
+  border: 2px solid transparent;
+  width: 50%;
 }
 
 /* Styling the footer */
 footer {
-    /*background-color: #6db33f;*/
-    color: #fffdfd;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    border-top: 2px solid black;
-    margin: 0 auto;
+  /*background-color: #6db33f;*/
+  color: #fffdfd;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 2px solid black;
+  margin: 0 auto;
 }
 
 /* Styling the gender section */
 .gender,
 .role {
-    display: flex;
-    align-items: center;
-    outline: none;
+  display: flex;
+  align-items: center;
+  outline: none;
 }
 
 /* Styling the home links */
 .home {
-    text-decoration: none;
-    color: white;
-    margin: 10px;
+  text-decoration: none;
+  color: white;
+  margin: 10px;
 }
 
 /* Styling the footer buttons */
 footer input[type="button"] {
-    background-color: #ffffff;
-    font-weight: bold;
-    color: black;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    flex-wrap: wrap;
-    /*border-radius: 10px;*/
+  background-color: #ffffff;
+  font-weight: bold;
+  color: black;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  flex-wrap: wrap;
+  /*border-radius: 10px;*/
 }
 
 /* Styling the footer buttons on hover */
 footer input[type="button"]:hover {
-    background-color: #000000;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: #000000;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .h1 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .logo {
-    color: #000000;
-    font-weight: bold;
-    text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .logo:hover {
-    color: #002c6f;
-    font-weight: bold;
-    text-decoration: underline;
+  color: #002c6f;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .footer:hover {
-    border-top: 2px solid #ff7b72;
+  border-top: 2px solid #000000;
 }
 
 .req {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 /* Style for radio buttons */
 input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1px solid black; /* Border color for unchecked state */
-    background-color: #fff; /* Background color for unchecked state */
-    margin-right: 5px;
-    position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid black; /* Border color for unchecked state */
+  background-color: #fff; /* Background color for unchecked state */
+  margin-right: 5px;
+  position: relative;
 }
 
 /* Style for checked state of radio buttons */
 input[type="radio"]:checked {
-    background-color: #ff1818; /* Background color for checked state */
-    border-color: #ff0505; /* Border color for checked state */
+  background-color: #000000; /* Background color for checked state */
+  border-color: #8fa397; /* Border color for checked state */
 }
 
 /* Hide the default radio button */
 input[type="radio"]::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Add media queries for responsiveness */
 @media screen and (max-width: 600px) {
-    /* Adjust the form width and padding for smaller screens */
-    form {
-        width: 90%;
-        padding: 10px;
-    }
+  /* Adjust the form width and padding for smaller screens */
+  form {
+    width: 90%;
+    padding: 10px;
+  }
 
-    /* Adjust the fieldset width for smaller screens */
-    form fieldset {
-        width: 100%;
-    }
+  /* Adjust the fieldset width for smaller screens */
+  form fieldset {
+    width: 100%;
+  }
 
-    /* Adjust the form input width for smaller screens */
-    form input {
-        width: 90%;
-    }
+  /* Adjust the form input width for smaller screens */
+  form input {
+    width: 90%;
+  }
 
-    /* Adjust the header text size for smaller screens */
-    header h1,
-    header h4 {
-        font-size: 1.2em;
-    }
+  /* Adjust the header text size for smaller screens */
+  header h1,
+  header h4 {
+    font-size: 1.2em;
+  }
 
-    /* Adjust the footer layout for smaller screens */
-    footer {
-        flex-direction: column;
-    }
+  /* Adjust the footer layout for smaller screens */
+  footer {
+    flex-direction: column;
+  }
 }
 
 main {
-    /*background:*/
-    /*        linear-gradient(0deg, rgb(255, 123, 114,0.3) 2px, transparent 1px),*/
-    /*        linear-gradient(90deg, rgb(138, 5, 255,0.3) 2px, transparent 1px);*/
-    /*background-size: 100px 100px;*/
+  /*background:*/
+  /*        linear-gradient(0deg, rgb(255, 123, 114,0.3) 2px, transparent 1px),*/
+  /*        linear-gradient(90deg, rgb(138, 5, 255,0.3) 2px, transparent 1px);*/
+  /*background-size: 100px 100px;*/
 }
