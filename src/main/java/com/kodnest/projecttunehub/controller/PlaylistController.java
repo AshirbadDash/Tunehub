@@ -7,9 +7,7 @@ import com.kodnest.projecttunehub.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -60,18 +58,27 @@ public class PlaylistController {
         return "Admin";
     }
 
-//    @GetMapping("/viewPlaylists")
-//    public String viewSong(Model model) {
-//        List<Song> songList = songService.viewSongs();
-//        model.addAttribute("song", songList);
-//        return "ViewPlaylist";
-//    }
-
 
     @GetMapping("/viewPlaylists")
     public String viewPlaylists(Model model) {
         List<Playlist> allPlaylist = playlistService.fetchAllPlaylists();
         model.addAttribute("allPlaylist", allPlaylist);
         return "ViewPlaylist";
+    }
+
+    @GetMapping("/updatePlaylist")
+    @ResponseBody
+    public String updatePlaylist(@RequestParam("id") Integer playlistId, @RequestParam("songId") Integer songId) {
+        Song song = songService.getSongById(songId);
+        if (song != null) {
+            boolean isUpdated = playlistService.updatePlaylist(playlistId, song);
+            if (isUpdated) {
+                return "Playlist updated successfully";
+            } else {
+                return "Failed to update playlist";
+            }
+        } else {
+            return "Song not found";
+        }
     }
 }
