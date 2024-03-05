@@ -1,120 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>TUNEHUB</title>
 
-     <link rel="stylesheet" th:href="@{/index.css}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <script src="https://unpkg.com/scrollreveal"></script>
-<!--    <link rel="stylesheet" href="../static/index.css" />-->
-  </head>
-  <body>
-    <header>
-      <h1><span id="typewriter-text"></span><span class="cursor">|</span></h1>
-    </header>
+    <link rel="stylesheet" th:href="@{/index.css}"/>
+</head>
+<body>
+<div class="body-container">
+<header>
+    <h1>TUNEHUB</h1>
+</header>
 
-    <div class="container">
-      <button class="button-52" onclick="location.href='login'">LOGIN</button>
-      <button class="button-52" onclick="location.href='registration'">
+<!--<img src="./" alt="img">-->
+
+<div class="container">
+    <button class="button-52" onclick="location.href='login'">LOGIN</button>
+    <button class="button-52" onclick="location.href='registration'">
         REGISTER
-      </button>
-      <script>
-        // Your existing JavaScript code...
-        function typeWriter(element, text, delay = 100) {
-          let i = 0;
-          const cursor = document.querySelector(".cursor");
-          const interval = setInterval(() => {
-            if (i < text.length) {
-              element.textContent += text.charAt(i);
-              cursor.style.opacity = 1; // Make the cursor visible
-              i++;
-            } else {
-              clearInterval(interval);
-              cursor.style.animation = "blink 1s infinite"; // Start the blinking animation
-            }
-          }, delay);
-        }
+    </button>
 
-        const heading = document.querySelector("#typewriter-text");
-        typeWriter(heading, "TUNEHUB");
-        // Add the scroll reveal effect to the heading
-        ScrollReveal().reveal("h1", {
-          origin: "top",
-          distance: "50px",
-          duration: 1000,
-          reset: true,
-        });
-      </script>
-
-      <script>
-        const colors = [
-          "rgb(0, 187, 249)",
-          "rgb(0, 245, 323)",
-          "rgb(252, 254, 255)",
-        ];
-        const animations = ["fall-1", "fall-2", "fall-3"];
-
-        const rand = (min, max) =>
-            Math.floor(Math.random() * (max - min + 1)) + min,
-          selectRandom = (items) => items[rand(0, items.length - 1)];
-
-        const originPosition = { x: 0, y: 0 };
-
-        const last = {
-          starPosition: originPosition,
-          mousePosition: originPosition,
-        };
-
-        const calcDistance = (a, b) => {
-          const diffX = b.x - a.x,
-            diffY = b.y - a.y;
-
-          return Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
-        };
-
-        window.onmousemove = (e) => {
-          const mouseX = e.clientX;
-          const mouseY = e.clientY;
-          const star = document.createElement("span");
-          star.className = "star fas fa-star";
-          star.style.left = `${mouseX}px`;
-          star.style.top = `${mouseY}px`;
-          star.style.color = selectRandom(colors);
-          star.style.animationName = selectRandom(animations);
-
-          const glow = document.createElement("div");
-          glow.className = "glow-point";
-          glow.style.left = `${mouseX}px`;
-          glow.style.top = `${mouseY}px`;
-
-          last.mousePosition = { x: e.clientX, y: e.clientY };
-
-          document.body.appendChild(glow);
-          setTimeout(() => document.body.removeChild(glow), 75);
-
-          if (calcDistance(last.starPosition, last.mousePosition) >= 100) {
-            document.body.appendChild(star);
-            last.starPosition = last.mousePosition;
-            setTimeout(() => document.body.removeChild(star), 1500);
-          }
-        };
-      </script>
-
-      <!-- <section class="scroll-reveal">
-        <h3 class="section-title"><span>Best song</span></h3>
-        <p>
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-            dignissimos dolorum fugiat impedit, incidunt necessitatibus nihil
-            perspiciatis voluptas! Fugiat, molestiae.
-          </span>
-        </p>
-      </section> -->
-    </div>
-  </body>
+</div>
+</div>
+</body>
 
 </html>

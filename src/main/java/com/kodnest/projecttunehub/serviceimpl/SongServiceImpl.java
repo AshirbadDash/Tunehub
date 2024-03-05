@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service implementation for managing Songs.
@@ -70,4 +71,13 @@ public class SongServiceImpl implements SongService {
     public void updateSong(Song song) {
         songRepository.save(song);
     }
+
+    @Override
+    public Song getSongById(Integer songId) {
+        Optional <Song> song = songRepository.findById(songId);
+        return song.orElse(null);
+
+
+    }
+
 }

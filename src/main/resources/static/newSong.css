@@ -14,12 +14,15 @@ header {
   top: 0;
   width: 100%;
   border-bottom: 2px solid black;
+  font-weight: bold;
+  font-size: large;
+
 }
 
 header:hover {
   background-color: #ffffff;
   color: #000000;
-  border-bottom: 2px solid #ff7b72;
+  border-bottom: 2px solid #002c6f;
 }
 
 /* Styling the main section */
@@ -28,7 +31,7 @@ main {
   /*justify-content: center;*/
   /*align-items: center;*/
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #1db954;
   padding-top: 20px;
   padding-bottom: 20px; /* Add padding at the bottom */
 }
@@ -52,16 +55,9 @@ form {
 
 form label {
   font-weight: bold;
+  font-size: large;
 }
 
-/*form:hover {*/
-/*    background-color: #ffffff;*/
-/*    color: #000000;*/
-/*    border-bottom: 2px solid #ff7b72;*/
-/*    border-top: 2px solid #fb7998;*/
-/*    border-right: 2px solid #d2a8ff;*/
-/*    border-left: 2px solid #ff7b72;*/
-/*}*/
 
 /* Styling the form inputs */
 form input {
@@ -69,12 +65,14 @@ form input {
   padding: 10px;
   font-size: 16px;
   /*border-radius: 5px;*/
-  border: 2px solid black;
+  border: 1px solid red;
   width: 100%;
+  outline: none;
+  /*outline-color: #002c6f;*/
 }
 
 /* Styling the submit button */
-.button {
+.button1,.button2 {
   background-color: #000000;
   color: white;
   border: none;
@@ -82,12 +80,22 @@ form input {
   font-weight: bold;
 }
 
-.button:hover {
+.button1:hover {
   font-weight: bold;
-  background-color: #1db954;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button2:hover {
+  font-weight: bold;
+  background-color: red;
   color: white;
   transition: background-color 0.3s, color 0.3s;
 }
+
+
+
 
 /* Add media queries for responsiveness */
 @media screen and (max-width: 600px) {
@@ -102,6 +110,8 @@ form input {
   /* Adjust the form input width for smaller screens */
   form input {
     width: 90%;
+   /*background-color: #00102a;*/
+    line-height: 1.5rem;
   }
 
   /* Adjust the header text size for smaller screens */

@@ -1,6 +1,7 @@
 package com.kodnest.projecttunehub.service;
 
 import com.kodnest.projecttunehub.entity.Playlist;
+import com.kodnest.projecttunehub.entity.Song;
 
 import java.util.List;
 
@@ -17,4 +18,7 @@ public interface PlaylistService {
    public void addPlaylist(Playlist playlist);
 
   public List<Playlist> fetchAllPlaylists();
+
+
+   public  boolean updatePlaylist(Integer playlistId, Song song);
 }
