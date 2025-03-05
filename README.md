@@ -32,8 +32,9 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository
 2. Open the project in your IDE by importing as maven project
 3. You have to change the db name and password in application properties -->/ProjectTuneHub/src/main/resources/application.properties
-4. Then create the Database
-5. Run the application
+4. Then create a empty database named tunehub as per the url in application properties
+5. Then create the Database
+6. Run the application
 
 ## Usage
 
