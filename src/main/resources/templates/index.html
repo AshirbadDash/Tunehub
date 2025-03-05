@@ -4,24 +4,61 @@
     <meta charset="UTF-8"/>
     <title>TUNEHUB</title>
 
+    <link rel="stylesheet" href="/static/index.css">
     <link rel="stylesheet" th:href="@{/index.css}"/>
 </head>
 <body>
 <div class="body-container">
-<header>
-    <h1>TUNEHUB</h1>
-</header>
 
-<!--<img src="./" alt="img">-->
+    <nav class="navbar">
+        <div class="nav-container">
+<!--            <h1 class="brand"><img src="svg-50x50.svg" alt="Ad-free music"></h1>-->
+            <h1 class="brand">
+                <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Circle -->
+                    <circle cx="25" cy="25" r="22" fill="#193248"/>
+
+                    <!-- Music Note -->
+                    <path d="M20 35 C18 38, 12 38, 10 35 C8 32, 12 28, 16 28 C20 28, 22 32, 20 35 Z" fill="white"/>
+                    <path d="M38 35 C36 38, 30 38, 28 35 C26 32, 30 28, 34 28 C38 28, 40 32, 38 35 Z" fill="white"/>
+                    <path d="M20 15 L35 12 V30 H32 V18 L20 20 Z" fill="white"/>
+                </svg>
+            </h1>
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+<!--                <li><a href="#about">About</a></li>-->
+<!--                <li><a href="#services">Services</a></li>-->
+                <li><a href="https://github.com/AshirbadDash">Github</a></li>
+                <li><a href="https://linkedin.com/in/ashirbaddash">Linkedin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>TUNEHUB</h1>
+    </header>
+
+
+    <!--<img src="./" alt="img">-->
 
 <div class="container">
-    <button class="button-52" onclick="location.href='login'">LOGIN</button>
-    <button class="button-52" onclick="location.href='registration'">
+    <button  onclick="location.href='login'">LOGIN</button>
+    <button  onclick="location.href='registration'">
         REGISTER
     </button>
 
+
+
 </div>
 </div>
+
+    <footer>
+        <p>&copy; 2025 Tunehub Music Streaming App. All rights reserved.</p>
+    </footer>
+</div>
+
+
+
 </body>
 
 </html>
