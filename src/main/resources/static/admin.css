@@ -1,73 +1,121 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap|family=Roboto:wght@700&display=swap");
 
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Fonts */
 .roboto-bold {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-style: normal;
 }
-
-/* // <uniquifier>: Use a unique and descriptive class name */
 
 .inter {
   font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
 }
 
-body {
+/* Ensure full height layout */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: #002c6f;
   background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+  color: white;
 }
 
-header {
-  background-color: #002c6f;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px;
+/* Navbar */
+.navbar {
+  background-color: #252526;
+  padding: 1rem 0;
+  position: fixed;
   top: 0;
   width: 100%;
-  border-bottom: 2px solid #ffffff;
-  transition: border-bottom 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.7px solid #313231;
+  z-index: 1000;
 }
 
-header:hover {
-  background-color: #002c6f;
+/* Navbar Container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Brand Logo */
+.brand {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+  font-size: 30px;
+  color: #00c678;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #00c678;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
   color: #ffffff;
-  border-bottom: 2px solid #00102a;
 }
 
+/* Header */
+header {
+  background-color: #002c6f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: 80px; /* Prevent overlap with navbar */
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Main Content Container */
 .container {
+  flex: 1; /* Pushes footer down */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  /*background: #f5f5f5;*/
   flex-direction: column;
 }
 
-/* CSS */
+/* Button Styling */
 .button-52 {
   font-family: "Inter", sans-serif;
   font-size: 16px;
-  /* font-weight: bold; */
   letter-spacing: 1px;
-  padding: 13px 20px 13px;
+  padding: 13px 20px;
   outline: 0;
   border: 1px solid #ffffff;
   cursor: pointer;
   position: relative;
-  background-color: rgba(0, 0, 0, 0);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  background-color: transparent;
   transition: 0.2s;
   margin-bottom: 20px;
 }
@@ -89,8 +137,13 @@ header:hover {
   left: 0px;
 }
 
-@media (min-width: 768px) {
-  .button-52 {
-    padding: 13px 50px 13px;
-  }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #252526;
+  color: white;
+  width: 100%;
+  border-top: 0.7px solid #313231;
+  margin-top: auto; /* Pushes footer to the bottom */
 }

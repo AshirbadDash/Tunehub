@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" th:href="@{/admin.css}" />
-<!--    <link rel="stylesheet" href="../static/admin.css" />-->
-  </head>
-  <body class="inter">
-    <header class="roboto-bold">
-      <h1>Admin Dashboard</h1>
-      <h4>Manage your songs and playlists</h4>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../static/admin.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+</head>
+<body>
 
-    <div class="container inter">
-      <form action="addSong" method="post">
-        <!-- <input type="submit" class="button-52" value="ADD SONG" /> -->
-        <button class="button-52">ADD SONG</button>
-      </form>
-      <button class="button-52" onclick="location.href='viewSongs'">
-        VIEW SONGS
-      </button>
-      <button class="button-52" onclick="location.href='createPlaylists'">
-        CREATE PLAYLIST
-      </button>
-      <button class="button-52" onclick="location.href='updatePlaylist'">
-        UPDATE PLAYLIST
-      </button>
-      <button class="button-52" onclick="location.href='viewPlaylists'">
-        VIEW PLAYLISTS
-      </button>
-    </div>
-  </body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <h1 class="brand">
+      <span class="material-symbols-outlined">music_cast</span> Music
+    </h1>
+    <ul class="nav-links">
+      <li><a href="home">Home</a></li>
+      <li><a href="registration">Signup</a></li>
+      <li><a href="pay" style="color:yellow;">Subscribe</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<header>
+  <h1>Admin Dashboard</h1>
+  <h4>Manage your songs and playlists</h4>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+  <form action="addSong" method="post">
+    <button class="button-52">ADD SONG</button>
+  </form>
+  <button class="button-52" onclick="location.href='viewSongs'">VIEW SONGS</button>
+  <button class="button-52" onclick="location.href='createPlaylists'">CREATE PLAYLIST</button>
+  <button class="button-52" onclick="location.href='viewPlaylists'">VIEW PLAYLISTS</button>
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
+
+</body>
 </html>

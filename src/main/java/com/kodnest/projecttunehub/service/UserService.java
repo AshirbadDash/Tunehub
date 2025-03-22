@@ -26,7 +26,7 @@ public interface UserService {
     /**
      * Validates a user.
      *
-     * @param email The email of the user
+     * @param email    The email of the user
      * @param password The password of the user
      * @return A boolean indicating whether the user is valid
      */
@@ -41,8 +41,7 @@ public interface UserService {
     String getRole(String email);
 
 
-
-    public  User getUser(String email);
+    public User getUser(String email);
 
     public User updateUser(User user);
 

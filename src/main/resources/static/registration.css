@@ -1,34 +1,85 @@
-/* Resetting default styles and setting global styles */
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Adding asterisk after required fields */
 .required::after {
   content: " *";
-  color: red;
+  color: springgreen;
 }
 
 /* Styling the header */
 header {
-  /*background-color: #c;*/
-  color: #000000;
+  background-color: #1f1f1f;
+  color: #fbe489;
   text-align: center;
   padding: 10px;
-  top: 0;
   width: 100%;
-  border-bottom: 2px solid black;
-  transition: border-bottom 0.3s ease-in-out;
 }
 
-header:hover {
-  /*background-color: #c02f61;*/
-  color: #000000;
-  border-bottom: 2px solid #00102a;
-  transition: 0.6s;
+/* Navbar */
+.navbar {
+  background-color: #252526;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.7px solid #313231;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.brand {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+  font-size: 30px;
+  color: #00c678;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #00c678;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* Ensure content doesn't get hidden behind navbar */
+body {
+  padding-top: 70px; /* Adjust based on navbar height */
 }
 
 /* Styling the main section */
@@ -37,9 +88,9 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #052d23;
-  padding-top: 20px;
-  padding-bottom: 20px; /* Add padding at the bottom */
+  background-color: #1f1f1f;
+  padding: 20px;
+  
 }
 
 /* Styling the form */
@@ -47,233 +98,206 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #8fa397;
+  background-color: #313231;
   padding: 20px;
-  /*border-radius: 10px;*/
   width: 500px;
   margin: 0 auto;
-  flex-wrap: wrap;
-  /*color: aliceblue;*/
-  color: #030303;
-  border: 2px solid #000000;
-  height: auto;
+  color:#eeeeee;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: #313231;
+  /* background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png"); */
+  border: 1px solid rgba(255, 255, 255, 0.125);
   outline: none;
+  font-weight: 400;
+  font-size: 18px;
+  
 }
 
 form label {
-  font-weight: bold;
-}
-
-form fieldset {
-  margin-right: 5px;
-  font-weight: bold;
-}
-
-form fieldset label {
-  font-weight: normal;
-}
-
-/* Adding space between gender labels */
-.gender label {
-  margin-right: 10px;
-  align-items: center;
+  font-weight: 400;
 }
 
 /* Styling the form inputs */
-form input {
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
-  /*border-radius: 5px;*/
-  border: 2px solid black;
-  width: 100%;
-  outline: none;
+
+input[type="text"],
+input[type="email"],
+input[type="password"]
+{
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    color: #9dddbc;
+    /* background-color: #083b2c; */
+    background-color: #313231;
+   border: 1px solid rgba(255, 255, 255, 0.125);
+
+
 }
 
-/* Styling the submit button */
-form input[type="submit"] {
-  background-color: #000000;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border: .7px solid #00a155;
 }
 
-form input[type="submit"]:hover {
-  font-weight: bold;
-  background-color: #ffffff;
-  color: #000000;
-  transition: background-color 0.3s, color 0.3s;
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #00a155;
 }
+/* Selection Color */
+::selection {
+    background-color: #127157;
+    
+  }
 
-/* Styling the reset button */
-form input[type="reset"] {
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  background-color: black;
-  color: white;
+  /* Apply styles to autofilled inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: #313231 !important; /* Match text input background */
+    -webkit-box-shadow: 0 0 0px 1000px #313231 inset !important; /* Prevent autofill styling */
+    color: #9dddbc !important; /* Match text input text color */
+    -webkit-text-fill-color: #9dddbc !important; /* Ensure text color stays consistent */
+    border: 1px solid rgba(255, 255, 255, 0.125) !important; /* Keep consistent border */
+    OUTLINE: none;
 }
+ 
 
-/* Styling the reset button on hover */
-form input[type="reset"]:hover {
-  font-weight: bold;
-  background-color: #ffffff;
-  color: #000000;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-fieldset {
-  margin-bottom: 20px;
-}
-
+form input,
 form fieldset {
   margin: 10px;
   padding: 10px;
-  /*border-radius: 5px;*/
-  border: 2px solid transparent;
-  width: 50%;
-}
-
-/* Styling the footer */
-footer {
-  /*background-color: #6db33f;*/
-  color: #fffdfd;
-  text-align: center;
-  padding: 10px;
+  font-size: 16px;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  border-top: 2px solid black;
-  margin: 0 auto;
-}
-
-/* Styling the gender section */
-.gender,
-.role {
-  display: flex;
-  align-items: center;
   outline: none;
+    border: 2px solid transparent;
 }
 
-/* Styling the home links */
-.home {
-  text-decoration: none;
+form input,form fieldset:focus{
+    border: 2px solid #00a155 ;
+    
+}
+
+/* Styling the submit button */
+form input[type="submit"],
+form input[type="reset"] {
+  
+  background-color: #1f1f1f;
   color: white;
-  margin: 10px;
-}
-
-/* Styling the footer buttons */
-footer input[type="button"] {
-  background-color: #ffffff;
-  font-weight: bold;
-  color: black;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  flex-wrap: wrap;
-  /*border-radius: 10px;*/
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Styling the footer buttons on hover */
-footer input[type="button"]:hover {
-  background-color: #000000;
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+  background-color: #00a155;
+  color: #ffffff;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Fieldset Styling */
+fieldset {
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #252526;
   color: white;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  position: relative;
+  width: 100%;
+  border-top: 0.7px solid #313231;
+  margin-top: auto;
 }
 
-.h1 {
-  margin-bottom: 10px;
-}
 
-.logo {
-  color: #000000;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.logo:hover {
-  color: #002c6f;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.footer:hover {
-  border-top: 2px solid #000000;
-}
-
-.req {
-  margin-bottom: 15px;
-}
 
 /* Style for radio buttons */
 input[type="radio"] {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 1px solid black; /* Border color for unchecked state */
-  background-color: #fff; /* Background color for unchecked state */
+  border: 1px solid transparent;
+  background-color: #ffffff;
   margin-right: 5px;
-  position: relative;
+  cursor: pointer;
 }
 
-/* Style for checked state of radio buttons */
 input[type="radio"]:checked {
-  background-color: #000000; /* Background color for checked state */
-  border-color: #8fa397; /* Border color for checked state */
+  background-color: #00a155;
 }
 
-/* Hide the default radio button */
-input[type="radio"]::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
+
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px;
 }
 
-/* Add media queries for responsiveness */
+/* Buttons */
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    background-color: #4b4c4b;
+}
+
+button:hover {
+    background-color: #00c678;
+    color: #ffffff;
+}
+
+.material-symbols-outlined {
+    font-size: 30px; /* Adjust the icon size */
+    vertical-align: middle; /* Align it properly with text */
+    margin-right: 8px; /* Add spacing between the icon and text */
+}
+
+
+/* Responsive Styles */
 @media screen and (max-width: 600px) {
-  /* Adjust the form width and padding for smaller screens */
   form {
     width: 90%;
-    padding: 10px;
+    padding: 15px;
   }
 
-  /* Adjust the fieldset width for smaller screens */
   form fieldset {
     width: 100%;
   }
 
-  /* Adjust the form input width for smaller screens */
   form input {
-    width: 90%;
+    width: 100%;
   }
 
-  /* Adjust the header text size for smaller screens */
   header h1,
   header h4 {
     font-size: 1.2em;
   }
 
-  /* Adjust the footer layout for smaller screens */
   footer {
     flex-direction: column;
   }
-}
-
-main {
-  /*background:*/
-  /*        linear-gradient(0deg, rgb(255, 123, 114,0.3) 2px, transparent 1px),*/
-  /*        linear-gradient(90deg, rgb(138, 5, 255,0.3) 2px, transparent 1px);*/
-  /*background-size: 100px 100px;*/
 }
