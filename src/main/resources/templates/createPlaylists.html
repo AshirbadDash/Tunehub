@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" th:href="@{/createPlaylists.css}" />
-    <link rel="stylesheet" href="../static/createPlaylists.css" />
-    <title>PLAYLIST</title>
-  </head>
-  <body>
-    <header>
-      <h1>CREATE PLAYLIST</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" th:href="@{/createPlaylists.css}" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+  <title>PLAYLIST</title>
+</head>
+<body>
 
-    <div class="container">
-      <div class="box">
-        <form action="addPlaylists" method="post">
-          <label for="playlistName" class="text-white">Playlist Name:</label>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <h1 class="brand">
+      <span class="material-symbols-outlined">music_cast</span> Music
+    </h1>
+    <ul class="nav-links">
+      <li><a href="admin">Admin Dashboard</a></li>
+      <li><a href="registration">Signup</a></li>
+      <li><a href="logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<header>
+  <h1>Create Playlist</h1>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="box">
+    <form action="addPlaylists" method="post" autocomplete="off">
+      <!-- Playlist Name -->
+      <label for="playlistName" class="text-white" style="margin-right: 20px">
+        Playlist Name
+      </label>
+      <input
+              class="input-field"
+              type="text"
+              id="playlistName"
+              name="name"
+              required
+      />
+
+      <!-- Songs Label (Displayed Only Once) -->
+      <label style="display: block; margin: 20px 0; font-weight: bold;">
+        Add Song
+      </label>
+
+      <!-- Songs List -->
+      <div>
+        <div th:each="songs : ${song}" class="checkbox-wrapper-2">
           <input
-            class="input-field"
-            type="text"
-            id="playlistName"
-            name="name"
-            required
-          />
-
-          <div th:each="songs:${song}" class="checkbox">
-            <div class="checkbox-wrapper-2">
-              <label>SONGS:</label>
-              <label>
-                <input
                   type="checkbox"
+                  th:id="'song-' + ${songs.id}"
                   th:name="songs"
                   th:value="${songs.id}"
                   class="ikxBAC"
-                />
-              </label>
-              <label th:text="${songs.name}"></label>
-            </div>
-          </div>
+          />
+          <label th:for="'song-' + ${songs.id}" th:text="${songs.name}" style="margin-left: 10px"></label>
+        </div>
 
-          <button class="button-52">CREATE</button>
-        </form>
       </div>
-    </div>
-  </body>
+
+      <!-- Submit Button -->
+      <button class="button-52">Create</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
+
+</body>
 </html>

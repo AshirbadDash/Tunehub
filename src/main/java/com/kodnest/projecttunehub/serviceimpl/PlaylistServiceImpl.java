@@ -7,6 +7,8 @@ import com.kodnest.projecttunehub.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -34,23 +36,37 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
+    public Playlist findByName(String name) {
+        return playlistRepository.findByName(name);
+    }
+    @Override
     public List<Playlist> fetchAllPlaylists() {
         List<Playlist> allPlaylist = playlistRepository.findAll();
         return allPlaylist;
     }
 
+//    @Override
+//    public boolean updatePlaylist(Integer playlistId, Song song) {
+//        Optional<Playlist> playlist = playlistRepository.findById(playlistId);
+//        if (playlist.isPresent()) {
+//            playlist.get().getSongs().add(song);
+//            playlistRepository.save(playlist.get());
+//            return true;
+//        }
+//        return false;
+//
+//
+//    }
+
     @Override
     public boolean updatePlaylist(Integer playlistId, Song song) {
-        Optional<Playlist> playlist = playlistRepository.findById(playlistId);
-        if (playlist.isPresent()) {
-            playlist.get().getSongs().add(song);
-            playlistRepository.save(playlist.get());
+        Playlist playlist = playlistRepository.findById(playlistId).orElse(null);
+        if (playlist != null) {
+            playlist.getSongs().add(song);
+            playlistRepository.save(playlist);
             return true;
         }
         return false;
-
-
     }
-
 
 }

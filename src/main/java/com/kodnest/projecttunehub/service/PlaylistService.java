@@ -10,15 +10,17 @@ import java.util.List;
  */
 public interface PlaylistService {
 
-   /**
-    * Adds a playlist.
-    *
-    * @param playlist The playlist to add
-    */
-   public void addPlaylist(Playlist playlist);
+    /**
+     * Adds a playlist.
+     *
+     * @param playlist The playlist to add
+     */
+    public void addPlaylist(Playlist playlist);
 
-  public List<Playlist> fetchAllPlaylists();
+    public List<Playlist> fetchAllPlaylists();
 
 
-   public  boolean updatePlaylist(Integer playlistId, Song song);
+    public boolean updatePlaylist(Integer playlistId, Song song);
+
+    public Playlist findByName(String name);
 }

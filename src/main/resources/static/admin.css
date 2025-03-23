@@ -1,149 +1,139 @@
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap|family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
 
 /* General Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Fonts */
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-}
-
-.inter {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Ensure full height layout */
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #002c6f;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
-  color: white;
+body {
+    min-height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    flex-direction: column;
+    background-color: #0d0d0d;
+    color: white;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #252526;
-  padding: 1rem 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  border-bottom: 0.7px solid #313231;
-  z-index: 1000;
+    background-color: #0d0d0d;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 0.7px solid #313231;
+    z-index: 1000;
 }
 
 /* Navbar Container */
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
 }
 
 /* Brand Logo */
 .brand {
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #eeeeee;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Adjust Icon Size */
 .brand .material-symbols-outlined {
-  font-size: 30px;
-  color: #00c678;
+    font-size: 30px;
+    color: #ffffff;
 }
 
 /* Navigation Links */
 .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
 .nav-links a {
-  color: #00c678;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+    color: #eeeeee;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #ffffff;
+    text-decoration: underline solid #e7e7e7;
+    color: #ffffff;
 }
 
 /* Header */
 header {
-  background-color: #002c6f;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  margin-top: 80px; /* Prevent overlap with navbar */
-  border-bottom: 2px solid #ffffff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 80px;
 }
 
 /* Main Content Container */
 .container {
-  flex: 1; /* Pushes footer down */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    flex: 1; /* Pushes footer to the bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
 }
 
-/* Button Styling */
+/* Button */
 .button-52 {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 13px 20px;
-  outline: 0;
-  border: 1px solid #ffffff;
-  cursor: pointer;
-  position: relative;
-  background-color: transparent;
-  transition: 0.2s;
-  margin-bottom: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    /* margin: auto; */
+    color: white;
+    border: 1px solid #252526;
+    cursor: pointer;
+    background-color: #0d0d0d;
+    transition: background-color 0.3s ease;
 }
 
-.button-52:after {
-  content: "";
-  background-color: #ffffff;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 7px;
-  left: 7px;
-  transition: 0.2s;
+.button-52:hover {
+    background-color: #e7e7e7;
+    color: #0d0d0d;
 }
 
-.button-52:hover:after {
-  top: 0px;
-  left: 0px;
+.material-symbols-outlined {
+
+    font-size: 30px; /* Adjust the icon size */
+    vertical-align: middle; /* Align it properly with text */
+    margin-right: 8px;
+/ /* Add spacing between the icon and text */
 }
+
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+    font-size: 30px;
+    color: #8a05ff;
+}
+
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #252526;
-  color: white;
-  width: 100%;
-  border-top: 0.7px solid #313231;
-  margin-top: auto; /* Pushes footer to the bottom */
+    text-align: center;
+    padding: 20px;
+    background-color: #0d0d0d;
+    color: white;
+    width: 100%;
+    border-top: 0.7px solid #313231;
+    margin-top: auto; /* Ensures it stays at the bottom */
 }

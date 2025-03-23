@@ -1,62 +1,154 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
+
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Navbar */
+.navbar {
+  background-color: #0d0d0d;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.7px solid #313231;
+  z-index: 1000;
+}
+
+/* Navbar Container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Brand Logo */
+.brand {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #eeeeee;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  text-decoration: underline solid #e7e7e7;
+  color: #ffffff;
+}
+
+/* Ensure full height layout */
 body {
-  background-color: #002c6f;
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex;
+  flex-direction: column;
+  background-color: #0d0d0d;
+  color: white;
+  padding-top: 80px;
 }
 
 header {
-  background-color: #002c6f;
+  background-color: #0d0d0d;
   color: #ffffff;
-  padding: 10px 0;
+  padding: 20px 0;
   text-align: center;
-  border-bottom: 1px solid #ffffff;
-  transition: border-bottom 0.3s;
+  /*border-bottom: 1px solid #494949;*/
+  position: relative;
+
 }
 
 header:hover {
-  background-color: #002c6f;
+  background-color: #0d0d0d;
   color: #ffffff;
-  border-bottom: 1px solid #00102a;
+  /*border-bottom: 1px solid #494949;*/
 }
-
+/* Styling the main section */
 main {
-  margin: 20px;
+  flex: 1; /* Pushes footer to the bottom */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 table,
 th,
 td {
-  border: 1px solid #0a0a0a;
+  border: 1px solid #494949;
   padding: 8px;
 }
 
 th {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #000000;
+  background-color: #494949;
+  color: #ffffff;
+  /*border: 1px solid #494949;*/
 }
 
-th:hover {
-  background-color: #002c6f;
+
+
+tr {
+  background-color: #0d0d0d;
   color: #ffffff;
 }
 
-/*tr:nth-child(even) {*/
-/*  background-color: #ffffff;*/
-/*}*/
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0d0d0d;
+  color: white;
+  width: 100%;
+  border-top: 0.7px solid #313231;
+  margin-top: auto; /* Ensures it stays at the bottom */
+}
 
-tr {
-  background-color: #ffffff;
-  color: #002c6f;
+.material-symbols-outlined {
+
+  font-size: 30px; /* Adjust the icon size */
+  vertical-align: middle; /* Align it properly with text */
+  margin-right: 8px;
+/ /* Add spacing between the icon and text */
+}
+
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+  font-size: 30px;
+  color: #8a05ff;
 }

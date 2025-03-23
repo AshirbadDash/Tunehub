@@ -50,7 +50,7 @@ public class SongController {
             model.addAttribute("song", songList);
             return "DisplaySongs";
         } else {
-            return "Subsciption";
+            return "Pay";
         }
     }
 

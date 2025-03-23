@@ -1,47 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="../static/admin.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Dashboard</title>
+    <!--    <link rel="stylesheet" href="admin.css">-->
+    <link rel="stylesheet" th:href="@{/admin.css}"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar">
-  <div class="nav-container">
-    <h1 class="brand">
-      <span class="material-symbols-outlined">music_cast</span> Music
-    </h1>
-    <ul class="nav-links">
-      <li><a href="home">Home</a></li>
-      <li><a href="registration">Signup</a></li>
-      <li><a href="pay" style="color:yellow;">Subscribe</a></li>
-    </ul>
-  </div>
+    <div class="nav-container">
+        <h1 class="brand">
+            <span class="material-symbols-outlined">music_cast</span> Music
+        </h1>
+        <ul class="nav-links">
+            <li><a href="customer">customer panel</a></li>
+            <li><a href="registration">Signup</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
+    </div>
 </nav>
 
 <!-- Header -->
 <header>
-  <h1>Admin Dashboard</h1>
-  <h4>Manage your songs and playlists</h4>
+    <h1>Admin Dashboard</h1>
+    <h4>Manage your songs and playlists</h4>
 </header>
 
 <!-- Main Content -->
 <main class="container">
-  <form action="addSong" method="post">
+    <form action="addSong" method="post">
+
     <button class="button-52">ADD SONG</button>
-  </form>
-  <button class="button-52" onclick="location.href='viewSongs'">VIEW SONGS</button>
-  <button class="button-52" onclick="location.href='createPlaylists'">CREATE PLAYLIST</button>
-  <button class="button-52" onclick="location.href='viewPlaylists'">VIEW PLAYLISTS</button>
+    </form>
+    <button class="button-52" onclick="location.href='viewSongs'">VIEW SONGS</button>
+    <button class="button-52" onclick="location.href='createPlaylists'">CREATE PLAYLIST</button>
+    <button class="button-52" onclick="location.href='viewPlaylists'">VIEW PLAYLISTS</button>
+<!--    <button class="button-52" onclick="location.href='updatePlaylist'">Update Playlist</button>-->
 </main>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
 </footer>
 
 </body>

@@ -24,11 +24,21 @@ public class NavController {
 		return "index";
 	}
 
-	/**
-	 * Handles the GET request for the registration page.
-	 *
-	 * @return The name of the registration view.
-	 */
+	@GetMapping(path = "/admin")
+	public String adminPage() {
+		return "Admin";
+	}
+
+	@GetMapping(path = "/customer")
+	public String customerPage() {
+		return "Customer";
+	}
+
+		/**
+         * Handles the GET request for the registration page.
+         *
+         * @return The name of the registration view.
+         */
 	@GetMapping(path = "/registration")
 	public String registerUser() {
 		return "Registration";

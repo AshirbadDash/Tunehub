@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -9,15 +9,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SONGS</title>
     <link rel="stylesheet" th:href="@{/newSong.css}" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
   </head>
   <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="brand">
+        <span class="material-symbols-outlined">music_cast</span> Music
+      </h1>
+      <ul class="nav-links">
+        <li><a href="home">Home</a></li>
+        <li><a href="registration">Signup</a></li>
+        <li><a href="logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="header">
     <header>
       <h1>SONGS</h1>
     </header>
   </div>
     <main>
-      <form action="addSong" method="post">
+      <form action="addSong" method="post" autocomplete="off">
         <label class="required" for="songName">Song Name:</label>
         <input type="text" id="songName" name="name" required />
         <label class="required" for="artist">Artist:</label>
@@ -26,9 +42,14 @@
         <input type="text" id="genre" name="genre" required />
         <label class="required" for="songLink">Song Link:</label>
         <input type="text" id="songLink" name="link" required />
-        <input type="submit" value="ADD" class="button1" />
-        <input type="reset" value="RESET" class="button2" />
+        <input type="submit" value="ADD" class="button-52" />
+        <input type="reset" value="RESET" class="button-52" />
       </form>
     </main>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+  </footer>
+
   </body>
 </html>

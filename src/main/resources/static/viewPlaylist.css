@@ -1,38 +1,121 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
+
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Navbar */
+.navbar {
+  background-color: #0d0d0d;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.7px solid #313231;
+  z-index: 1000;
+}
+
+/* Navbar Container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Brand Logo */
+.brand {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #eeeeee;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  text-decoration: underline solid #e7e7e7;
+  color: #ffffff;
+}
+
+/* Ensure full height layout */
 body {
-  background-color: #222426;
-  font-family: Arial, sans-serif;
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex;
+  flex-direction: column;
+  background-color: #0d0d0d;
+  color: white;
 }
 
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+  color: white;
   text-align: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: 80px;
 }
+/* Styling the main section */
+main {
+  flex: 1; /* Pushes footer to the bottom */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-  font-weight: bold;
-  background: #222426;
-  color: white;
+  font-weight: 400;
+  background: #0d0d0d;
+  color: #eeeeee;
 }
 table:hover {
-  background-color: #1b1f23;
-  color: white;
+  background-color: #0d0d0d;
+  color: #ffffff;
+
 }
 
 table,
 th,
 td {
-  border: 1px solid #070707;
+  border: 1px solid #4b4c4b;
+}
+table:hover,
+th:hover,td:hover{
+  border: 1px solid #ffffff;
 }
 
 th,
@@ -42,13 +125,10 @@ td {
 }
 
 th {
-  background-color: #4caf50;
-  color: white;
+  background-color: #4b4c4b;
+  color: #ffffff;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
 
 ul {
   list-style-type: none;
@@ -58,26 +138,47 @@ ul {
   /*background-color: #333;*/
 }
 
-.button {
-  /*Default styles for the button /*/
-  background-color: #1a1a1a;
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+
+.material-symbols-outlined {
+
+  font-size: 30px; /* Adjust the icon size */
+  vertical-align: middle; /* Align it properly with text */
+  margin-right: 8px;
+/ /* Add spacing between the icon and text */
 }
 
-.button:hover {
-  /*/ Styles for the button when hovered *!*/
-  background-color: white;
-  color: #1a1a1a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Adjust Icon Size */
+.brand .material-symbols-outlined {
+  font-size: 30px;
+  color: #8a05ff;
 }
-.song-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+
+/* Styling the submit button */
+.button-52 {
+  display: inline-block;
+  padding: 10px 20px;
+  /* margin: auto; */
+  color: white;
+  border: 1px solid #252526;
+  cursor: pointer;
+  background-color: #0d0d0d;
+  transition: background-color 0.3s ease;
+}
+
+.button-52:hover {
+  background-color: #e7e7e7;
+  color: #0d0d0d;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0d0d0d;
+  color: white;
+  width: 100%;
+  border-top: 0.7px solid #313231;
+  margin-top: auto; /* Ensures it stays at the bottom */
 }

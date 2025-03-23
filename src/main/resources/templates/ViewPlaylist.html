@@ -1,55 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>PLAYLIST</title>
-    <link rel="stylesheet" th:href="@{/ViewPlaylist.css}" />
-    <link rel="stylesheet" href="../static/viewPlaylist.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" th:href="@{/ViewPlaylist.css}"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
 
-    <header>
-      <h1>PLAYLIST</h1>
-    </header>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="brand">
+            <span class="material-symbols-outlined">music_cast</span> Music
+        </h1>
+        <ul class="nav-links">
+            <li><a href="admin">Admin panel</a></li>
+            <li><a href="registration">Signup</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <main>
-      <table class="container">
+<header>
+    <h1>PLAYLIST</h1>
+</header>
+
+<main>
+    <table class="container">
         <thead>
-          <tr>
+        <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Songs</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-          <tr th:each="all:${allPlaylist}">
+        <tr th:each="all:${allPlaylist}">
             <td th:text="${all.id}"></td>
             <td th:text="${all.name}"></td>
             <td>
-              <ul>
-                <li class="audio" th:each="s1:${all.songs}">
-                  <div class="song-item">
-                    <span th:text="${s1.name}"></span>
-                    <audio controls>
-                      <source th:src="${s1.link}" />
-                    </audio>
-                  </div>
-                </li>
+                <ul>
+                    <li class="audio" th:each="s1:${all.songs}">
+                        <div class="song-item">
+                            <span th:text="${s1.name}"></span>
+<!--                            <audio controls>-->
+<!--                                <source th:src="${s1.link}"/>-->
+<!--                            </audio>-->
+                        </div>
+                    </li>
 
-                <!--                    <li class="audio" th:each="s1:${all.songs}">-->
-                <!--                        <span th:text="${s1.name}"></span>-->
-                <!--                        <audio controls>-->
-                <!--                            <source th:src="${s1.link}" type="audio/mpeg">-->
-                <!--                            Your browser does not support the audio element.-->
-                <!--                        </audio>-->
-                <!--                    </li>-->
-                <!--                    -->
-              </ul>
+                    <!--                    <li class="audio" th:each="s1:${all.songs}">-->
+                    <!--                        <span th:text="${s1.name}"></span>-->
+                    <!--                        <audio controls>-->
+                    <!--                            <source th:src="${s1.link}" type="audio/mpeg">-->
+                    <!--                            Your browser does not support the audio element.-->
+                    <!--                        </audio>-->
+                    <!--                    </li>-->
+                    <!--                    -->
+                </ul>
             </td>
 
             <!--            <td>-->
@@ -60,9 +75,14 @@
             <!--                    </li>-->
             <!--                </ul>-->
             <!--            </td>-->
-          </tr>
+        </tr>
         </tbody>
-      </table>
-    </main>
-  </body>
+    </table>
+</main>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
+
+</body>
 </html>

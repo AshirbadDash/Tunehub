@@ -50,8 +50,14 @@ public class PlaylistController {
 	 * @return The name of the admin view
 	 */
 	@PostMapping("/addPlaylists")
-	public String addPlaylists(@ModelAttribute Playlist playlist) {
+	public String addPlaylists(@ModelAttribute Playlist playlist,Model model) {
 		// updating the playlist table
+		Playlist existingPlaylist=playlistService.findByName(playlist.getName());
+
+		if (existingPlaylist != null) {
+			model.addAttribute("error", "A playlist with this name already exists!");
+			return "createPlaylists"; // Show the same page with an error message
+		}
 		playlistService.addPlaylist(playlist);
 
 		// Updating the song table

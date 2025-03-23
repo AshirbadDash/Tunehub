@@ -16,7 +16,7 @@ body {
 
 /* Navbar */
 .navbar {
-	background-color: #252526;
+	background-color: #0d0d0d;
 	padding: 1rem 0;
 	position: fixed;
 	top: 0;
@@ -64,6 +64,8 @@ body {
 
 .nav-links a:hover {
 	color: #ffffff;
+	/*background-color: #00a155;*/
+	text-decoration: 1px underline white;
 }
 
 /* Container */
@@ -80,27 +82,34 @@ body {
 .premium, .non-premium {
 	margin-top: 20px;
 }
+h1{
+	font-weight: 700;
+}
 
 /* Buttons */
+/* Styling the submit button */
 button {
-	background-color: #00c678;
+	display: inline-block;
+	padding: 10px 20px;
+	 /*margin: auto;*/
+	margin-top: 40px;
 	color: white;
-	padding: 14px 20px;
-	border-radius: 5px;
-	margin: 10px 0;
-	font-size: 18px;
-	border: none;
-	transition: 0.3s;
+	border: 1px solid #252526;
 	cursor: pointer;
+	background-color: #0d0d0d;
+	transition: background-color 0.3s ease;
+
 }
 
 button:hover {
-	background-color: #009f5f;
+	background-color: #e7e7e7;
+	color: #0d0d0d;
 }
+
 
 /* Table */
 table {
-	width: 80%;
+	width: 100%;
 	border-collapse: collapse;
 	margin-top: 20px;
 	background-color: #0d0d0d;

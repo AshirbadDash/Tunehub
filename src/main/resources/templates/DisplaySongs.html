@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>SONGS</title>
-    <link rel="stylesheet" th:href="@{/displaySongs.css}" />
-    <style></style>
-  </head>
-  <body>
-    <header>
-      <h1>SONGS</h1>
-    </header>
-    <main>
-      <table>
+    <link rel="stylesheet" th:href="@{/displaySongs.css}"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+
+</head>
+<body><!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="brand">
+            <span class="material-symbols-outlined">music_cast</span> Music
+        </h1>
+        <ul class="nav-links">
+            <li><a href="admin">Admin panel</a></li>
+            <li><a href="registration">Signup</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<header>
+    <h1>SONGS</h1>
+</header>
+<main>
+    <table>
         <thead>
-          <tr>
+        <tr>
             <th>Name</th>
             <th>Artist</th>
             <th>Genre</th>
             <th>Link</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-          <tr th:each="songs:${song}">
+        <tr th:each="songs:${song}">
             <td th:text="${songs.name}"></td>
             <td th:text="${songs.artist}">song artist</td>
             <td th:text="${songs.genre}">song genre</td>
             <td>
-              <audio controls><source th:src="${songs.link}" /></audio>
+                <audio controls>
+                    <source th:src="${songs.link}"/>
+                </audio>
             </td>
-          </tr>
+        </tr>
         </tbody>
-      </table>
-    </main>
-  </body>
+    </table>
+</main>
+<footer>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
+
+</body>
 </html>
