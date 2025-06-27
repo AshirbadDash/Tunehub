@@ -1,55 +1,86 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>SONGS</title>
-    <link rel="stylesheet" th:href="@{/newSong.css}" />
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
-  </head>
-  <body>
-  <!-- Navbar -->
-  <nav class="navbar">
+     <link rel="stylesheet" th:href="@{/newSong.css}" />
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
+<!--    <link rel="stylesheet" href="../static/newSong.css"/>-->
+<!--    <link rel="stylesheet" href="../static/commonStyles.css"/>-->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+    />
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
     <div class="nav-container">
-      <h1 class="brand">
-        <span class="material-symbols-outlined">music_cast</span> Music
-      </h1>
-      <ul class="nav-links">
-        <li><a href="home">Home</a></li>
-        <li><a href="registration">Signup</a></li>
-        <li><a href="logout">Logout</a></li>
-      </ul>
+        <h1 class="brand">
+          <span class="material-symbols-outlined">music_cast</span
+          ><a href="#" class="logo">TuneHub</a>
+        </h1>
+        <ul class="nav-links">
+            <li><a href="admin">Admin Panel</a></li>
+            <li><a href="registration">Signup</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <div class="header">
+<div class="header">
     <header>
-      <h1>SONGS</h1>
+        <h2>Add Songs</h2>
     </header>
-  </div>
-    <main>
-      <form action="addSong" method="post" autocomplete="off">
-        <label class="required" for="songName">Song Name:</label>
-        <input type="text" id="songName" name="name" required />
-        <label class="required" for="artist">Artist:</label>
-        <input type="text" id="artist" name="artist" required />
-        <label class="required" for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" required />
-        <label class="required" for="songLink">Song Link:</label>
-        <input type="text" id="songLink" name="link" required />
-        <input type="submit" value="ADD" class="button-52" />
-        <input type="reset" value="RESET" class="button-52" />
-      </form>
-    </main>
-  <!-- Footer -->
-  <footer>
+</div>
+<main>
+    <form action="addSong" method="post" autocomplete="off">
+        <!-- <label class="required" for="songName">Song Name:</label> -->
+        <input
+                type="text"
+                id="songName"
+                name="name"
+                placeholder="Song Name"
+                required
+        />
+        <!-- <label class="required" for="artist">Artist:</label> -->
+        <input
+                type="text"
+                id="artist"
+                name="artist"
+                placeholder="Artist"
+                required
+        />
+        <!-- <label class="required" for="genre">Genre:</label> -->
+        <input
+                type="text"
+                id="genre"
+                name="genre"
+                placeholder="Genre"
+                required
+        />
+        <!-- <label class="required" for="songLink">Song Link:</label> -->
+        <input
+                type="text"
+                id="songLink"
+                name="link"
+                placeholder="songLink"
+                required
+        />
+        <div class="button-container">
+            <input type="submit" value="ADD" class="button-52"/>
+            <input type="reset" value="RESET" class="button-52"/>
+        </div>
+    </form>
+</main>
+<!-- Footer -->
+<footer>
     <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
-  </footer>
-
-  </body>
+</footer>
+</body>
 </html>

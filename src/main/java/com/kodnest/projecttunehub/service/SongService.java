@@ -31,7 +31,7 @@ public interface SongService {
      */
     public boolean songExists(String name);
 
-   public void updateSong(Song song);
+    public void updateSong(Song song);
 
     Song getSongById(Integer songId);
 }

@@ -1,303 +1,186 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Adding asterisk after required fields */
-.required::after {
-  content: " *";
-  color: springgreen;
-}
-
-/* Styling the header */
-header {
-  background-color: #1f1f1f;
-  color: #fbe489;
-  text-align: center;
-  padding: 10px;
-  width: 100%;
-}
-
-/* Navbar */
-.navbar {
-  background-color: #252526;
-  padding: 1rem 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  border-bottom: 0.7px solid #313231;
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
-}
-
-.brand {
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #eeeeee;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Adjust Icon Size */
-.brand .material-symbols-outlined {
-  font-size: 30px;
-  color: #00c678;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #00c678;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ffffff;
-}
-
-/* Ensure content doesn't get hidden behind navbar */
 body {
-  padding-top: 70px; /* Adjust based on navbar height */
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* Styling the main section */
+header {
+    background-color: var(--background);
+    color: var(--text-color);
+    text-align: center;
+
+    width: 100%;
+}
+
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #1f1f1f;
-  padding: 20px;
-  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background);
 }
 
-/* Styling the form */
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #313231;
-  padding: 20px;
-  width: 500px;
-  margin: 0 auto;
-  color:#eeeeee;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: #313231;
-  /* background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png"); */
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  outline: none;
-  font-weight: 400;
-  font-size: 18px;
-  
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
 
-form label {
-  font-weight: 400;
-}
+    width: 500px;
+    color: var(--white);
 
-/* Styling the form inputs */
+    font-weight: 400;
+    font-size: 16px;
+}
 
 input[type="text"],
 input[type="email"],
-input[type="password"]
-{
+input[type="password"] {
     margin: 10px;
     padding: 10px;
     font-size: 16px;
-    width: 100%;
+    width: 329px;
+    height: 47px;
+    border-radius: 4px;
     outline: none;
-    color: #9dddbc;
-    /* background-color: #083b2c; */
-    background-color: #313231;
-   border: 1px solid rgba(255, 255, 255, 0.125);
-
-
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border: .7px solid #00a155;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 5px #bd93f980;
 }
 
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder {
-  color: #00a155;
+input::placeholder {
+    color: var(--primary-color);
 }
-/* Selection Color */
-::selection {
-    background-color: #127157;
-    
-  }
 
-  /* Apply styles to autofilled inputs */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    background-color: #313231 !important; /* Match text input background */
-    -webkit-box-shadow: 0 0 0px 1000px #313231 inset !important; /* Prevent autofill styling */
-    color: #9dddbc !important; /* Match text input text color */
-    -webkit-text-fill-color: #9dddbc !important; /* Ensure text color stays consistent */
-    border: 1px solid rgba(255, 255, 255, 0.125) !important; /* Keep consistent border */
-    OUTLINE: none;
-}
- 
-
-form input,
 form fieldset {
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
-  width: 100%;
-  outline: none;
+    margin: 10px;
     border: 2px solid transparent;
+    display: flex;
+    gap: 10px;
+    /* flex-wrap: wrap; */
+    align-items: center;
 }
 
-form input,form fieldset:focus{
-    border: 2px solid #00a155 ;
-    
+fieldset label {
+    margin-right: 10px;
 }
 
-/* Styling the submit button */
-form input[type="submit"],
-form input[type="reset"] {
-  
-  background-color: #1f1f1f;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-form input[type="submit"]:hover,
-form input[type="reset"]:hover {
-  background-color: #00a155;
-  color: #ffffff;
-  transition: background 0.3s ease-in-out;
-}
-
-/* Fieldset Styling */
-fieldset {
-  margin-bottom: 20px;
-  border: 2px solid transparent;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #252526;
-  color: white;
-  position: relative;
-  width: 100%;
-  border-top: 0.7px solid #313231;
-  margin-top: auto;
-}
-
-
-
-/* Style for radio buttons */
 input[type="radio"] {
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  background-color: #ffffff;
-  margin-right: 5px;
-  cursor: pointer;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background-color: #ffffff;
+
+    cursor: pointer;
+}
+
+legend {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 400;
+    /* margin-bottom: 10px; */
 }
 
 input[type="radio"]:checked {
-  background-color: #00a155;
+    background-color: var(--primary-color);
 }
-
-
-
 
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between buttons */
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 8px;
+    flex-wrap: wrap;
 }
 
-/* Buttons */
 button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Space between icon and text */
-    color: #ffffff;
+    gap: 8px;
+    color: var(--background);
     padding: 12px 24px;
-    font-size: 1rem;
-    border: none;
-    font-weight: bold;
-    border-radius: 5px;
+    font-size: 16px;
+    width: 329px;
+    height: 39px;
+    font-weight: 400;
+    border-radius: 4px;
     cursor: pointer;
+    background-color: var(--primary-color);
     transition: background 0.3s ease-in-out;
-    background-color: #4b4c4b;
+    border: none;
 }
 
 button:hover {
-    background-color: #00c678;
-    color: #ffffff;
+    background-color: #caa9fa;
 }
 
-.material-symbols-outlined {
-    font-size: 30px; /* Adjust the icon size */
-    vertical-align: middle; /* Align it properly with text */
-    margin-right: 8px; /* Add spacing between the icon and text */
-}
-
-
-/* Responsive Styles */
 @media screen and (max-width: 600px) {
-  form {
-    width: 90%;
-    padding: 15px;
-  }
+    form {
+        width: 90%;
+        padding: 15px;
+    }
 
-  form fieldset {
-    width: 100%;
-  }
+    input,
+    fieldset {
+        width: 100%;
+    }
 
-  form input {
-    width: 100%;
-  }
+    .button-container button {
+        width: 100%;
+    }
 
-  header h1,
-  header h4 {
-    font-size: 1.2em;
-  }
+    header h1,
+    header h4 {
+        font-size: 1.2em;
+    }
+}
 
-  footer {
+::selection {
+    background-color: var(--button-hover);
+    color: var(--white);
+}
+
+input::selection {
+    background-color: var(--button-hover);
+    color: var(--white);
+}
+
+.text-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-  }
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 20px;
+    border-top: 1px solid var(--button-hover);
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 10px;
+}
+
+.text-login a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 400;
+    font-size: 14px;
 }

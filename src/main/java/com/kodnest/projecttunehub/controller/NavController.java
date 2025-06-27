@@ -9,44 +9,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class NavController {
 
-	/**
-	 * Handles the GET request for the login page.
-	 *
-	 * @return The name of the login view.
-	 */
-	@GetMapping(path = "/login")
-	public String loginUser() {
-		return "Login";
-	}
+    /**
+     * Handles the GET request for the login page.
+     *
+     * @return The name of the login view.
+     */
+    @GetMapping(path = "/login")
+    public String loginUser() {
+        return "Login";
+    }
 
-	@GetMapping(path = "/home")
-	public String indexPage() {
-		return "index";
-	}
+    @GetMapping(path = "/home")
+    public String indexPage() {
+        return "index";
+    }
 
-	@GetMapping(path = "/admin")
-	public String adminPage() {
-		return "Admin";
-	}
+    @GetMapping(path = "/admin")
+    public String adminPage() {
+        return "Admin";
+    }
 
-	@GetMapping(path = "/customer")
-	public String customerPage() {
-		return "Customer";
-	}
 
-		/**
-         * Handles the GET request for the registration page.
-         *
-         * @return The name of the registration view.
-         */
-	@GetMapping(path = "/registration")
-	public String registerUser() {
-		return "Registration";
-	}
+    /**
+     * Handles the GET request for the registration page.
+     *
+     * @return The name of the registration view.
+     */
+    @GetMapping(path = "/registration")
+    public String registerUser() {
+        return "Registration";
+    }
 
-	@GetMapping(path = "/newSong")
-	public String newSong() {
-		return "NewSong";
-	}
+    @GetMapping(path = "/newSong")
+    public String newSong() {
+        return "NewSong";
+    }
 
 }

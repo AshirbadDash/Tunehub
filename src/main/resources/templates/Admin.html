@@ -4,8 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Admin Dashboard</title>
-    <!--    <link rel="stylesheet" href="admin.css">-->
+<!--    <link rel="stylesheet" href="../static/admin.css">-->
+<!--    <link rel="stylesheet" href="../static/commonStyles.css">-->
+
     <link rel="stylesheet" th:href="@{/admin.css}"/>
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
 </head>
@@ -15,10 +18,10 @@
 <nav class="navbar">
     <div class="nav-container">
         <h1 class="brand">
-            <span class="material-symbols-outlined">music_cast</span> Music
+            <span class="material-symbols-outlined">music_cast</span><a href="#" class="logo">TuneHub</a>
         </h1>
         <ul class="nav-links">
-            <li><a href="customer">customer panel</a></li>
+            <li><a href="home">Home</a></li>
             <li><a href="registration">Signup</a></li>
             <li><a href="logout">Logout</a></li>
         </ul>
@@ -35,12 +38,12 @@
 <main class="container">
     <form action="addSong" method="post">
 
-    <button class="button-52">ADD SONG</button>
+        <button class="button-52">Add Song</button>
     </form>
-    <button class="button-52" onclick="location.href='viewSongs'">VIEW SONGS</button>
-    <button class="button-52" onclick="location.href='createPlaylists'">CREATE PLAYLIST</button>
-    <button class="button-52" onclick="location.href='viewPlaylists'">VIEW PLAYLISTS</button>
-<!--    <button class="button-52" onclick="location.href='updatePlaylist'">Update Playlist</button>-->
+    <button class="button-52" onclick="location.href='viewSongs'">View Songs</button>
+    <button class="button-52" onclick="location.href='createPlaylists'">Create Playlist</button>
+    <button class="button-52" onclick="location.href='viewPlaylists'">View Playlist</button>
+    <!--    <button class="button-52" onclick="location.href='updatePlaylist'">Update Playlist</button>-->
 </main>
 
 <!-- Footer -->

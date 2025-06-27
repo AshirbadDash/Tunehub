@@ -1,62 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org" >
+<html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TUNEHUB</title>
-     <link rel="stylesheet" href="../static/index.css">
-<!--    <link rel="stylesheet" th:href="@{/index.css}" />-->
-    <!-- Google Material Symbols for Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TuneHub</title>
+<!--    <link rel="stylesheet" href="../static/index.css"/>-->
+<!--    <link rel="stylesheet" href="../static/commonStyles.css">-->
+    <link rel="stylesheet" th:href="@{/index.css}"/>
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+</head>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="brand">
-                <span class="material-symbols-outlined">music_cast</span> Music
-            </h1>
-            <ul class="nav-links">
-                <li><a href="pay">Premium</a></li>
-                <li><a href="https://github.com/AshirbadDash">GitHub</a></li>
-                <li><a href="https://linkedin.com/in/ashirbaddash">LinkedIn</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <div id="bars">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="brand">
+            <span class="material-symbols-outlined">music_cast</span><a href="#" class="logo">TuneHub</a>
+        </h1>
+
+        <ul class="nav-links">
+            <li><a href="pay">Premium</a></li>
+            <li><a href="https://github.com/AshirbadDash" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ashirbaddash" target="_blank">LinkedIn</a></li>
+        </ul>
     </div>
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome to TuneHub!</h1>
-        <p>Your go-to music streaming platform</p>
-    </header>
+</nav>
+<div class="main-header">
+    <h2>All your Music Anytime Anywhere</h2>
+</div>
 
-    <!-- Buttons Container -->
-    <div class="button-container">
-        <button onclick="location.href='login'">
-            <span class="material-symbols-outlined">login</span>
-            Login
-        </button>
-        <button onclick="location.href='registration'">
-            <span class="material-symbols-outlined">app_registration</span>
-            Register
-        </button>
-    </div>
+<!-- Buttons -->
+<div class="button-container">
+    <button onclick="location.href='login'">Login</button>
+    <button onclick="location.href='registration'">Register</button>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
-    </footer>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
+
 </body>
 </html>

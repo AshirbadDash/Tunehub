@@ -37,13 +37,13 @@ public class User {
      * Parameterized constructor.
      * Initializes a new instance of the User class with the given details.
      *
-     * @param userid   The unique identifier for the user
-     * @param username The username of the user
-     * @param email    The email of the user
-     * @param password The password of the user
-     * @param gender   The gender of the user
-     * @param role     The role of the user
-     * @param address  The address of the user
+     * @param userid    The unique identifier for the user
+     * @param username  The username of the user
+     * @param email     The email of the user
+     * @param password  The password of the user
+     * @param gender    The gender of the user
+     * @param role      The role of the user
+     * @param address   The address of the user
      * @param isPremium The premium status of the user
      */
     public User(String userid, String username, String email, String password, String gender, String role, String address, boolean isPremium) {

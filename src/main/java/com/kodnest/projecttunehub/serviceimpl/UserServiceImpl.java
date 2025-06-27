@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     /**
      * Validates a user's credentials.
      *
-     * @param email The email of the user
+     * @param email    The email of the user
      * @param password The password of the user
      * @return A boolean indicating whether the credentials are valid
      */
@@ -82,8 +82,6 @@ public class UserServiceImpl implements UserService {
     public User updateUser(User user) {
         return userRepository.save(user);
     }
-
-
 
 
 }

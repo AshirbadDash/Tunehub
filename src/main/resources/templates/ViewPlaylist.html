@@ -9,6 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>PLAYLIST</title>
     <link rel="stylesheet" th:href="@{/ViewPlaylist.css}"/>
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
+<!--    <link rel="stylesheet" href="../static/viewPlaylist.css"/>-->
+<!--    <link rel="stylesheet" href="../static/commonStyles.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
 
@@ -18,7 +21,7 @@
 <nav class="navbar">
     <div class="nav-container">
         <h1 class="brand">
-            <span class="material-symbols-outlined">music_cast</span> Music
+            <span class="material-symbols-outlined">music_cast</span><a href="#" class="logo">TuneHub</a>
         </h1>
         <ul class="nav-links">
             <li><a href="admin">Admin panel</a></li>
@@ -29,7 +32,7 @@
 </nav>
 
 <header>
-    <h1>PLAYLIST</h1>
+    <h2>View Playlist</h2>
 </header>
 
 <main>
@@ -50,9 +53,9 @@
                     <li class="audio" th:each="s1:${all.songs}">
                         <div class="song-item">
                             <span th:text="${s1.name}"></span>
-<!--                            <audio controls>-->
-<!--                                <source th:src="${s1.link}"/>-->
-<!--                            </audio>-->
+                            <!--                            <audio controls>-->
+                            <!--                                <source th:src="${s1.link}"/>-->
+                            <!--                            </audio>-->
                         </div>
                     </li>
 

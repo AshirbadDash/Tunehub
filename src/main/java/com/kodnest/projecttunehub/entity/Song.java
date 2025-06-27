@@ -1,6 +1,7 @@
 package com.kodnest.projecttunehub.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 /**
@@ -35,11 +36,11 @@ public class Song {
      * Parameterized constructor.
      * Initializes a new instance of the Song class with the given details.
      *
-     * @param id The unique identifier for the song
-     * @param name The name of the song
-     * @param artist The artist of the song
-     * @param genre The genre of the song
-     * @param link The link of the song
+     * @param id        The unique identifier for the song
+     * @param name      The name of the song
+     * @param artist    The artist of the song
+     * @param genre     The genre of the song
+     * @param link      The link of the song
      * @param playlists The playlists that contain the song
      */
     public Song(int id, String name, String artist, String genre, String link, List<Playlist> playlists) {

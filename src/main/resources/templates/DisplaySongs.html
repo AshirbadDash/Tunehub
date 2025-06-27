@@ -7,8 +7,11 @@
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>SONGS</title>
+    <title>Display Songs</title>
     <link rel="stylesheet" th:href="@{/displaySongs.css}"/>
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
+<!--    <link rel="stylesheet" href="../static/displaySongs.css">-->
+<!--    <link rel="stylesheet" href="../static/commonStyles.css">-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
 
@@ -17,8 +20,7 @@
 <nav class="navbar">
     <div class="nav-container">
         <h1 class="brand">
-            <span class="material-symbols-outlined">music_cast</span> Music
-        </h1>
+            <span class="material-symbols-outlined">music_cast</span><a href="#" class="logo">TuneHub</a></h1>
         <ul class="nav-links">
             <li><a href="admin">Admin panel</a></li>
             <li><a href="registration">Signup</a></li>
@@ -38,14 +40,14 @@
             <th>Name</th>
             <th>Artist</th>
             <th>Genre</th>
-            <th>Link</th>
+            <th>Play</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="songs:${song}">
             <td th:text="${songs.name}"></td>
-            <td th:text="${songs.artist}">song artist</td>
-            <td th:text="${songs.genre}">song genre</td>
+            <td th:text="${songs.artist}"></td>
+            <td th:text="${songs.genre}"></td>
             <td>
                 <audio controls>
                     <source th:src="${songs.link}"/>

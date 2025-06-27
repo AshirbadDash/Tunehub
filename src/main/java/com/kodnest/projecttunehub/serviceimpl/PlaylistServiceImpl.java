@@ -7,10 +7,7 @@ import com.kodnest.projecttunehub.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Service implementation for managing Playlists.
@@ -39,6 +36,7 @@ public class PlaylistServiceImpl implements PlaylistService {
     public Playlist findByName(String name) {
         return playlistRepository.findByName(name);
     }
+
     @Override
     public List<Playlist> fetchAllPlaylists() {
         List<Playlist> allPlaylist = playlistRepository.findAll();

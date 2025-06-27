@@ -1,140 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org" >
-  <head>
-    <meta charset="UTF-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
     <title>Registration</title>
-    <link rel="stylesheet" th:href="@{/registration.css}" />
-    <!-- <link rel="stylesheet" href="register.css"> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
-  </head>
- 
-  <body>
+     <link rel="stylesheet" th:href="@{/registration.css}" />
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
+<!--    <link rel="stylesheet" href="../static/registration.css"/>-->
+<!--    <link rel="stylesheet" href="../static/commonStyles.css">-->
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="brand">
-                <span class="material-symbols-outlined">music_cast</span> Music
-            </h1>
-            <ul class="nav-links">
-                <li><a href="home">Home</a></li>
-                <li><a href="login">Login</a></li>
-                <li><a href="pay" style="color:yellow;">Subscribe</a></li>
-            </ul>
-        </div>
-    </nav>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+    />
+</head>
 
-    <!-- Header section starts here -->
-    <header>
-      <h1 class="h1">Welcome to Tunehub</h1>
-      <h4>Register to get started</h4>
-    </header>
-    <!-- Header section ends here -->
+<body>
+<!-- Navbar -->
 
-    <!-- Main section starts here -->
-    <main>
-      <!-- Registration form starts here -->
-    <form action="register" method="post" autocomplete="off" >
-        <h5 class="req">Fields marked with an asterisk (*) are mandatory</h5>
-        <label class="required" for="username">Name:</label>
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="brand">
+          <span class="material-symbols-outlined">music_cast</span
+          ><a href="#" class="logo">TuneHub</a>
+        </h1>
+        <ul class="nav-links">
+            <li><a href="home">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="pay">Subscribe</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Header section starts here -->
+
+<!-- Header section ends here -->
+
+<!-- Main section starts here -->
+<main>
+    <!-- Registration form starts here -->
+    <form action="register" method="post" autocomplete="off">
+        <h2>Welcome!</h2>
+        <!-- <label class="required" for="username">Name:</label> -->
         <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="enter username"
-          required
-          class="form-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="enter username"
+                required
+                class="form-input"
         />
-        <label class="required" for="email">Email:</label>
+        <!-- <label class="required" for="email">Email:</label> -->
         <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="enter email address"
-          required
-          class="form-input"
-        
-          autocomplete="off"
-        
+                type="email"
+                id="email"
+                name="email"
+                placeholder="enter email address"
+                required
+                class="form-input"
         />
-        <label class="required" for="password">Password:</label>
+        <!-- <label class="required" for="password">Password:</label> -->
         <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder=" enter password"
-          required
-          class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder=" enter password"
+                required
+                class="form-input"
         />
 
         <!-- Gender selection starts here -->
-        <fieldset class="gender">
-          <legend class="required">Gender:</legend>
-          <input type="radio" id="male" name="gender" value="male" />
-          <label for="male">Male</label>
-          <input type="radio" id="female" name="gender" value="female" />
-          <label for="female">Female</label>
-          <input type="radio" id="other" name="gender" value="other" />
-          <label for="other">Other</label>
-        </fieldset>
+        <div class="fieldset-container">
+            <fieldset class="gender">
+                <legend class="required">Gender</legend>
+                <input type="radio" id="male" name="gender" value="male"/>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female"/>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other"/>
+                <label for="other">Other</label>
+            </fieldset>
 
-        <fieldset class="role">
-          <legend class="required">Role:</legend>
-          <input type="radio" id="admin" name="role" value="admin" />
-          <label for="admin">Admin</label>
-          <input type="radio" id="customer" name="role" value="customer" />
-          <label for="customer">Customer</label>
-        </fieldset>
-        <!-- Gender selection ends here -->
+            <fieldset class="role">
+                <legend class="required">Role</legend>
+                <input type="radio" id="admin" name="role" value="admin"/>
+                <label for="admin">Admin</label>
+                <input type="radio" id="customer" name="role" value="customer"/>
+                <label for="customer">Customer</label>
+            </fieldset>
+        </div>
 
-        <label class="required" for="address">Address:</label>
         <input
-          type="text"
-          id="address"
-          name="address"
-          placeholder="enter present address"
-          required
-          class="form-input"
+                type="text"
+                id="address"
+                name="address"
+                placeholder="enter present address"
+                required
+                class="form-input"
         />
-        
-        <!-- <input type="submit" value="Register" class="form-input" />
-        <input type="reset" value="Reset" class="form-input" /> -->
-
 
         <div class="button-container">
-          <button type="submit" value="Register" >
-              <span class="material-symbols-outlined">app_registration</span>
-              Register
-          </button>
-          <button type="reset" value="Reset" >
-              <span class="material-symbols-outlined">restart_alt</span>
-              Reset
-          </button>
-      </div>
-  
+            <button type="submit" value="Register">
+                <span class="material-symbols-outlined">app_registration</span>
+                Sign Up
+            </button>
+        </div>
 
+        <div class="text-login">
+            <p class="botton-para">Already have an account?</p>
 
-        
-      </form>
-      <!-- Registration form ends here -->
-    </main>
-    <!-- Main section ends here -->
+            <p><a href="login">Log In</a></p>
+        </div>
+    </form>
+    <!-- Registration form ends here -->
+</main>
+<!-- Main section ends here -->
 
-    <!-- Footer section starts here -->
-    <footer>
-        <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
-    </footer>
-    <!-- Footer section ends here -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          let inputs = document.querySelectorAll("input");
-  
-          inputs.forEach((input) => {
-              input.setAttribute("autocomplete", "off");
-              input.setAttribute("readonly", true); // Temporarily set as readonly
-              setTimeout(() => input.removeAttribute("readonly"), 100); // Remove readonly after 100ms
-          });
-      });
-  </script>
-  </body>
+<!-- Footer section starts here -->
+<footer>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
+<!-- Footer section ends here -->
+</body>
 </html>

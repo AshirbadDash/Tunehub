@@ -1,6 +1,7 @@
 package com.kodnest.projecttunehub.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 /**
@@ -32,8 +33,8 @@ public class Playlist {
      * Parameterized constructor.
      * Initializes a new instance of the Playlist class with the given details.
      *
-     * @param id The unique identifier for the playlist
-     * @param name The name of the playlist
+     * @param id    The unique identifier for the playlist
+     * @param name  The name of the playlist
      * @param songs The songs in the playlist
      */
     public Playlist(int id, String name, List<Song> songs) {
@@ -107,6 +108,6 @@ public class Playlist {
     public String toString() {
         return "Playlist{" +
                 "id=" + id +
-                ", name='" + name + '\'' +  '}';
+                ", name='" + name + '\'' + '}';
     }
 }

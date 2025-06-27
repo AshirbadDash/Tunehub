@@ -1,154 +1,67 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
-
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Navbar */
-.navbar {
-  background-color: #0d0d0d;
-  padding: 1rem 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  border-bottom: 0.7px solid #313231;
-  z-index: 1000;
-}
-
-/* Navbar Container */
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
-}
-
-/* Brand Logo */
-.brand {
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #eeeeee;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Adjust Icon Size */
-.brand .material-symbols-outlined {
-  font-size: 30px;
-  color: #ffffff;
-}
-
-/* Navigation Links */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #eeeeee;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  text-decoration: underline solid #e7e7e7;
-  color: #ffffff;
-}
-
-/* Ensure full height layout */
-body {
-  min-height: 100vh; /* Ensure full viewport height */
+/* body {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  background-color: #0d0d0d;
-  color: white;
-  padding-top: 80px;
+  background-color: var(--background);
+  color: var(--text-color);
+  align-items: center;
+  /* justify-content: center; */
+/* } */
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-  background-color: #0d0d0d;
-  color: #ffffff;
-  padding: 20px 0;
-  text-align: center;
-  /*border-bottom: 1px solid #494949;*/
-  position: relative;
-
+    color: var(--white);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    padding: 20px;
+    width: 100%;
+    margin-top: 80px;
 }
 
-header:hover {
-  background-color: #0d0d0d;
-  color: #ffffff;
-  /*border-bottom: 1px solid #494949;*/
-}
-/* Styling the main section */
 main {
-  flex: 1; /* Pushes footer to the bottom */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 25px;
-  width: 100%;
+    width: 100%;
+    margin-top: 300px; /* to account for fixed header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  font-weight: 400;
+    width: 90%;
+    /* max-width: 1000px; */
+    /* margin: 0 auto; */
+    border-collapse: collapse;
+    font-weight: 400;
+    background-color: #2b2b2b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-table,
-th,
-td {
-  border: 1px solid #494949;
-  padding: 8px;
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid #444;
 }
 
 th {
-  background-color: #494949;
-  color: #ffffff;
-  /*border: 1px solid #494949;*/
+    background-color: var(--color-brand-accent);
+    color: white;
+    font-weight: 600;
+    border: 1px solid #444;
+}
+
+tr:nth-child(even) {
+    background-color: #3a3a3a;
 }
 
 
-
-tr {
-  background-color: #0d0d0d;
-  color: #ffffff;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #0d0d0d;
-  color: white;
-  width: 100%;
-  border-top: 0.7px solid #313231;
-  margin-top: auto; /* Ensures it stays at the bottom */
-}
-
-.material-symbols-outlined {
-
-  font-size: 30px; /* Adjust the icon size */
-  vertical-align: middle; /* Align it properly with text */
-  margin-right: 8px;
-/ /* Add spacing between the icon and text */
-}
-
-/* Adjust Icon Size */
-.brand .material-symbols-outlined {
-  font-size: 30px;
-  color: #8a05ff;
-}

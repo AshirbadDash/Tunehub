@@ -1,66 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org" >
+<html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Streaming Login</title>
-   <!--  --> <link rel="stylesheet" href="style2.css">
-   <link rel="stylesheet" th:href="@{/login.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+    <title>TuneHub Login</title>
+    <!--   <link rel="stylesheet" href="../static/login.css">-->
+    <link rel="stylesheet" th:href="@{/login.css}"/>
+    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="brand">
-                <span class="material-symbols-outlined">music_cast</span> Music
-            </h1>
-            <ul class="nav-links">
-                <li><a href="home">Home</a></li>
-                <li><a href="registration">Signup</a></li>
-                <li><a href="pay" style="color:yellow;">Subscribe</a></li>
-            </ul>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="brand">
+            <span class="material-symbols-outlined">music_cast</span><a href="#" class="logo">TuneHub</a>
+        </h1>
+        <ul class="nav-links">
+            <li><a href="home">Home</a></li>
+            <li><a href="registration">Signup</a></li>
+            <li><a href="pay">Subscribe</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Login Form -->
+<form action="validate" method="post">
+    <div class="headingsContainer">
+        <h2>Welcome back</h2>
+    </div>
+    <div class="mainContainer">
+        <!-- <label for="email">Email</label> -->
+        <input type="email" id="email" placeholder="Enter your email" name="email" autocomplete="off" required>
+
+        <br><br>
+
+        <!-- <label for="password">Password</label> -->
+        <input type="password" placeholder="Enter your password" name="password" id="password" required>
+
+        <!-- <button type="submit">I'm in!</button> -->
+        <!-- Buttons Container -->
+        <div class="button-container">
+            <button class="login-btn" onclick="location.href='login'">
+                <span class="material-symbols-outlined">login</span>
+                Login
+            </button>
+
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to Tunehub</h1>
-        <h2>Streaming the Future of Sound</h2>
-    </section>
+    </div>
+</form>
 
-    <!-- Login Form -->
-    <form action="validate" method="post">
-        <div class="headingsContainer">
-            <h3>Please Login to Your Account</h3>
-        </div>
-        <div class="mainContainer">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" name="email" autocomplete="off" required>
 
-            <br><br>
+<div class="text-login">
+    <p class="botton-para">
+        Dont have an account?
+    </p>
 
-            <label for="password">Password</label>
-            <input type="password" placeholder="Enter your password" name="password" id="password" required>
-
-            <!-- <button type="submit">I'm in!</button> -->
-             <!-- Buttons Container -->
-<div class="button-container">
-    <button class="login-btn" onclick="location.href='login'">
-        <span class="material-symbols-outlined">login</span>
-        Login
-    </button>
-   
+    <p><a href="registration">Sign Up</a></p>
 </div>
 
-        </div>
-    </form>
-    
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
-    </footer>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 TuneHub Music Streaming App. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
