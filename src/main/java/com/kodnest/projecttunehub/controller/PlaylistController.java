@@ -81,17 +81,17 @@ public class PlaylistController {
 
         if (playlistId == null) {
             model.addAttribute("error", "Missing required parameter 'id'");
-            return "errorPage";  // Create an errorPage.html in templates folder
+            return "ViewPlaylist";
         }
         if (songId == null) {
             model.addAttribute("error", "Missing required parameter 'songId'");
-            return "errorPage";
+            return "ViewPlaylist";
         }
 
         Song song = songService.getSongById(songId);
         if (song == null) {
             model.addAttribute("error", "Error: Song not found");
-            return "errorPage";
+            return "ViewPlaylist";
         }
 
         boolean isUpdated = playlistService.updatePlaylist(playlistId, song);

@@ -43,18 +43,6 @@ public class PlaylistServiceImpl implements PlaylistService {
         return allPlaylist;
     }
 
-//    @Override
-//    public boolean updatePlaylist(Integer playlistId, Song song) {
-//        Optional<Playlist> playlist = playlistRepository.findById(playlistId);
-//        if (playlist.isPresent()) {
-//            playlist.get().getSongs().add(song);
-//            playlistRepository.save(playlist.get());
-//            return true;
-//        }
-//        return false;
-//
-//
-//    }
 
     @Override
     public boolean updatePlaylist(Integer playlistId, Song song) {

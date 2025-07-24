@@ -2,7 +2,7 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: var(--background);
-    color: var(--white);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@ body {
 
 header {
     background-color: var(--background);
-    color: var(--white);
+    color: var(--text-color);
     text-align: center;
     width: 100%;
     font-size: 16px;
@@ -21,7 +21,7 @@ header {
 
 button {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--text-color);
     padding: 14px 20px;
     margin: 7px 0;
     font-size: 16px;
@@ -36,7 +36,6 @@ button {
 
 button:hover {
     background-color: var(--button-hover);
-
 }
 
 input[type="text"] {
@@ -47,7 +46,7 @@ input[type="text"] {
     height: 47px;
     border-radius: 4px;
     outline: none;
-    color: var(--white);
+    color: var(--text-color);
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
@@ -79,7 +78,6 @@ input::placeholder {
     gap: 10px;
     margin-bottom: 10px;
     margin-left: 115px;
-
 }
 
 /* Custom Checkbox Styling */
@@ -114,7 +112,7 @@ input::placeholder {
 }
 
 .checkbox-wrapper-2 .ikxBAC:checked {
-    background-color: #CAA9FA;
+    background-color: #caa9fa;
     /*border-color: var(--primary-color);*/
     border: 1px solid var(--primary-color);
 }
@@ -123,5 +121,3 @@ input::placeholder {
     background-color: var(--primary-color);
     transform: translate(-50%, -50%) scale(1);
 }
-
-

@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
     <title>Display Songs</title>
-    <link rel="stylesheet" th:href="@{/displaySongs.css}"/>
-    <link rel="stylesheet" th:href="@{/commonStyles.css}"/>
-<!--    <link rel="stylesheet" href="../static/displaySongs.css">-->
-<!--    <link rel="stylesheet" href="../static/commonStyles.css">-->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+
+    <link rel="icon" th:href="@{/music.png}" type="image/png"/>
+    <link href="../static/displaySongs.css" rel="stylesheet">
+    <link href="../static/commonStyles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+          rel="stylesheet">
 
 </head>
-<body><!-- Navbar -->
-<nav class="navbar">
-    <div class="nav-container">
-        <h1 class="brand">
-            <span class="material-symbols-outlined">music_cast</span><a href="#" class="logo">TuneHub</a></h1>
-        <ul class="nav-links">
-            <li><a href="admin">Admin panel</a></li>
-            <li><a href="registration">Signup</a></li>
-            <li><a href="logout">Logout</a></li>
-        </ul>
-    </div>
+
+<h1 class="brand">
+    <span class="material-symbols-outlined">music_cast</span><a class="logo" href="home">TuneHub</a>
+</h1>
+<ul class="nav-links">
+    <li><a href="admin">Admin panel</a></li>
+    <li><a href="registration">Signup</a></li>
+    <li><a href="logout">Logout</a></li>
+</ul>
+</div>
 </nav>
 
 
@@ -62,4 +60,5 @@
 </footer>
 
 </body>
+
 </html>

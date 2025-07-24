@@ -1,59 +1,192 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
 
-body {
-    background-color: var(--background);
-    color: var(--text-color);
-    min-height: 100vh;
-    padding-top: 70px;
-    /* space for fixed navbar */
-    padding-bottom: 60px;
-    /* space for footer */
+main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-/* Header below navbar */
-.main-header {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.main-header h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.main-header p {
-    font-size: 16px;
-    color: #ddd;
-}
-
-/* Buttons */
-.button-container {
-    margin-top: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    /* overflow-x: hidden;*/
+    flex-direction: column;
+}
+
+.content__container h2 {
+    font-family: var(--font-mono), sans-serif;
+    text-align: center;
+    margin-top: 3.5rem;
+
+    line-height: 1.2;
+    font-size: var(--font-32);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+
+    margin: 20px 0;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.slider__container {
+    width: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#item__1:checked ~ .cards #song__3,
+#item__2:checked ~ .cards #song__1,
+#item__3:checked ~ .cards #song__2 {
+    transform: translatex(-40%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+#item__1:checked ~ .cards #song__2,
+#item__2:checked ~ .cards #song__3,
+#item__3:checked ~ .cards #song__1 {
+    transform: translatex(40%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+#item__1:checked ~ .cards #song__1,
+#item__2:checked ~ .cards #song__2,
+#item__3:checked ~ .cards #song__3 {
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+
+    img {
+        box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+    }
+}
+
+.player {
+    position: absolute;
+    background-color: #ddd;
+    border-radius: 8px;
+    min-width: 320px;
+    padding: 10px 10px;
+    margin-top: 20%;
+
+    box-shadow: var(--shadow-2xl);
+    z-index: 1;
+
+    color: white;
+}
+
+.upper__part {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.play__icon {
+    margin-right: 10px;
+
+}
+
+.play__icon {
+    & svg {
+        fill: #ef4444;
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+.song__info {
+    width: calc(100% - 32px);
+    display: block;
+}
+
+.song__info .title {
+    color: #403d40;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.sub__line {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
-button {
-    width: 220px;
-    height: 42px;
-    font-size: 16px;
-    color: var(--background);
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    /* i want to flow in linear */
+.subtitle,
+.time {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--destructive);
 }
 
-button:hover {
-    background-color: var(--button-hover);
+.time {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--destructive);
+    font-weight: 500;
+    margin-left: auto;
 }
 
+.progress__bar {
+    height: 3px;
+    width: 100%;
+    background-color: #fca5a5;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress {
+    display: block;
+    position: relative;
+    width: 60%;
+    height: 100%;
+    background-color: #f87171;
+    border-radius: 6px;
+}
+
+.info__area {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    transition: transform 0.4s ease-in;
+}
+
+#item__2:checked ~ .player #test {
+    transform: translateY(0);
+}
+
+#item__2:checked ~ .player #test {
+    transform: translateY(-40px);
+}
+
+#item__3:checked ~ .player #test {
+    transform: translateY(-80px);
+}

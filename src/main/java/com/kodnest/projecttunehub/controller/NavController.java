@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * NavController class that handles navigation-related requests.
  */
 @Controller
+
 public class NavController {
 
     /**
@@ -18,6 +19,7 @@ public class NavController {
     public String loginUser() {
         return "Login";
     }
+
 
     @GetMapping(path = "/home")
     public String indexPage() {

@@ -70,6 +70,7 @@ public class UserController {
         }
     }
 
+
     @PostMapping("/validate")
     public String validate(@RequestParam("email") String email, @RequestParam("password") String password,
                            HttpSession session, Model model) {
