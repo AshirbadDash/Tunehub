@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:9.2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tunehub_app
+      # optional: create a non-root user
+      MYSQL_USER: tunehub
+      MYSQL_PASSWORD: tunehub_password
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

@@ -1,0 +1,90 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0turn;
+    inherits: false;
+}
+
+.form__heading {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.form__heading h2 {
+    font-size: var(--font-24);
+    font-weight: lighter;
+    font-family: var(--font-mono);
+
+    & mark {
+        background-color: #e9d5ff;
+        color: var(--forground);
+    }
+}
+
+.form__container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding: 2rem;
+    gap: 1rem;
+    box-shadow: var(--shadow-2xl);
+}
+
+
+.form__container input[type=text] {
+    padding: 1rem 1.4rem;
+    border: 1px solid #a1a1aa;
+    background-color: transparent;
+    color: #414141;
+    border-radius: 0.6rem;
+    font-size: var(--font-18);
+    transition: box-shadow 0.2s ease;
+    width: 20.5625rem;
+    height: 2.9375rem;
+
+}
+
+.form__container input:focus {
+    outline: none;
+    box-shadow: var(--shadow-2xl);
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.button-52 {
+    padding: .6rem 1rem;
+    width: 10rem;
+
+    background-color: transparent;
+    border: 1px solid var(--border);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.875rem;
+    border-radius: 2rem;
+    /*  transition:  all 150ms;*/
+    cursor: pointer;
+    box-shadow: var(--shadow-xl);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s linear;
+}
+
+.button-52:hover {
+    background-color: #ddd6fe;
+    color: var(--forground);
+    box-shadow: none;
+}
+

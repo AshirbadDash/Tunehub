@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Registration</title>
+    <link rel="stylesheet" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" th:href="@{/css/commonStyles.css}"/>
+    <link rel="icon" th:href="@{/music.png}" type="image/png"/>
+    <link href="../../static/css/registration.css" rel="stylesheet"/>
+    <link href="../../static/css/commonStyles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+          rel="stylesheet"/>
+</head>
+
+<body>
+
+<header>
+    <div class="nav__container">
+        <nav>
+            <ul class="nav__links">
+                <li class="logo"><a aria-label="Homepage" href="/static">TuneHub</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="pay">Subscribe</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Main section starts here -->
+<main>
+    <div class="form__heading">
+        <h2>Welcome!</h2>
+    </div>
+    <div class="form__container">
+
+        <!-- Registration form starts here -->
+        <form action="register" autocomplete="off" enctype="multipart/form-data" method="post" th:object="${user}">
+
+            <div class="form__group">
+                <input class="form__input" id="username" name="username" pattern="^[A-Za-z\\s]+$" placeholder=""
+                       required title="Please enter a valid name." type="text"/>
+                <h2 class="form__label-h2">Name</h2>
+            </div>
+
+            <div class="form__group">
+                <input class="form__input" id="email" name="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$" placeholder=""
+                       required title="Please enter a valid email address."
+                       type="email"/>
+                <h2 class="form__label-h2">Email</h2>
+            </div>
+
+            <div class="form__group">
+                <input class="form__input" id="password" name="password" placeholder="" required
+                       title="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number."
+                       type="password"/>
+                <h2 class="form__label-h2">Password</h2>
+            </div>
+
+            <!-- Gender selection starts here -->
+            <div class="fieldset-container">
+                <fieldset class="gender">
+                    <legend class="required">Gender</legend>
+                    <input id="male" name="gender" type="radio" value="male"/>
+                    <label for="male">Male</label>
+                    <input id="female" name="gender" type="radio" value="female"/>
+                    <label for="female">Female</label>
+                    <input id="other" name="gender" type="radio" value="other"/>
+                    <label for="other">Other</label>
+                </fieldset>
+
+                <fieldset class="role">
+                    <legend class="required">Role</legend>
+                    <input id="admin" name="role" type="radio" value="admin"/>
+                    <label for="admin">Admin</label>
+                    <input id="customer" name="role" type="radio" value="customer"/>
+                    <label for="customer">Customer</label>
+                </fieldset>
+            </div>
+
+            <div class="form__group">
+                <input class="form__input" id="address" name="address" pattern="^[A-Za-z0-9\\s,.-]+$" placeholder=""
+                       required title="Please enter a valid address." type="text"/>
+                <h2 class="form__label-h2">Address</h2>
+            </div>
+
+            <!-- ✅ New: Profile Image Upload -->
+            <div class="form__group">
+                <label class="required" for="profileImage">Profile Image</label>
+                <input accept="image/*" class="form__input" id="profileImage" name="profileImageFile" required
+                       type="file"/>
+            </div>
+
+            <button type="submit">SignUp</button>
+        </form>
+    </div>
+
+    <div class="text__login">
+        <p class="botton__para">Already have an account?</p>
+        <p><a href="login">Log In</a></p>
+    </div>
+</main>
+
+<!-- Main section ends here -->
+<footer>
+    <div class="footer__container">
+        <ul class="footer__links">
+            <li class="logo">&copy; 2025 TuneHub Music Streaming App. All rights reserved.</li>
+            <div class="footer__logo">
+                <li><a class="social-icon" href="https://github.com/ashirbaddash" target="_blank"><i
+                        class="fa fa-github"></i></a></li>
+                <li><a class="social-icon" href="https://linkedin.com/ashirbaddash" target="_blank"><i
+                        class="fa fa-linkedin"></i></a></li>
+                <li><a class="social-icon" href="https://x.com/ASHIRBAD__DASH" target="_blank"><i
+                        class="fa fa-twitter"></i></a></li>
+            </div>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

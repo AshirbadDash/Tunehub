@@ -1,0 +1,327 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+
+:root {
+    --background: hsl(223.8136 -172.5242% 100.0000%);
+    --foreground: hsl(223.8136 0.0000% 3.9388%);
+    --card: hsl(223.8136 -172.5242% 100.0000%);
+    --card-foreground: hsl(223.8136 0.0000% 3.9388%);
+    --popover: hsl(223.8136 -172.5242% 100.0000%);
+    --popover-foreground: hsl(223.8136 0.0000% 3.9388%);
+    --primary: hsl(223.8136 0.0000% 9.0527%);
+    --primary-foreground: hsl(223.8136 0.0004% 98.0256%);
+    --secondary: hsl(223.8136 0.0002% 96.0587%);
+    --secondary-foreground: hsl(223.8136 0.0000% 9.0527%);
+    --muted: hsl(223.8136 0.0002% 96.0587%);
+    --muted-foreground: hsl(223.8136 0.0000% 45.1519%);
+    --accent: hsl(223.8136 0.0002% 96.0587%);
+    --accent-foreground: hsl(223.8136 0.0000% 9.0527%);
+    --destructive: hsl(351.7303 123.6748% 40.5257%);
+    --destructive-foreground: hsl(223.8136 -172.5242% 100.0000%);
+    --border: hsl(223.8136 0.0001% 89.8161%);
+    --input: hsl(223.8136 0.0001% 89.8161%);
+    --ring: hsl(223.8136 0.0000% 63.0163%);
+    --chart-1: hsl(211.7880 101.9718% 78.6759%);
+    --chart-2: hsl(217.4076 91.3672% 59.5787%);
+    --chart-3: hsl(221.4336 86.3731% 54.0624%);
+    --chart-4: hsl(223.6587 78.7180% 47.8635%);
+    --chart-5: hsl(226.5426 70.0108% 39.9224%);
+    --sidebar: hsl(223.8136 0.0004% 98.0256%);
+    --sidebar-foreground: hsl(223.8136 0.0000% 3.9388%);
+    --sidebar-primary: hsl(223.8136 0.0000% 9.0527%);
+    --sidebar-primary-foreground: hsl(223.8136 0.0004% 98.0256%);
+    --sidebar-accent: hsl(223.8136 0.0002% 96.0587%);
+    --sidebar-accent-foreground: hsl(223.8136 0.0000% 9.0527%);
+    --sidebar-border: hsl(223.8136 0.0001% 89.8161%);
+    --sidebar-ring: hsl(223.8136 0.0000% 63.0163%);
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --radius: 0.625rem;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
+    --spacing: 0.25rem;
+    --font-18: 1.125rem;
+    --font-88: 5.5rem;
+    --font-48: 3rem;
+    --font-24: 1.5rem;
+    --font-72: 4.5rem;
+    --font-40: 2.5rem;
+    --font-32: 2rem;
+    --font-montserrat: "Montserrat", sans-serif;
+
+}
+
+:root {
+    --c-gray-100: #fbf8f2;
+    --c-gray-200: #fcfdfe;
+    --c-gray-300: #e9ebec;
+    --c-gray-400: #e3e4ea;
+    --c-gray-500: #5f5f5f;
+    --c-gray-900: #1d1d1d;
+    --c-blue-300: #a8dee2;
+    --c-blue-500: #2ab3c0;
+    --c-green-500: #80b895;
+    --c-green-300: #bad5ca;
+    --c-red-500: #ea605e;
+    --c-yellow-300: #f8e0b1;
+    --c-yellow-500: #f9bc73;
+
+    --rotation: -3deg;
+}
+
+
+body {
+
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    /* grid-template-rows: auto 1fr auto; */
+    padding-top: 3.5rem;
+}
+
+.nav__container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--background);
+    color: var(--foreground);
+    box-shadow: var(--shadow-2xs);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono), Serif, serif;
+    z-index: 1000;
+}
+
+.nav__links li:nth-child(n):hover {
+    background-color: var(--muted);
+    cursor: pointer;
+}
+
+.nav__links li:nth-child(1):hover {
+    background-color: var(--c-gray-500);
+    color: var(--c-gray-900);
+    filter: brightness(0.9);
+}
+
+.nav__links {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    & li {
+        display: flex;
+        align-items: stretch;
+        list-style-type: none;
+        /*padding: 1rem;*/
+        font-size: var(--font-18);
+        font-weight: lighter;
+    }
+
+    & a {
+
+        padding: 1rem;
+        color: var(--muted-foreground);
+
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+}
+
+.nav__links li:nth-child(2) {
+    background-color: var(--c-red-500);
+}
+
+.nav__links li:nth-child(2) a {
+    color: var(--sidebar-primary-foreground);
+}
+
+.nav__links li:nth-child(2):hover {
+    background-color: var(--c-red-500);
+    filter: brightness(0.9);
+}
+
+.nav__links li:first-child {
+    display: flex;
+    align-items: center; /* Vertically center icon and text */
+    margin-right: auto;
+    padding-right: 0.6rem;
+
+    font-weight: bold;
+    line-height: 1rem;
+    font-size: var(--font-24);
+    background-color: var(--c-gray-500);
+
+    & a {
+        color: var(--sidebar-primary-foreground);
+    }
+
+    &::before {
+        content: "airwave";
+        font-family: "Material Symbols Outlined", serif;
+        font-size: var(--font-24);
+        color: var(--sidebar-border);
+
+        line-height: 1; /* Ensure tight vertical alignment */
+    }
+}
+
+
+.footer__links {
+    display: flex;
+    padding-block: 8px;
+
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    gap: 1rem;
+}
+
+.footer__links {
+    list-style-type: none;
+}
+
+.footer__logo {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    z-index: 2000;
+}
+
+.footer__links li:first-child {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 1rem;
+    font-family: var(--font-mono);
+    transform: translate(6%);
+    z-index: -1;
+}
+
+::selection {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+}
+
+.theme__btn {
+    cursor: pointer;
+    color: var(--chart-2);
+    background: none;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+    border: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Buttons */
+
+.button__container button {
+    width: 220px;
+    height: 42px;
+    font-size: var(--font-18);
+    color: var(--popover-foreground);
+    background-color: var(--popover);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+    box-shadow: var(--shadow);
+
+    &:hover {
+        background-color: var(--ring);
+        color: var(--popover);
+    }
+}
+
+.social-icon {
+    color: #4a3f35;
+    font-family: "Material Symbols Outlined", serif;
+    font-size: var(--font-18);
+    /* font-size: 1rem; */
+}
+
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+}
+
+.social-icons a {
+    color: #4a3f35;
+    text-decoration: none;
+}
+
+.fa-twitter {
+    padding: 10px 12px;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    background-color: var(--background);
+}
+
+.fa-twitter:hover {
+    background-color: #00aced;
+    color: white;
+}
+
+.fa-linkedin {
+    padding: 10px 14px;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    background-color: var(--background);
+}
+
+.fa-linkedin:hover {
+    background-color: #0073a4;
+    color: white;
+
+}
+
+.fa-github {
+    padding: 10px 14px;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    background-color: var(--background);
+}
+
+.fa-github:hover {
+    background-color: #5a32a3;
+    color: white;
+
+}

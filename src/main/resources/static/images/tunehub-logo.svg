@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="200" viewBox="0 0 1200 200" role="img" aria-labelledby="title desc">
+    <title id="title">TuneHub logo</title>
+    <desc id="desc">Headphones with a musical note and the word TUNEHUB</desc>
+
+    <defs>
+        <!-- Colors -->
+        <style>
+            :root {
+            --accent: #6db33f; /* green accent */
+            --accent-dark: #5aa334;
+            --text: #fff; /* dark text */
+            --muted: #ffffff; /* inner cup/contrast */
+            }
+            .accent { fill: var(--accent); stroke: none; }
+            .accent-stroke { fill: none; stroke: var(--accent); stroke-width: 10; stroke-linecap: round;
+            stroke-linejoin: round; }
+            .accent-dark { fill: var(--accent-dark); }
+            .cup { fill: var(--muted); stroke: var(--accent-dark); stroke-width: 6; }
+            .note { fill: var(--accent-dark); }
+            .logo-text { font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif; font-weight: 700; fill:
+            var(--text); }
+        </style>
+
+        <!-- subtle drop shadow for depth -->
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feOffset in="SourceAlpha" dx="0" dy="6" result="off"/>
+            <feGaussianBlur in="off" stdDeviation="6" result="blur"/>
+            <feColorMatrix in="blur" type="matrix"
+                           values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.18" result="shadow"/>
+            <feBlend in="SourceGraphic" in2="shadow" mode="normal"/>
+        </filter>
+    </defs>
+
+    <!-- group logo elements -->
+    <g transform="translate(30,20)" filter="url(#shadow)">
+
+        <!-- Headband (arc) -->
+        <path class="accent-stroke" d="
+      M 120 40
+      C 120 -30, 380 -30, 380 40
+    " stroke-linecap="round"/>
+
+        <!-- Left earcup outer -->
+        <g transform="translate(60,70)">
+            <ellipse class="accent" cx="0" cy="0" rx="34" ry="44"/>
+            <ellipse class="cup" cx="0" cy="0" rx="26" ry="34"/>
+        </g>
+
+        <!-- Right earcup outer -->
+        <g transform="translate(440,70)">
+            <ellipse class="accent" cx="0" cy="0" rx="34" ry="44"/>
+            <ellipse class="cup" cx="0" cy="0" rx="26" ry="34"/>
+        </g>
+
+        <!-- Connection bars from band to cups -->
+        <path class="accent-stroke" d="M 98 30 L 72 50" stroke-width="8"/>
+        <path class="accent-stroke" d="M 402 30 L 428 50" stroke-width="8"/>
+
+        <!-- Small musical note integrated into right cup (overlapping) -->
+        <g transform="translate(480,18) scale(0.9)">
+            <!-- stem -->
+            <rect class="note" x="-6" y="0" width="12" height="64" rx="2"/>
+            <!-- flag -->
+            <path class="note" d="M6,6 C30,0 46,6 46,22 C46,36 34,44 14,48 L14,22 L6,22 Z"/>
+            <!-- note head -->
+            <ellipse class="note" cx="10" cy="80" rx="16" ry="12" transform="rotate(-18 10 80)"/>
+        </g>
+
+        <!-- Minor decorative equalizer bars left of text -->
+        <g transform="translate(540,42)">
+            <rect x="0" y="30" width="8" height="40" rx="2" fill="#9fd05a"/>
+            <rect x="14" y="18" width="8" height="52" rx="2" fill="#8cc54d"/>
+            <rect x="28" y="6" width="8" height="64" rx="2" fill="#6db33f"/>
+            <rect x="42" y="18" width="8" height="52" rx="2" fill="#8cc54d"/>
+            <rect x="56" y="30" width="8" height="40" rx="2" fill="#9fd05a"/>
+        </g>
+
+        <!-- TEXT: TUNEHUB -->
+        <!-- Using text element; if you prefer path outlines, I can convert to paths -->
+        <text class="logo-text" x="620" y="120" font-size="72" letter-spacing="2">
+            T U N E H U B
+        </text>
+
+        <!-- smaller tagline -->
+        <text x="620" y="160" font-family="Inter, Arial, sans-serif" font-size="18" fill="#6b7280">
+            where music meets code
+        </text>
+
+    </g>
+</svg>
