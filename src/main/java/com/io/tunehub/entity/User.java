@@ -3,6 +3,7 @@ package com.io.tunehub.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -150,6 +151,11 @@ public class User {
 
     public void setProfilePictureData(byte[] profilePictureData) {
         this.profilePictureData = profilePictureData;
+    }
+
+    public String getAvatarBase64() {
+        if (profilePictureData == null) return null;
+        return Base64.getEncoder().encodeToString(profilePictureData);
     }
 
     // Convenience boolean

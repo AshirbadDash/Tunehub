@@ -8,23 +8,28 @@
 
 <footer th:fragment="footer">
     <div class="footer__container">
-
+<!--        <div id="healthStatus">Loading...</div>-->
         <ul class="footer__links">
-            <li class="logo">&copy; 2025 TuneHub Music Streaming App. All rights reserved.</li>
+            <li class="logo" th:utext="#{footer}">
+            </li>
+
+
             <div class="footer__logo">
-                <li><a class="social-icon" href="https://github.com/ashirbaddash" target="_blank"> <i
-                        class="fa fa-github"></i></a></li>
-                <li><a class="social-icon" href="https://linkedin.com/ashirbaddash" target="_blank"> <i
-                        class="fa fa-linkedin"></i></a></li>
-                <li><a class="social-icon" href="https://x.com/ASHIRBAD__DASH" target="_blank"> <i
-                        class="fa fa-twitter"></i></a></li>
+
+                <li th:fragment="footerItem(footerLink,footerTitle,footerIcon)">
+                    <a class="social-icon" th:href="@{__${footerLink}__}" th:title="${footerTitle}" target="_blank">
+                        <span th:class="'fa fa-'+${footerIcon}"></span>
+                    </a>
+                </li>
+
+                <li th:replace="~{::footerItem('https://github.com/ashirbaddash','github','github')}"></li>
+                <li th:replace="~{::footerItem('https://www.linkedin.com/in/ashirbaddash','linkedin','linkedin')}"></li>
+                <li th:replace="~{::footerItem('https://x.com/ASHIRBAD__DASH','twitter','twitter')}"></li>
+
             </div>
         </ul>
     </div>
-
-
 </footer>
-
 
 </body>
 </html>

@@ -116,16 +116,6 @@ body {
     z-index: 1000;
 }
 
-.nav__links li:nth-child(n):hover {
-    background-color: var(--muted);
-    cursor: pointer;
-}
-
-.nav__links li:nth-child(1):hover {
-    background-color: var(--c-gray-500);
-    color: var(--c-gray-900);
-    filter: brightness(0.9);
-}
 
 .nav__links {
     display: flex;
@@ -142,31 +132,29 @@ body {
         align-items: stretch;
         list-style-type: none;
         /*padding: 1rem;*/
+        z-index: 1;
         font-size: var(--font-18);
         font-weight: lighter;
     }
 
-    & a {
 
-        padding: 1rem;
-        color: var(--muted-foreground);
-
-        text-decoration: none;
-        transition: color 0.3s ease-in-out;
-    }
 }
 
-.nav__links li:nth-child(2) {
+.nav-link {
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--muted-foreground);
+
+}
+
+.nav-link:hover {
+    background-color: var(--muted);
+
+}
+
+.nav-link.active {
+    color: var(--c-gray-100);
     background-color: var(--c-red-500);
-}
-
-.nav__links li:nth-child(2) a {
-    color: var(--sidebar-primary-foreground);
-}
-
-.nav__links li:nth-child(2):hover {
-    background-color: var(--c-red-500);
-    filter: brightness(0.9);
 }
 
 .nav__links li:first-child {
@@ -182,6 +170,7 @@ body {
 
     & a {
         color: var(--sidebar-primary-foreground);
+        text-decoration: none;
     }
 
     &::before {
@@ -194,6 +183,9 @@ body {
     }
 }
 
+.nav__links li .nav-link active {
+    background-color: red;
+}
 
 .footer__links {
     display: flex;
@@ -324,4 +316,34 @@ body {
     background-color: #5a32a3;
     color: white;
 
+}
+
+.profile-avatar {
+    width: 70px; /* Google size */
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 4rem;
+    border: 2px solid #e0e0e0; /* subtle border like Google */
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* makes the image perfectly center-cropped */
+}
+
+/* Hover effect like Gmail/Google account menu */
+.profile-avatar:hover {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }

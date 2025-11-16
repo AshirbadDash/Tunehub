@@ -1,29 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>header</title>
 </head>
 <body>
 
-<header th:fragment="header">
+<!--<header th:fragment="header(menu)">-->
+<!--    <div class="nav__container">-->
+<!--        <nav>-->
+
+<!--            &lt;!&ndash; Fragment definition section (removed from output) &ndash;&gt;-->
+<!--            <ul class="nav__links" th:remove="all">-->
+<!--                <li th:fragment="menuItem(link,active,title,icon,text)">-->
+<!--                    &lt;!&ndash;/*@thymesVar id="menu" type=""*/&ndash;&gt;-->
+<!--                    <a-->
+<!--                            th:class="${active==menu ?'nav-link active' : 'nav-link'}"-->
+<!--                            th:href="@{__${link}__}"-->
+<!--                            th:title="${title}"-->
+<!--                    >-->
+<!--                        <span th:text="${text}">Template</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+<!--            &lt;!&ndash; Actual visible nav &ndash;&gt;-->
+<!--            <ul class="nav__links">-->
+<!--                <li class="logo"><a aria-label="Homepage" href="/">TuneHub</a></li>-->
+
+<!--                <li th:replace="~{::menuItem('/','home','home page','home',#{home})}"></li>-->
+<!--                <li th:replace="~{::menuItem('login','login','login page','login',#{login})}"></li>-->
+<!--                <li th:replace="~{::menuItem('register','register','register page','person_add',#{register})}"></li>-->
+<!--            </ul>-->
+
+<!--        </nav>-->
+<!--    </div>-->
+<!--</header>-->
+<header th:fragment="header(menu)">
     <div class="nav__container">
-
-
         <nav>
-            <ul class="nav__links">
-                <li class="logo"><a aria-label="Homepage" href="/static">TuneHub</a></li>
-
-                <li><a href="/">Home</a></li>
-                <li><a href="register">Signup</a></li>
-                <li><a href="pay">Subscribe</a></li>
-
-
+            <ul class="nav__links" th:remove="all">
+                <li th:fragment="menuItem(link,active,title,icon,text)">
+                    <a th:class="${active==menu ? 'nav-link active' : 'nav-link'}"
+                       th:href="@{__${link}__}" th:title="${title}">
+                        <span th:text="${text}">Template</span>
+                    </a>
+                </li>
             </ul>
 
+            <ul class="nav__links">
+                <li class="logo"><a aria-label="Homepage" th:href="@{/}">TuneHub</a></li>
+                <li th:replace="~{::menuItem('/','home','home page','home',#{home})}"></li>
+                <!-- show when no user in session -->
+                <th:block th:if="${session.username == null}">
+                    <li th:replace="~{::menuItem('/login','login','login page','login',#{login})}"></li>
+                    <li th:replace="~{::menuItem('/register','register','register page','person_add',#{register})}"></li>
+                </th:block>
 
+                <!-- show when user in session -->
+                <th:block th:if="${session.username != null}">
+                    <li>
+                        <a class="nav-link" th:href="@{/}" th:text="${session.username.toUpperCase()}">Profile</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/logout}" th:text="'Logout'"></a>
+                    </li>
+                </th:block>
+            </ul>
         </nav>
-
     </div>
 </header>
 

@@ -6,26 +6,13 @@
     <link rel="stylesheet" th:href="@{/css/registration.css}"/>
     <link rel="stylesheet" th:href="@{/css/commonStyles.css}"/>
     <link rel="icon" th:href="@{/music.png}" type="image/png"/>
-    <link href="../../static/css/registration.css" rel="stylesheet"/>
-    <link href="../../static/css/commonStyles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
           rel="stylesheet"/>
 </head>
 
 <body>
 
-<header>
-    <div class="nav__container">
-        <nav>
-            <ul class="nav__links">
-                <li class="logo"><a aria-label="Homepage" href="/static">TuneHub</a></li>
-                <li><a href="/">Home</a></li>
-                <li><a href="login">Login</a></li>
-                <li><a href="pay">Subscribe</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div th:replace="~{fragments/header:: header('register')}"></div>
 
 <!-- Main section starts here -->
 <main>
@@ -101,22 +88,7 @@
     </div>
 </main>
 
-<!-- Main section ends here -->
-<footer>
-    <div class="footer__container">
-        <ul class="footer__links">
-            <li class="logo">&copy; 2025 TuneHub Music Streaming App. All rights reserved.</li>
-            <div class="footer__logo">
-                <li><a class="social-icon" href="https://github.com/ashirbaddash" target="_blank"><i
-                        class="fa fa-github"></i></a></li>
-                <li><a class="social-icon" href="https://linkedin.com/ashirbaddash" target="_blank"><i
-                        class="fa fa-linkedin"></i></a></li>
-                <li><a class="social-icon" href="https://x.com/ASHIRBAD__DASH" target="_blank"><i
-                        class="fa fa-twitter"></i></a></li>
-            </div>
-        </ul>
-    </div>
-</footer>
+<div th:replace="~{fragments/footer:: footer}"></div>
 
 </body>
 </html>

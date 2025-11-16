@@ -1,49 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
-
+<html
+        lang="en"
+        xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>TuneHub Login</title>
-    <link href="../../static/css/login.css" rel="stylesheet">
-    <link href="../../static/css/commonStyles.css" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title th:text="#{layoutTitle}"></title>
+    <link
+            rel="shortcut icon"
+            style="width: 100px"
+            th:href="@{/images/music.png}"
+            type="image/x-icon"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:wght@400;700&display=swap"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/css/login.css}"/>
     <link rel="stylesheet" th:href="@{/css/commonStyles.css}"/>
-
-
-    <link rel="icon" th:href="@{/music.png}" type="image/png"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
-          rel="stylesheet">
 
 </head>
 
 <body>
 
-<header>
-    <div class="nav__container">
+<div th:replace="~{fragments/header:: header('login')}"></div>
 
-
-        <nav>
-            <ul class="nav__links">
-                <li class="logo"><a aria-label="Homepage" href="/static">TuneHub</a></li>
-
-                <li><a href="/">Home</a></li>
-                <li><a href="register">Signup</a></li>
-                <li><a href="pay">Subscribe</a></li>
-                <!--<li><button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-  &lt;!&ndash;  <span class="material-symbols-outlined" id="theme-icon">light_mode</span>&ndash;&gt;
-</button></li>-->
-
-            </ul>
-
-
-        </nav>
-
-    </div>
-</header>
 <main>
     <div class="form__heading">
-        <h2>Welcome back</h2>
+        <h2 th:text="${message} ?: 'Welcome back'"></h2>
+
 
     </div>
 
@@ -82,24 +68,8 @@
 </main>
 
 
-<footer>
-    <div class="footer__container">
+<div th:replace="~{fragments/footer:: footer}"></div>
 
-        <ul class="footer__links">
-            <li class="logo">&copy; 2025 TuneHub Music Streaming App. All rights reserved.</li>
-            <div class="footer__logo">
-                <li><a class="social-icon" href="https://github.com/ashirbaddash" target="_blank"> <i
-                        class="fa fa-github"></i></a></li>
-                <li><a class="social-icon" href="https://linkedin.com/ashirbaddash" target="_blank"> <i
-                        class="fa fa-linkedin"></i></a></li>
-                <li><a class="social-icon" href="https://x.com/ASHIRBAD__DASH" target="_blank"> <i
-                        class="fa fa-twitter"></i></a></li>
-            </div>
-        </ul>
-    </div>
-
-
-</footer>
 
 </body>
 

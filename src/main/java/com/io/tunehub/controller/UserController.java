@@ -1,6 +1,7 @@
 package com.io.tunehub.controller;
 
 import com.io.tunehub.dto.CreateUserDTO;
+import com.io.tunehub.entity.Role;
 import com.io.tunehub.entity.User;
 import com.io.tunehub.service.MusicService;
 import com.io.tunehub.service.UserService;
@@ -50,12 +51,14 @@ public class UserController {
         Optional<User> optionalUser = userService.findByEmail(createUserDTO.email());
         if (optionalUser.isPresent()) {
             System.out.println("User already exists with this email id. Please try with another email id.");
-            return "users/login";
+            ra.addFlashAttribute("message", "Email already exists!");
+            return "redirect:/login";
         } else {
 
             userService.addUser(createUserDTO);
 
-            return "music/musicList";
+            ra.addFlashAttribute("message", "Registration successful!");
+            return "redirect:/login";
 
 
         }
@@ -81,7 +84,13 @@ public class UserController {
             session.setAttribute("userEmail", user.getEmail());
             session.setAttribute("username", user.getUsername());
             session.setAttribute("role", user.getRole());
-            return "music/musicList";
+            session.setAttribute("profileImg",user.getAvatarBase64());
+            if (session.getAttribute("role") == Role.CUSTOMER) {
+
+                return "music/musicList";
+            } else {
+                return "users/adminController";
+            }
         } else {
             System.out.println("Invalid email or password. Please try again.");
             return "users/login";
@@ -99,5 +108,14 @@ public class UserController {
 //    public String health() {
 //        return ;
 //    }
+
+    @GetMapping("/admin")
+    public String adminAuthentication(HttpSession session) {
+        if (session.getAttribute("role") == Role.ADMIN) {
+            System.out.println(session.getAttribute("role"));
+            return "users/adminController";
+        } else
+            return "music/musicList";
+    }
 
 }
