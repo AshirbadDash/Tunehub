@@ -1,94 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Registration</title>
-    <link rel="stylesheet" th:href="@{/css/registration.css}"/>
-    <link rel="stylesheet" th:href="@{/css/commonStyles.css}"/>
-    <link rel="icon" th:href="@{/music.png}" type="image/png"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
-          rel="stylesheet"/>
+    <title>Register</title>
 </head>
-
 <body>
+<main layout:fragment="content">
+    <div class="container mx-auto p-8 max-w-md">
+        <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title justify-center mb-4">Create Account</h2>
 
-<div th:replace="~{fragments/header:: header('register')}"></div>
+                <form method="post" th:action="@{/users/register}" th:object="${newUser}">
+                    <div class="form-control mb-4">
+                        <label class="label" for="username">
+                            <span class="label-text">Username</span>
+                        </label>
+                        <input type="text" id="username" th:field="*{username}" class="input validator w-full" required
+                               placeholder="Username"
+                               pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30"
+                               title="Only letters, numbers or dash"/>
+                        <p class="validator-hint">
+                            Must be 3 to 30 characters
+                            <br/>containing only letters, numbers or dash
+                        </p>
+                    </div>
 
-<!-- Main section starts here -->
-<main>
-    <div class="form__heading">
-        <h2>Welcome!</h2>
-    </div>
-    <div class="form__container">
+                    <div class="form-control mb-4">
+                        <label class="label" for="email">
+                            <span class="label-text">Email</span>
+                        </label>
 
-        <!-- Registration form starts here -->
-        <form action="register" autocomplete="off" enctype="multipart/form-data" method="post" th:object="${user}">
+                        <input class="input validator w-full" id="email" th:field="*{email}" type="email" required
+                               placeholder="mail@site.com"/>
+                        <div class="validator-hint">Enter valid email address</div>
+                    </div>
 
-            <div class="form__group">
-                <input class="form__input" id="username" name="username" pattern="^[A-Za-z\\s]+$" placeholder=""
-                       required title="Please enter a valid name." type="text"/>
-                <h2 class="form__label-h2">Name</h2>
+                    <div class="form-control mb-4">
+                        <label class="label" for="password">
+                            <span class="label-text">Password</span>
+                        </label>
+                        <input type="password" class="input validator w-full" id="password" th:field="*{password}"
+                               required placeholder="Password" minlength="8"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"/>
+                        <p class="validator-hint">
+                            Must be more than 8 characters, including
+                            <br/>At least one number
+                            <br/>At least one lowercase letter
+                            <br/>At least one uppercase letter
+                        </p>
+                    </div>
+
+
+                    <div class="form-control mt-6">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+
+                <div class="divider">OR</div>
+
+                <div class="text-center">
+                    <p class="mb-2">Already have an account?</p>
+                    <a th:href="@{/users/login}" class="btn btn-outline">Login</a>
+                </div>
             </div>
-
-            <div class="form__group">
-                <input class="form__input" id="email" name="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$" placeholder=""
-                       required title="Please enter a valid email address."
-                       type="email"/>
-                <h2 class="form__label-h2">Email</h2>
-            </div>
-
-            <div class="form__group">
-                <input class="form__input" id="password" name="password" placeholder="" required
-                       title="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number."
-                       type="password"/>
-                <h2 class="form__label-h2">Password</h2>
-            </div>
-
-            <!-- Gender selection starts here -->
-            <div class="fieldset-container">
-                <fieldset class="gender">
-                    <legend class="required">Gender</legend>
-                    <input id="male" name="gender" type="radio" value="male"/>
-                    <label for="male">Male</label>
-                    <input id="female" name="gender" type="radio" value="female"/>
-                    <label for="female">Female</label>
-                    <input id="other" name="gender" type="radio" value="other"/>
-                    <label for="other">Other</label>
-                </fieldset>
-
-                <fieldset class="role">
-                    <legend class="required">Role</legend>
-                    <input id="admin" name="role" type="radio" value="admin"/>
-                    <label for="admin">Admin</label>
-                    <input id="customer" name="role" type="radio" value="customer"/>
-                    <label for="customer">Customer</label>
-                </fieldset>
-            </div>
-
-            <div class="form__group">
-                <input class="form__input" id="address" name="address" pattern="^[A-Za-z0-9\\s,.-]+$" placeholder=""
-                       required title="Please enter a valid address." type="text"/>
-                <h2 class="form__label-h2">Address</h2>
-            </div>
-
-            <!-- ✅ New: Profile Image Upload -->
-            <div class="form__group">
-                <label class="required" for="profileImage">Profile Image</label>
-                <input accept="image/*" class="form__input" id="profileImage" name="profileImageFile" required
-                       type="file"/>
-            </div>
-
-            <button type="submit">SignUp</button>
-        </form>
-    </div>
-
-    <div class="text__login">
-        <p class="botton__para">Already have an account?</p>
-        <p><a href="login">Log In</a></p>
+        </div>
     </div>
 </main>
-
-<div th:replace="~{fragments/footer:: footer}"></div>
-
 </body>
 </html>
+

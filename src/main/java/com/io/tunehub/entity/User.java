@@ -3,8 +3,11 @@ package com.io.tunehub.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.Base64;
 
+/**
+ * User entity.
+ */
 @Entity
 @Table(name = "users")
 public class User {
@@ -41,9 +44,34 @@ public class User {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    /*
+     * BLOB that stores a user's custom uploaded image (only set when a user uploads an avatar).
+     * Marked LAZY to avoid loading large blobs on every user fetch.
+     */
     @Lob
+    @Basic(fetch = FetchType.LAZY)
     @Column(name = "profile_picture_data", columnDefinition = "LONGBLOB")
     private byte[] profilePictureData;
+
+    /**
+     * Optional: keep a URL if you ever decide to use an external/static URL for avatars.
+     * For default avatars we prefer defaultImageId (reference) — profilePictureUrl used for CDN/external URLs.
+     */
+    @Column(name = "profile_picture_url", length = 512)
+    private String profilePictureUrl;
+
+    /**
+     * Reference to the canonical default_images table (stores the id of the default image).
+     * Used when a user hasn't uploaded a custom avatar.
+     */
+    @Column(name = "default_image_id")
+    private Long defaultImageId;
+
+    /**
+     * Marker whether the user uploaded a custom avatar (true) or is using the default (false).
+     */
+    @Column(name = "has_custom_avatar")
+    private Boolean hasCustomAvatar = false;
 
     // ---------- Constructors ----------
 
@@ -153,6 +181,33 @@ public class User {
         this.profilePictureData = profilePictureData;
     }
 
+    public String getProfilePictureUrl() {
+        return profilePictureUrl;
+    }
+
+    public void setProfilePictureUrl(String profilePictureUrl) {
+        this.profilePictureUrl = profilePictureUrl;
+    }
+
+    public Long getDefaultImageId() {
+        return defaultImageId;
+    }
+
+    public void setDefaultImageId(Long defaultImageId) {
+        this.defaultImageId = defaultImageId;
+    }
+
+    public Boolean getHasCustomAvatar() {
+        return hasCustomAvatar;
+    }
+
+    public void setHasCustomAvatar(Boolean hasCustomAvatar) {
+        this.hasCustomAvatar = hasCustomAvatar;
+    }
+
+    /**
+     * Convenience: return base64 string if profilePictureData exists (useful for inline data URIs).
+     */
     public String getAvatarBase64() {
         if (profilePictureData == null) return null;
         return Base64.getEncoder().encodeToString(profilePictureData);
@@ -175,6 +230,8 @@ public class User {
                 ", address='" + address + '\'' +
                 ", accountType=" + accountType +
                 ", createdAt=" + createdAt +
+                ", defaultImageId=" + defaultImageId +
+                ", hasCustomAvatar=" + hasCustomAvatar +
                 '}';
     }
 }

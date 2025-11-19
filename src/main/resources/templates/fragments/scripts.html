@@ -1,0 +1,24 @@
+<!-- ========================================= -->
+<!-- fragments/scripts.html - Scripts Fragment -->
+<!-- ========================================= -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script th:fragment="theme-script">
+    const checkbox = document.getElementById('themeCheckbox');
+    const htmlElement = document.documentElement;
+
+    // Load saved state
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    checkbox.checked = savedTheme === 'nord';
+
+    // Save and apply theme on change
+    checkbox.addEventListener('change', function() {
+        const newTheme = this.checked ? 'nord' : 'light';
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+</script>
+</body>
+</html>
