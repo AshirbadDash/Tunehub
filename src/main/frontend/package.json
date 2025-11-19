@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "ash",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./styles.css -o ../resources/static/main.css --minify",
+    "watch": "npx @tailwindcss/cli --watch -i ./styles.css -o ../resources/static/main.css"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "daisyui": "^5.5.5",
+    "tailwindcss": "^4.1.17"
+  }
+}
