@@ -2,7 +2,7 @@
 
 @source '../resources/templates/**/*.{html,js}';
 @plugin "daisyui" {
-    themes: light --default, dark --prefersdark, cupcake;
+    themes:all;
 }
 
 /*
