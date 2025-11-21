@@ -21,4 +21,28 @@
             localStorage.setItem('theme', newTheme);
         });
     });
+
+
+</script>
+<script>
+    // Prevent back button after logout
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            // Page was loaded from cache (back button)
+            window.location.href = '/login';
+        }
+    });
+
+    // Alternative: Check session validity
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            // Verify session is still valid
+            fetch('/api/session-check')
+                .then(response => {
+                    if (!response.ok) {
+                        window.location.href = '/login';
+                    }
+                });
+        }
+    });
 </script>

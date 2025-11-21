@@ -76,7 +76,12 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginForm() {
+    public String loginForm(HttpSession httpSession) {
+
+        if (httpSession.getAttribute("userEmail") != null) {
+            log.info("User already logged in with email: {}. Redirecting to dashboard.", httpSession.getAttribute("email"));
+            return "redirect:/";
+        }
 
         return "users/login";
     }
