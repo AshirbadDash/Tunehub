@@ -98,7 +98,7 @@ public class UserController {
 
         if (optionalUser.isEmpty()) {
             log.info("Login failed for email: {}. Email not found.", normalizedEmail);
-            ra.addFlashAttribute("message", "Email not found" + normalizedEmail + ". Please register first.");
+            ra.addFlashAttribute("message", "Email not found " + normalizedEmail + ". Please register first.");
             return "redirect:/users/login";
         }
 

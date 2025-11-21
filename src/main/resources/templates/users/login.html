@@ -1,83 +1,84 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="~{layout}" lang="en">
-<head>
-    <title>Login</title>
-</head>
-<body>
+<html layout:decorate="~{layout-auth}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:th="http://www.thymeleaf.org" lang="en">
 <main layout:fragment="content">
+    <!-- Logo Top Left -->
+    <div class="absolute top-6 left-6">
+        <a th:href="@{/}" class="flex items-center gap-2">
+            <img th:src="@{/images/tunehub-logo.svg}" class="h-10 w-10" alt="Tunehub logo" />
 
-    <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content flex-col lg:flex-row-reverse gap-10">
-
-            <!-- Text section (left on desktop) -->
-            <div class="text-center lg:text-left max-w-md">
-                <h1 class="text-5xl font-bold">Welcome Back 👋</h1>
-                <p class="py-6 opacity-80 leading-relaxed">
-                    Access your dashboard, manage your music library and enjoy personalized features.
-                </p>
-            </div>
-
-            <!-- Login card -->
-            <div class="card bg-base-100 w-full max-w-sm shadow-2xl">
-                <div class="card-body">
-
-                    <!-- Server error (optional) -->
-                    <div th:if="${message}" class="alert alert-error py-2 px-4 mb-4">
-                        <span th:text="${message}"></span>
-                    </div>
-
-                    <!-- Login Form -->
-                    <form th:action="@{/users/login}" method="post" novalidate>
-                        <fieldset class="fieldset space-y-4">
-
-                            <!-- Email -->
-                            <label class="label font-semibold">Email</label>
-                            <input name="email"
-                                   type="email"
-                                   th:value="${param.email}"
-                                   class="input input-bordered w-full"
-                                   placeholder="mail@example.com" />
-
-                            <!-- Password -->
-                            <label class="label font-semibold">Password</label>
-                            <input name="password"
-                                   type="password"
-                                   class="input input-bordered w-full"
-                                   placeholder="••••••••" />
-
-                            <!-- Forgot -->
-                            <div class="flex justify-end">
-                                <a class="link link-hover text-sm" th:href="@{/users/forgot}">
-                                    Forgot password?
-                                </a>
-                            </div>
-
-                            <!-- Login Button -->
-                            <button type="submit" class="btn btn-neutral w-full mt-2">
-                                Login
-                            </button>
-
-                        </fieldset>
-                    </form>
-
-                    <!-- Divider -->
-                    <div class="divider">OR</div>
-
-                    <!-- Signup redirect -->
-                    <div class="text-center">
-                        <p class="mb-2 opacity-70">Don't have an account?</p>
-                        <a th:href="@{/users/register}" class="btn btn-outline w-full">
-                            Create an Account
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+            <span class="text-2xl font-semibold">Tunehub</span>
+        </a>
     </div>
 
+    <!-- Centered Login Container -->
+    <div class="flex flex-col items-center w-full">
+        <!-- Server Error / Warning Alert -->
+<div th:if="${message}" role="alert" class="alert alert-warning flex items-start gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="h-6 w-6 shrink-0 stroke-current"
+         fill="none"
+         viewBox="0 0 24 24">
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+    </svg>
+
+    <span th:text="${message}">Default warning text</span>
+</div>
+
+        <h1 class="text-3xl font-semibold mb-10">Sign In to Tunehub</h1>
+
+        <form th:action="@{/users/login}" method="post" class="w-full max-w-md space-y-5">
+            <div>
+                <label class="text-sm font-medium">Email</label>
+                <input type="email" name="email" class="input input-bordered w-full mt-1"
+                    placeholder="your@email.com" />
+            </div>
+
+            <div>
+                <label class="text-sm font-medium">Password</label>
+                <input type="password" name="password" class="input input-bordered w-full mt-1"
+                    placeholder="••••••••" />
+            </div>
+
+            <!-- <button class="btn bg-black text-white w-full">Sign in</button> -->
+
+            <button type="submit"
+                class="group relative w-full h-12 rounded-lg bg-black text-white flex items-center justify-center overflow-hidden px-6">
+
+                <span class="pointer-events-none transition-transform duration-300 ease-out group-hover:-translate-x-3">
+                    Sign in
+                </span>
+
+                <span
+                    class="pointer-events-none absolute right-5 flex items-center justify-center opacity-0 translate-x-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                    aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="block">
+                        <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+
+                        <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+        </form>
+
+        <div class="text-sm mt-6 space-y-2 text-center">
+            <div>
+                Need an account?
+                <a th:href="@{/users/register}" class="text-purple-600 hover:underline">Sign up</a>
+            </div>
+
+            <div>
+                Forgot your password?
+                <a th:href="@{/users/forgot}" class="text-purple-600 hover:underline">Reset it</a>
+            </div>
+        </div>
+    </div>
 </main>
-</body>
+
 </html>
