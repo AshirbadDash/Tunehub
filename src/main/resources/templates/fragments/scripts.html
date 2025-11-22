@@ -12,11 +12,11 @@
         // Load saved state
         const savedTheme = localStorage.getItem('theme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
-        checkbox.checked = savedTheme === 'nord';
+        checkbox.checked = savedTheme === 'dark';
 
         // Save and apply theme on change
         checkbox.addEventListener('change', function () {
-            const newTheme = this.checked ? 'nord' : 'light';
+            const newTheme = this.checked ? 'dark' : 'light';
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
@@ -24,25 +24,48 @@
 
 
 </script>
-<script>
-    // Prevent back button after logout
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-            // Page was loaded from cache (back button)
-            window.location.href = '/login';
-        }
-    });
 
-    // Alternative: Check session validity
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted) {
-            // Verify session is still valid
-            fetch('/api/session-check')
-                .then(response => {
-                    if (!response.ok) {
-                        window.location.href = '/login';
-                    }
-                });
-        }
-    });
-</script>
+
+<!--<script th:fragment="theme-script">-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--        const checkbox = document.getElementById('themeCheckbox');-->
+<!--        const htmlElement = document.documentElement;-->
+
+<!--        // Load theme always-->
+<!--        const savedTheme = localStorage.getItem('theme') || 'light';-->
+<!--        htmlElement.setAttribute('data-theme', savedTheme);-->
+
+<!--        // If checkbox exists, sync it + listen-->
+<!--        if (checkbox) {-->
+<!--            checkbox.checked = savedTheme === 'dark';-->
+
+<!--            checkbox.addEventListener('change', function () {-->
+<!--                const newTheme = this.checked ? 'dark' : 'light';-->
+<!--                htmlElement.setAttribute('data-theme', newTheme);-->
+<!--                localStorage.setItem('theme', newTheme);-->
+<!--            });-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+<!--<script>-->
+<!--    // Prevent back button after logout-->
+<!--    window.addEventListener('pageshow', function(event) {-->
+<!--        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {-->
+<!--            // Page was loaded from cache (back button)-->
+<!--            window.location.href = '/login';-->
+<!--        }-->
+<!--    });-->
+
+<!--    // Alternative: Check session validity-->
+<!--    window.addEventListener('pageshow', function(event) {-->
+<!--        if (event.persisted) {-->
+<!--            // Verify session is still valid-->
+<!--            fetch('/api/session-check')-->
+<!--                .then(response => {-->
+<!--                    if (!response.ok) {-->
+<!--                        window.location.href = '/login';-->
+<!--                    }-->
+<!--                });-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->

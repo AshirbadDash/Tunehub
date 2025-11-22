@@ -1,161 +1,116 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layout-auth}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:th="http://www.thymeleaf.org" lang="en">
+      xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Register</title>
 </head>
 <body>
-    <main layout:fragment="content">
+<main layout:fragment="content">
     <!-- Logo Top Left -->
     <div class="absolute top-6 left-6">
         <a th:href="@{/}" class="flex items-center gap-2">
-            <img th:src="@{/images/tunehub-logo.svg}" class="h-10 w-10" alt="Tunehub logo" />
+            <img th:src="@{/images/tunehub-logo.svg}" class="h-10 w-10" alt="Tunehub logo"/>
 
             <span class="text-2xl font-semibold">Tunehub</span>
         </a>
     </div>
 
-    
+
     <!-- Centered Login Container -->
     <div class="flex flex-col items-center w-full">
         <!-- Server Error / Warning Alert -->
-<div th:if="${message}" role="alert" class="alert alert-warning flex items-start gap-3">
-    <svg xmlns="http://www.w3.org/2000/svg"
-         class="h-6 w-6 shrink-0 stroke-current"
-         fill="none"
-         viewBox="0 0 24 24">
-        <path stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-    </svg>
+        <div th:if="${message}" role="alert" class="alert alert-warning alert-soft flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-6 w-6 shrink-0 stroke-current"
+                 fill="none"
+                 viewBox="0 0 24 24">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
 
-    <span th:text="${message}">Default warning text</span>
-</div>
+            <span th:text="${message}">Default warning text</span>
+        </div>
 
         <h1 class="text-3xl font-semibold mb-10">Create Account</h1>
 
-                <form method="post" th:action="@{/users/register}" class="w-full max-w-md space-y-5" th:object="${newUser}">
-                    <!-- <div class="form-control mb-4">
-                        <label class="label" for="username">
-                            <span class="label-text">Username</span>
-                        </label>
-                        <input type="text" id="username" th:field="*{username}" class="input validator w-full" required
-                               placeholder="Username"
-                               pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30"
-                               title="Only letters, numbers or dash"/>
-                        <p class="validator-hint">
-                            Must be 3 to 30 characters
-                            <br/>containing only letters, numbers or dash
-                        </p>
-                    </div>
-
-                    <div class="form-control mb-4">
-                        <label class="label" for="email">
-                            <span class="label-text">Email</span>
-                        </label>
-
-                        <input class="input validator w-full" id="email" th:field="*{email}" type="email" required
-                               placeholder="mail@site.com"/>
-                        <div class="validator-hint">Enter valid email address</div>
-                    </div>
-
-                    <div class="form-control mb-4">
-                        <label class="label" for="password">
-                            <span class="label-text">Password</span>
-                        </label>
-                        <input type="password" class="input validator w-full" id="password" th:field="*{password}"
-                               required placeholder="Password" minlength="8"
-                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"/>
-                        <p class="validator-hint">
-                            Must be more than 8 characters, including
-                            <br/>At least one number
-                            <br/>At least one lowercase letter
-                            <br/>At least one uppercase letter
-                        </p>
-                    </div>
-
-
-                    <div class="form-control mt-6">
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </div> -->
-
-                         <div>
+        <form method="post" th:action="@{/users/register}" class="w-full max-w-md space-y-5" th:object="${newUser}">
+            <div>
                 <label for="username" class="text-sm font-medium">Username</label>
 
-                     <input type="text" id="username" th:field="*{username}" class="input validator input-bordered w-full mt-1" required
-                               placeholder="Username"
-                               pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30"
-                               title="Only letters, numbers or dash"/>
-                        <p class="validator-hint">
-                            Must be 3 to 30 characters
-                            <br/>containing only letters, numbers or dash
-                        </p>
+                <input type="text" id="username" th:field="*{username}"
+                       class="input validator input-bordered w-full mt-1" required
+                       placeholder="Username"
+                       pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30"
+                       title="Only letters, numbers or dash"/>
+                <p class="validator-hint">
+                    Must be 3 to 30 characters
+                    <br/>containing only letters, numbers or dash
+                </p>
 
-                        </div>
+            </div>
 
 
-
-                      <div>
+            <div>
                 <label for="email" class="text-sm font-medium">Email</label>
-
-
-
-                <input type="email" th:field="*{email}" id="email" class="input input-validator input-bordered w-full mt-1"
-                    placeholder="your@email.com" />
-                     <div class="validator-hint">Enter valid email address</div>
+                <input type="email" th:field="*{email}" id="email"
+                       class="input input-validator input-bordered w-full mt-1"
+                       placeholder="your@email.com"
+                       pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                       title="Enter a valid email address" required/>
+                <p class="validator-hint">Enter valid email address</p>
             </div>
 
             <div>
-                <label  for="password" class="text-sm font-medium">Password</label>
-                  <input type="password" class="input validator inpur-borderede w-full mt-1" id="password" th:field="*{password}"
-                               required placeholder="Password" minlength="8"
-                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"/>
-                        <p class="validator-hint">
-                            Must be more than 8 characters, including
-                            <br/>At least one number
-                            <br/>At least one lowercase letter
-                            <br/>At least one uppercase letter
-                        </p>
+                <label for="password" class="text-sm font-medium">Password</label>
+                <input type="password" class="input validator input-bordered w-full mt-1" id="password"
+                       th:field="*{password}"
+                       required placeholder="Password" minlength="8"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"/>
+                <p class="validator-hint">
+                    Must be more than 8 characters, including
+                    <br/>At least one number
+                    <br/>At least one lowercase letter
+                    <br/>At least one uppercase letter
+                </p>
             </div>
 
             <!-- <button class="btn bg-black text-white w-full">Sign in</button> -->
 
             <button type="submit"
-                class="group relative w-full h-12 rounded-lg bg-black text-white flex items-center justify-center overflow-hidden px-6">
+                    class="group relative w-full h-12 rounded-lg bg-black text-white flex items-center justify-center overflow-hidden px-6">
 
                 <span class="pointer-events-none transition-transform duration-300 ease-out group-hover:-translate-x-3">
                     Sign Up
                 </span>
 
                 <span
-                    class="pointer-events-none absolute right-5 flex items-center justify-center opacity-0 translate-x-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
-                    aria-hidden="true">
+                        class="pointer-events-none absolute right-5 flex items-center justify-center opacity-0 translate-x-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                        aria-hidden="true">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="block">
+                         class="block">
                         <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
+                              stroke-linejoin="round"/>
 
                         <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
+                              stroke-linejoin="round"/>
                     </svg>
                 </span>
             </button>
 
 
-                </form>
+        </form>
 
-                <div class="divider">OR</div>
+        <div class="divider">OR</div>
 
-                <div class="text-center">
-                    <p class="mb-2">Already have an account?</p>
-                    <a th:href="@{/users/login}" class="btn btn-outline">Login</a>
-                </div>
-            </div>
+        <div class="text-center">
+            <p class="mb-2">Already have an account?</p>
+            <a th:href="@{/users/login}" class="btn btn-outline">Login</a>
         </div>
     </div>
+
 </main>
 </body>
 </html>

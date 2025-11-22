@@ -35,15 +35,15 @@
 
         <form th:action="@{/users/login}" method="post" class="w-full max-w-md space-y-5">
             <div>
-                <label class="text-sm font-medium">Email</label>
-                <input type="email" name="email" class="input input-bordered w-full mt-1"
-                    placeholder="your@email.com" />
+                <label for="email" class="text-sm font-medium">Email</label>
+                <input type="email" id="email" name="email" class="input input-bordered w-full mt-1"
+                    placeholder="your@email.com" required />
             </div>
 
             <div>
-                <label class="text-sm font-medium">Password</label>
-                <input type="password" name="password" class="input input-bordered w-full mt-1"
-                    placeholder="••••••••" />
+                <label  for="password" class="text-sm font-medium">Password</label>
+                <input type="password" id="password" name="password" class="input input-bordered w-full mt-1"
+                    placeholder="••••••••" required/>
             </div>
 
             <!-- <button class="btn bg-black text-white w-full">Sign in</button> -->
