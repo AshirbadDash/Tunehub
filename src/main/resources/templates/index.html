@@ -1,19 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-<main layout:fragment="content">
-    <div class="container mx-auto p-8 bg-base-100">
-        <h1 class="text-4xl
-text-base-content
-tracking-tighter ">Welcome to TuneHub</h1>
-        <p class="text-lg">Your music hub content goes here...</p>
-        
 
-    </div>
-</main>
+<p th:text="${#temporals.format(#temporals.createNow(), 'dd MMM yyyy HH:mm')}"></p>
+<p th:time="${#themes}"></p>
 </body>
 </html>

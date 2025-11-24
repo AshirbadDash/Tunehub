@@ -1,9 +1,5 @@
 @import 'tailwindcss';
 @source '../resources/templates/**/*.{html,js}';
-@plugin "daisyui" {
-    themes:all;
-}
-@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
