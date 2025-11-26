@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.tunehub</groupId>
-    <artifactId>tunehub</artifactId>
+    <artifactId>BloomWave</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>TuneHub</name>
     <description>TuneHub is a FullStack web project using Spring Boot, MySQL, Thymeleaf and React.</description>
