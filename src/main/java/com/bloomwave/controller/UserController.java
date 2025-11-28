@@ -120,7 +120,7 @@ public class UserController {
 
 
         // Store consistent and serializable objects in session
-        session.setAttribute("userEmail", user.getEmail());
+        session.setAttribute("Email", user.getEmail());
         session.setAttribute("username", user.getUsername());
         session.setAttribute("role", user.getRole()); // store Role enum directly
 

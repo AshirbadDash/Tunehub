@@ -48,10 +48,10 @@ purposes.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/AshirbadDash/ProjectTuneHub/CONTRIBUTING.md) for details on our code of
+Please read [CONTRIBUTING.md](https://github.com/AshirbadDash/BloomWave/CONTRIBUTING.md) for details on our code of
 conduct, and the process for submitting pull requests to us.
 
 ## License
 
 This project is licensed under the MIT License - see
-the [LICENSE.md](https://github.com/AshirbadDash/ProjectTuneHub/LICENSE.md) file for details
+the [LICENSE.md](https://github.com/AshirbadDash/BloomWave/LICENSE.md) file for details

@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.tunehub</groupId>
-    <artifactId>BloomWave</artifactId>
+    <artifactId>bloomwave</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>TuneHub</name>
-    <description>TuneHub is a FullStack web project using Spring Boot, MySQL, Thymeleaf and React.</description>
+    <name>BloomWave</name>
+    <description>BloomWave is a FullStack web project using Spring Boot, MySQL, Thymeleaf and React.</description>
 
     <properties>
         <java.version>21</java.version>
