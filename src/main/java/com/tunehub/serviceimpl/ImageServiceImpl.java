@@ -51,14 +51,12 @@ public class ImageServiceImpl implements ImageService {
     }
 
 
-
     @Override
     public ImageMetadata getImageMetadata(String imageId) throws IOException {
 
         return repository.findById(imageId).orElseThrow(
                 () -> new FileNotFoundException("File not found")
         );
-
 
     }
 

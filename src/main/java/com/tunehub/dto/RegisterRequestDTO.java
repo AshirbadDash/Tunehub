@@ -25,7 +25,7 @@ public class RegisterRequestDTO {
     private String email;
 
     @NotBlank(message = "Password is required.")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and" + " one special character.")
     @Size(min = 8, message = "Password must be at least 8 characters long.")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

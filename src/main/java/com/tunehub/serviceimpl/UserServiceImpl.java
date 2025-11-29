@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
         return email.trim().toLowerCase();
     }
 
+
     private static String sanitizeUsername(String username) {
         if (username == null) return "";
         return username.trim();
