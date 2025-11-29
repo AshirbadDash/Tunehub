@@ -2,6 +2,7 @@ package com.tunehub.serviceimpl;
 
 import com.tunehub.config.ImageStorageProperties;
 import com.tunehub.service.LocalImageStorageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Service
+@Slf4j
 public class LocalImageStorageServiceImpl implements LocalImageStorageService {
 
     private final ImageStorageProperties properties;

@@ -1,7 +1,7 @@
 package com.tunehub.service;
 
 import com.tunehub.dto.RegisterRequestDTO;
-import com.tunehub.entity.User;
+import com.tunehub.model.entity.User;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import java.util.*;
  */
 public interface UserService {
 
-    User addUser(RegisterRequestDTO newUserRequest);
+    User newUser(RegisterRequestDTO newUserRequest);
 
     Optional<User> findByEmail(String email);
 }

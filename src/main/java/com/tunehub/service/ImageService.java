@@ -1,6 +1,6 @@
 package com.tunehub.service;
 
-import com.tunehub.entity.ImageMetadata;
+import com.tunehub.model.entity.ImageMetadata;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 

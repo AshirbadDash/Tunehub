@@ -1,6 +1,6 @@
 package com.tunehub.repository;
 
-import com.tunehub.entity.User;
+import com.tunehub.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

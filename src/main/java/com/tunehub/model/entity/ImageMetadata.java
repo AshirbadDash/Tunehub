@@ -1,13 +1,11 @@
-package com.tunehub.entity;
+package com.tunehub.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
 
 import java.time.Instant;
-import java.util.*;
 
 @Entity
 @Getter

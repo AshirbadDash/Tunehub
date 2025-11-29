@@ -1,8 +1,8 @@
-package com.tunehub.entity;
+package com.tunehub.model.entity;
 
-import com.tunehub.entity.enums.AccountType;
-import com.tunehub.entity.enums.Gender;
-import com.tunehub.entity.enums.Role;
+import com.tunehub.model.enums.AccountType;
+import com.tunehub.model.enums.Gender;
+import com.tunehub.model.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,6 +1,6 @@
 package com.tunehub.controller;
 
-import com.tunehub.entity.ImageMetadata;
+import com.tunehub.model.entity.ImageMetadata;
 import com.tunehub.service.ImageService;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

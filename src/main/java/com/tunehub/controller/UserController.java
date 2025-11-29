@@ -2,8 +2,8 @@ package com.tunehub.controller;
 
 
 import com.tunehub.dto.RegisterRequestDTO;
-import com.tunehub.entity.enums.Role;
-import com.tunehub.entity.User;
+import com.tunehub.model.enums.Role;
+import com.tunehub.model.entity.User;
 import com.tunehub.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -30,11 +30,9 @@ public class UserController {
 
     private final UserService userService;
 
-    // Constructor Injection
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -59,7 +57,7 @@ public class UserController {
             message = "Email already exists. Please use a different email.";
             log.info("Registration failed: Email {} already exists.", newUserRequest.getEmail());
         } else {
-            userService.addUser(newUserRequest);
+            userService.newUser(newUserRequest);
             message = "Registration successful!";
             log.info("User registered successfully with email: {}", newUserRequest.getEmail());
         }
@@ -165,6 +163,5 @@ public class UserController {
         ra.addFlashAttribute("message", "Welcome to the admin panel!");
         return "users/adminController";
     }
-
 
 }

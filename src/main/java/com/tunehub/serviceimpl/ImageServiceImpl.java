@@ -1,10 +1,11 @@
 package com.tunehub.serviceimpl;
 
 import com.tunehub.config.ImageStorageProperties;
-import com.tunehub.entity.ImageMetadata;
+import com.tunehub.model.entity.ImageMetadata;
 import com.tunehub.repository.ImageMetadataRepository;
 import com.tunehub.service.ImageService;
 import com.tunehub.service.LocalImageStorageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,6 +17,7 @@ import java.time.Instant;
 import java.util.*;
 
 @Service
+@Slf4j
 public class ImageServiceImpl implements ImageService {
 
     private final ImageStorageProperties properties;
@@ -47,6 +49,7 @@ public class ImageServiceImpl implements ImageService {
                 Instant.now()
 
         );
+        log.info("image stored successfully");
         return repository.save(metadata);
     }
 

@@ -1,4 +1,4 @@
-package com.tunehub.entity.enums;
+package com.tunehub.model.enums;
 
 public enum PaymentStatus {
     PENDING, PAID, FAILED;

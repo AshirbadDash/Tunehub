@@ -1,9 +1,9 @@
 package com.tunehub.serviceimpl;
 
 import com.tunehub.dto.RegisterRequestDTO;
-import com.tunehub.entity.enums.AccountType;
-import com.tunehub.entity.enums.Role;
-import com.tunehub.entity.User;
+import com.tunehub.model.enums.AccountType;
+import com.tunehub.model.enums.Role;
+import com.tunehub.model.entity.User;
 import com.tunehub.repository.UserRepository;
 import com.tunehub.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User addUser(RegisterRequestDTO newUserRequest) {
+    public User newUser(RegisterRequestDTO newUserRequest) {
         String email = sanitizeEmail(newUserRequest.getEmail());
 
         if (email.isBlank()) {
