@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+
+@plugin "daisyui" {
+    themes: all;
+}
 @source '../resources/templates/**/*.{html,js}';
 
 /*
@@ -17,4 +21,14 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentcolor);
     }
+
+    html, body {
+        margin: 0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    *, ::before, ::after {
+        box-sizing: inherit;
+    }
+
 }
