@@ -1,6 +1,6 @@
-# Project BloomWave
+# Project Tunehub
 
-Project BloomWave is a web application developed using Java, Spring Boot, and Maven. It provides a platform for users to
+Tunehub is a web application developed using Java, Spring Boot, and Maven. It provides a platform for users to
 create, update, and view playlists of songs.
 
 ## Features
@@ -34,8 +34,8 @@ purposes.
 1. Clone the repository
 2. Open the project in your IDE by importing as maven project
 3. You have to change the db name and password in application properties -->
-   /BloomWave/src/main/resources/application.properties
-4. Then create a empty database named bloomwave as per the url in application properties
+   /Tunehub/src/main/resources/application.properties
+4. Then create a empty database named tunehub as per the url in application properties
 5. Then create the Database
 6. Run the application
 
@@ -48,10 +48,10 @@ purposes.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/AshirbadDash/BloomWave/CONTRIBUTING.md) for details on our code of
+Please read [CONTRIBUTING.md](https://github.com/AshirbadDash/Tunehub/CONTRIBUTING.md) for details on our code of
 conduct, and the process for submitting pull requests to us.
 
 ## License
 
 This project is licensed under the MIT License - see
-the [LICENSE.md](https://github.com/AshirbadDash/BloomWave/LICENSE.md) file for details
+the [LICENSE.md](https://github.com/AshirbadDash/Tunehub/LICENSE.md) file for details
