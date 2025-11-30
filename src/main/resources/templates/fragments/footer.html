@@ -6,9 +6,9 @@
 
         <p th:text="'Copyright © ' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' - All rights reserved'"></p>
     </aside>
-    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end" th:remove="all">
+    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end fill-zinc-400" th:remove="all">
 
-        <a th:fragment="socialIcons(path,href,name)" th:href="@{href}" th:attr="data-tip=${name}" class="tooltip">
+        <a th:fragment="socialIcons(path,href,name)" th:href="@{href}" th:title="${name}">
             <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

@@ -14,7 +14,6 @@ import java.time.Instant;
 @AllArgsConstructor
 @Table(name = "image_metadata")
 @ToString
-@EqualsAndHashCode
 public class ImageMetadata {
     @Id
     private String id;
