@@ -1,47 +1,39 @@
-<div th:fragment="header" class="navbar bg-base-100 shadow-sm">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<nav th:fragment="header" class="navbar sticky top-0 z-50 bg-base-100/80 backdrop-blur-md transition-all">
     <div class="flex-1">
-        <a th:href="@{/}" class="text-gray-950 tracking-tighter text-2xl text-balance cursor-pointer">TuneHub</a>
+        <a th:href="@{/}" class="text-base-content cursor-pointer font-mono text-2xl font-semibold tracking-widest pointer-events-auto">
+            TuneHub
+        </a>
     </div>
-    <div class="flex-none">
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                <div class="indicator">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /> </svg>
-                    <span class="badge badge-sm indicator-item">8</span>
-                </div>
-            </div>
-            <div
-                    tabindex="0"
-                    class="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow">
-                <div class="card-body">
-                    <span class="text-lg font-bold">8 Items</span>
-                    <span class="text-info">Subtotal: $999</span>
-                    <div class="card-actions">
-                        <button class="btn btn-primary btn-block">View cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar avatar-online">
+
+    <div class="flex-none gap-2">
+
+        <div th:if="${session.email != null}" class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar avatar-online hover:scale-105 transition-transform duration-200">
                 <div class="w-10 rounded-full">
-                    <img
-                            alt="Profile"
-                            th:src="@{/avatars/default/notion_1.png}" />
+                    <img alt="Profile" th:src="@{/avatars/default/notion_1.png}"/>
                 </div>
             </div>
-            <ul
-                    tabindex="-1"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100/95 backdrop-blur-sm rounded-box z-[1] mt-3 w-52 p-2 shadow">
                 <li>
                     <a class="justify-between">
                         Profile
-                        <span class="badge">New</span>
+                        <span class="badge badge-accent">New</span>
                     </a>
                 </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
+
+        <div th:if="${session.email == null}">
+            <a th:href="@{/users/login}"
+               class="btn btn-sm rounded-full font-mono text-xs font-bold uppercase tracking-widest btn-neutral text-white hover:btn-warning transition-colors duration-200">
+                Login
+            </a>
+        </div>
+
     </div>
-</div>
+</nav>
+</html>
