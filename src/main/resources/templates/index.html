@@ -19,11 +19,12 @@
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
+
 <main class="flex-1">
 
-<span class="text-5xl font-bold tracking-wide text-neutral/50 flex justify-center items-center">
+<span id="div" class="text-5xl font-bold tracking-wide text-neutral flex justify-center items-center">
     Turn up the
-<span class="text-rotate leading-relaxed text-5xl duration-6000 rounded-2xl px-4 text-white">
+<span class="text-rotate leading-relaxed text-5xl">
   <span class="">
   <span class="font-bold italic px-2 text-emerald-500">Volume</span>
   <span class="font-bold italic px-2 text-orange-500">Energy ▶︎▶︎</span>
@@ -33,14 +34,12 @@
   </span>
 </span>
     </span>
-
-
-
-
-
+<th:block th:replace="~{fragments/string :: string}"></th:block>
 
 </main>
 <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../static/animationGsap.js" th:src="@{/animationGsap.js}"></script>
 
 </body>
 </html>

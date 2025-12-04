@@ -1,4 +1,4 @@
-<footer  class="footer sm:footer-horizontal items-center p-3 w-full border-t border-t-neutral-content bg-base-100/80">
+<footer  class="footer sm:footer-horizontal items-center p-3 w-full border-t border-t-neutral/40">
 
     <aside class="flex items-center gap-4 font-mono">
         <p th:text="'© ' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' TUNEHUB. All rights reserved.'"></p>
@@ -16,7 +16,7 @@
         <a th:fragment="socialIcons(path,href,name)"
            th:href="@{href}"
            th:title="${name}"
-           class="border-[1.5px] rounded-full p-2 text-neutral/60  hover:text-neutral/80 transition-colors duration-300">
+           class="p-2 text-neutral/60  hover:text-neutral transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="20" height="20"
                  viewBox="0 0 24 24"
