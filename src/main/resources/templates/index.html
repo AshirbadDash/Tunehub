@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@300;400;500;600&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap"
           rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -22,19 +23,89 @@
 
 <main class="flex-1">
 
-<span id="div" class="text-5xl font-bold tracking-wide text-neutral flex justify-center items-center">
+<span id="div" class="text-4xl md:text-5xl font-extralight font-manrope tracking-tight text-neutral leading-tight flex justify-center items-center">
     Turn up the
-<span class="text-rotate leading-relaxed text-5xl">
+<span class="text-rotate tracking-tight leading-relaxed font-semibold text-5xl px-2">
   <span class="">
-  <span class="font-bold italic px-2 text-emerald-500">Volume</span>
-  <span class="font-bold italic px-2 text-orange-500">Energy ▶︎▶︎</span>
-  <span class="font-bold italic px-2 text-violet-400">︎Creativity</span>
-  <span class="font-bold italic px-2 text-rose-500">Emotion</span>
-  <span class="font-bold italic px-2 text-fuchsia-400">Experience</span>
+  <span class=" text-emerald-500">Volume</span>
+  <span class=" text-orange-500">Energy ▶︎▶︎</span>
+  <span class=" text-violet-400">︎Creativity</span>
+  <span class=" text-rose-500">Emotion</span>
+  <span class=" text-fuchsia-400">Experience</span>
   </span>
 </span>
     </span>
 <th:block th:replace="~{fragments/string :: string}"></th:block>
+
+
+
+<ul class="list bg-base-100 rounded-box">
+  
+  <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Most played songs this week</li>
+  
+  <li class="list-row">
+    <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
+    <div><img class="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/1@94.webp"/></div>
+    <div class="list-col-grow">
+      <div>Dio Lupa</div>
+      <div class="text-xs uppercase font-semibold opacity-60">Remaining Reason</div>
+    </div>
+    <button class="btn btn-square btn-ghost">
+      <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+    </button>
+  </li>
+  
+  <li class="list-row">
+    <div class="text-4xl font-thin opacity-30 tabular-nums">02</div>
+    <div><img class="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/4@94.webp"/></div>
+    <div class="list-col-grow">
+      <div>Ellie Beilish</div>
+      <div class="text-xs uppercase font-semibold opacity-60">Bears of a fever</div>
+    </div>
+    <button class="btn btn-square btn-ghost">
+      <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+    </button>
+  </li>
+  
+  <li class="list-row">
+    <div class="text-4xl font-thin opacity-30 tabular-nums">03</div>
+    <div><img class="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/3@94.webp"/></div>
+    <div class="list-col-grow">
+      <div>Sabrino Gardener</div>
+      <div class="text-xs uppercase font-semibold opacity-60">Cappuccino</div>
+    </div>
+    <button class="btn btn-square btn-ghost">
+      <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+    </button>
+  </li>
+
+    <li class="list-row">
+        <div class="text-4xl font-thin opacity-30 tabular-nums">04</div>
+        <div><img class="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/2@94.webp"/></div>
+        <div class="list-col-grow">
+            <div>The Weeknd</div>
+            <div class="text-xs uppercase font-semibold opacity-60">Blinding Lights</div>
+        </div>
+        <button class="btn btn-square btn-ghost">
+            <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+        </button>
+    </li>
+
+    <li class="list-row">
+        <div class="text-4xl font-thin opacity-30 tabular-nums">05</div>
+        <div><img class="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/5@94.webp"/></div>
+        <div class="list-col-grow">
+            <div>Dua Lipa</div>
+            <div class="text-xs uppercase font-semibold opacity-60">Levitating</div>
+        </div>
+        <button class="btn btn-square btn-ghost">
+            <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+        </button>
+    </li>
+</ul>
+
+
+
 
 </main>
 <th:block th:replace="~{fragments/footer :: footer}"></th:block>

@@ -1,10 +1,8 @@
-<html xmlns:th="http://www.thymeleaf.org">
-
 <nav th:fragment="header" class="navbar sticky top-0 z-50 bg-base-100/80 backdrop-blur-md transition-all">
         <div id="nav" class="flex-1">
-            <a th:href="@{/}" class="inline-flex items-center gap-2 text-base-content cursor-pointer font-mono text-2xl font-semibold tracking-widest pointer-events-auto">
+            <a th:href="@{/}" class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-2xl font-semibold tracking-wider capitalize pointer-events-auto">
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 fill-amber-500"><title>Tunehub</title><path d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"/></svg>
-                TuneHub
+                Tunehub
             </a>
     </div>
 
@@ -29,13 +27,9 @@
         </div>
 
         <div th:if="${session.email == null}">
- <div th:if="${session.email == null}">
-            <a th:href="@{/users/login}"
-               class="btn btn-sm rounded-full font-mono text-sm bg font-semibold tracking-wide btn-primary text-neutral/70 hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out">
-                Sign In
-            </a>
-        </div>        </div>
-
+            <th:block th:insert="~{fragments/button :: exploreButton('login', '/users/login')}"></th:block>
+        </div>
+        
     </div>
 </nav>
 </html>

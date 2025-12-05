@@ -35,9 +35,9 @@
 
 }
 
-@layer utilities {
-    .font-mono-custom {
-        font-family: 'Space Mono', monospace;
-        letter-spacing: -0.02em;
-    }
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-lexend: "Lexend", sans-serif;
 }
