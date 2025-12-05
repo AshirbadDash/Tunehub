@@ -1,40 +1,85 @@
 @import 'tailwindcss';
 
 @plugin "daisyui" {
-    themes: light --default, dark --prefersdark, dim;
+  themes: light --default, dark --prefersdark, dim;
 }
+
+/* point Tailwind to your templates (v4 syntax can use @source) */
 @source '../resources/templates/**/*.{html,js}';
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-    *,
-    ::after,
-    ::before,
-    ::backdrop,
-    ::file-selector-button {
-        border-color: var(--color-gray-200, currentcolor);
-    }
-    html, body {
-        margin: 0;
-        padding:0;
-        box-sizing: border-box;
-    }
-    *, ::before, ::after {
-        box-sizing: inherit;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Inter', sans-serif;
-        letter-spacing: -0.04em;
-    }
+  /*
+    Compatibility: tailwind v4 changed default border color. Keep
+    old look by setting a fallback border color.
+  */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  *, ::before, ::after {
+    box-sizing: inherit;
+  }
 }
 
+/* combined utilities for scrollbar + animation */
+@layer utilities {
+  /* hide scrollbar: Chrome/Safari/Edge/Firefox/IE */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;            /* Chrome, Safari, Opera */
+  }
+
+  /* slide animation for marquee-like horizontal movement */
+  .animate-slide {
+    animation: slide 15s linear infinite;
+  }
+.carousal:hover .animate-slide {
+  animation-play-state: paused;
+}
+
+
+ .card-gallary {
+    @apply h-[5em] rounded-2xl  text-5xl  text-center content-center flex-none basis-[5em] bg-white overflow-hidden cursor-pointer ;
+  }
+
+  .card-gallary img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter:grayscale(100%);
+    opacity: 0.8;
+
+}
+    .card-gallary:hover img {
+        opacity: 1;
+        filter:grayscale(0%);
+        	transform-style: preserve-3d;
+        transform: scale(1.1);
+
+}
+}
+
+/* keyframes must be present for the animation to run */
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* theme variables (keeps your fonts available) */
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-manrope: "Manrope", sans-serif;
