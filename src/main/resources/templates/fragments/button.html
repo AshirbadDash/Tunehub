@@ -1,33 +1,39 @@
 <!-- Thymeleaf fragment: exploreButton -->
 <!-- Usage: th:insert="~{fragments/th-explore-button-fragment :: exploreButton('myBtnId')}" -->
 <div th:fragment="exploreButton(id, href)">
-    <a
+  <a
     th:href="@{${href}}"
     th:id="${id}"
-    class="group relative overflow-hidden border-2 rounded-full px-10 py-3 w-full flex items-center justify-center cursor-pointer bg-transparent  border-green-500"
+    class="group relative overflow-hidden border-2 rounded-full px-10 py-3 w-full flex items-center justify-center cursor-pointer bg-transparent border-green-500"
   >
     <span
       aria-hidden="true"
       class="circle absolute w-[175%] aspect-square bg-green-500 rounded-full -translate-x-1/2 -translate-y-1/2 origin-top-left scale-0 transition-transform duration-200 ease-in-out pointer-events-none group-hover:scale-100"
     ></span>
 
-    <span class="relative text-green-600 text-lg font-lexend  font-light transition-colors duration-150 capitalize group-hover:text-[#0e100f]" th:text="${id}">Explore Text</span>
+    <span
+      class="relative text-green-600 text-lg font-lexend font-light transition-colors duration-150 capitalize group-hover:text-[#0e100f]"
+      th:text="${id}"
+      >Explore Text</span
+    >
   </a>
 
   <script th:inline="javascript">
     /*<![CDATA[*/
     (function () {
-      const fragmentRoot = /*[[${id}]]*/ 'explore-btn';
+      const fragmentRoot = /*[[${id}]]*/ "explore-btn";
       const btn = document.getElementById(fragmentRoot);
       if (!btn) return;
 
-      const circle = btn.querySelector('.circle');
+      const circle = btn.querySelector(".circle");
       let btnRect = btn.getBoundingClientRect();
 
-      function updateRect() { btnRect = btn.getBoundingClientRect(); }
-      window.addEventListener('resize', updateRect, { passive: true });
+      function updateRect() {
+        btnRect = btn.getBoundingClientRect();
+      }
+      window.addEventListener("resize", updateRect, { passive: true });
 
-      btn.addEventListener('mousemove', (e) => {
+      btn.addEventListener("mousemove", (e) => {
         const top = e.clientY - btnRect.y;
         const left = e.clientX - btnRect.x;
         circle.style.top = `${top}px`;

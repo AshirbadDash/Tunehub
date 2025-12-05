@@ -1,35 +1,57 @@
-<nav th:fragment="header" class="navbar sticky top-0 z-50 bg-base-100/80 backdrop-blur-md transition-all">
-        <div id="nav" class="flex-1">
-            <a th:href="@{/}" class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-2xl font-semibold tracking-wider capitalize pointer-events-auto">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 fill-amber-500"><title>Tunehub</title><path d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"/></svg>
-                Tunehub
-            </a>
+<nav
+  th:fragment="header"
+  class="navbar fixed inset-x-0 top-0 z-10 bg-white/30 filter backdrop-blur-lg transition-all"
+>
+  <div id="nav" class="flex-1">
+    <a
+      th:href="@{/}"
+      class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-2xl font-semibold tracking-wider capitalize pointer-events-auto"
+    >
+      <svg
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 fill-amber-500"
+      >
+        <title>Tunehub</title>
+        <path
+          d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"
+        />
+      </svg>
+      Tunehub
+    </a>
+  </div>
+
+  <div class="flex-none gap-2">
+    <div th:if="${session.email != null}" class="dropdown dropdown-end">
+      <div
+        tabindex="0"
+        role="button"
+        class="btn btn-ghost btn-circle avatar avatar-online hover:scale-105 transition-transform duration-200"
+      >
+        <div class="w-10 rounded-full">
+          <img alt="Profile" th:src="@{/avatars/default/notion_1.png}" />
+        </div>
+      </div>
+
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100/95 backdrop-blur-sm rounded-box z-1 mt-3 w-52 p-2 shadow"
+      >
+        <li>
+          <a class="justify-between">
+            Profile
+            <span class="badge badge-accent">New</span>
+          </a>
+        </li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+      </ul>
     </div>
 
-    <div class="flex-none gap-2">
-
-        <div th:if="${session.email != null}" class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar avatar-online hover:scale-105 transition-transform duration-200">
-                <div class="w-10 rounded-full">
-                    <img alt="Profile" th:src="@{/avatars/default/notion_1.png}"/>
-                </div>
-            </div>
-
-            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100/95 backdrop-blur-sm rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                <li>
-                    <a class="justify-between">
-                        Profile
-                        <span class="badge badge-accent">New</span>
-                    </a>
-                </li>
-                <li><a th:href="@{/logout}">Logout</a></li>
-            </ul>
-        </div>
-
-        <div th:if="${session.email == null}">
-            <th:block th:insert="~{fragments/button :: exploreButton('login', '/users/login')}"></th:block>
-        </div>
-        
+    <div th:if="${session.email == null}">
+      <th:block
+        th:insert="~{fragments/button :: exploreButton('login', '/users/login')}"
+      ></th:block>
     </div>
+  </div>
 </nav>
-</html>

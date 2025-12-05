@@ -1,0 +1,8 @@
+node_modules
+dist
+build
+public
+resources/static
+*.min.js
+*.bundle.js
+.vscode

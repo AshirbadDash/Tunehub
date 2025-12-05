@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.7</version>
+        <version>3.5.8</version>
         <relativePath/>
     </parent>
 
@@ -50,7 +50,6 @@
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.42</version>
         <scope>provided</scope>
     </dependency>
 
@@ -98,21 +97,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
-
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-starter-security</artifactId>-->
-<!--            </dependency>-->
-
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.security</groupId>-->
-<!--                <artifactId>spring-security-test</artifactId>-->
-<!--                <scope>test</scope>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.thymeleaf.extras</groupId>-->
-<!--                <artifactId>thymeleaf-extras-springsecurity6</artifactId>-->
-<!--            </dependency>-->
         </dependencies>
 
     <build>
@@ -174,7 +158,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <release>21</release>

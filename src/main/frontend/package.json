@@ -6,11 +6,15 @@
   "author": "ash",
   "scripts": {
     "build": "npx @tailwindcss/cli -i ./styles.css -o ../resources/static/main.css --minify",
-    "watch": "npx @tailwindcss/cli --watch -i ./styles.css -o ../resources/static/main.css"
+    "watch": "npx @tailwindcss/cli --watch -i ./styles.css -o ../resources/static/main.css",
+    "format": "prettier . ../resources/templates --write",
+    "format:check": "prettier . ../resources/templates --check"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.17",
     "daisyui": "^5.5.5",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.17"
   }
 }
