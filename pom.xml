@@ -144,7 +144,6 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <arguments>run build</arguments>
-                            <skip>${skipFrontendBuild}</skip>
                         </configuration>
                     </execution>
                 </executions>
