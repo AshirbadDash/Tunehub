@@ -26,8 +26,13 @@ WORKDIR /app
 RUN rm -rf src/
 COPY src ./src
 
-# Build the application (skip Maven's Node installation, use system Node.js)
-RUN mvn -B -DskipTests -DskipNodeInstall=true clean package
+# Build frontend assets manually (before Maven)
+WORKDIR /app/src/main/frontend
+RUN npm run build
+
+# Build the application (skip all frontend plugin executions)
+WORKDIR /app
+RUN mvn -B -DskipTests -Dfrontend-maven-plugin.skip=true clean package
 
 # ---------- runtime stage ----------
 FROM eclipse-temurin:21-jre-jammy
