@@ -1,0 +1,43 @@
+# Build artifacts
+target/
+node_modules/
+build/
+dist/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Version control
+.git/
+.gitignore
+
+# Docker files
+Dockerfile
+docker-compose.yaml
+.dockerignore
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+*.test.js
+*.spec.js
+
+# Documentation
+README.md
+docs/
+
+# Environment files (should use secrets)
+.env
+.env.local
+.env.*.local
+

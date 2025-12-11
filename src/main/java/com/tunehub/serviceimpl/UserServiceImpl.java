@@ -38,28 +38,39 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User newUser(RegisterRequestDTO newUserRequest) {
         String email = sanitizeEmail(newUserRequest.getEmail());
+        String username = sanitizeUsername(newUserRequest.getUsername());
 
+        // Validation
         if (email.isBlank()) {
-            log.info("Attempted to add user with blank email.");
-            throw new IllegalArgumentException("Email is required.");
+            log.warn("Attempted to register user with blank email");
+            throw new IllegalArgumentException("Email is required");
         }
 
+        if (username.isBlank()) {
+            log.warn("Attempted to register user with blank username");
+            throw new IllegalArgumentException("Username is required");
+        }
+
+        // Check for existing user
         Optional<User> existingUser = userRepository.findByEmail(email);
         if (existingUser.isPresent()) {
-            log.info("Attempted to add user with existing email: {}", email);
+            log.warn("Attempted to register with existing email: {}", email);
             throw new IllegalArgumentException("Email already exists: " + email);
         }
 
+        // Create new user
         User user = new User();
         user.setEmail(email);
-        user.setUsername(sanitizeUsername(newUserRequest.getUsername()));
+        user.setUsername(username);
         user.setHashedPassword(BCrypt.hashpw(newUserRequest.getPassword(), BCrypt.gensalt(12)));
+        user.setPhoneNumber(newUserRequest.getPhoneNumber());
         user.setAccountType(AccountType.BASIC);
         user.setRole(Role.CUSTOMER);
-
+        user.setActive(true);
+        user.setEmailVerified(false);
 
         User savedUser = userRepository.save(user);
-        log.info("User added successfully with email: {}", email);
+        log.info("User registered successfully: {} ({})", username, email);
         return savedUser;
     }
 
@@ -67,6 +78,26 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findByEmail(String email) {
         log.info("Searching for user with email: {}", email);
         return userRepository.findByEmail(sanitizeEmail(email));
+    }
 
+    @Override
+    @Transactional
+    public User updateUser(User user) {
+        if (user == null || user.getId() == null) {
+            throw new IllegalArgumentException("User or User ID cannot be null");
+        }
+
+        log.info("Updating user: {}", user.getId());
+        return userRepository.save(user);
+    }
+
+    @Override
+    public Optional<User> findById(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("User ID cannot be null");
+        }
+
+        log.info("Finding user by ID: {}", id);
+        return userRepository.findById(id);
     }
 }

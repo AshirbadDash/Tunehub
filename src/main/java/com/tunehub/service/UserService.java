@@ -13,4 +13,8 @@ public interface UserService {
     User newUser(RegisterRequestDTO newUserRequest);
 
     Optional<User> findByEmail(String email);
+
+    User updateUser(User user);
+
+    Optional<User> findById(Integer id);
 }

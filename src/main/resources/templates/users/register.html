@@ -126,6 +126,34 @@
               </label>
             </div>
 
+            <!-- Phone Number Input (Optional) -->
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text text-base font-medium">Phone Number</span>
+                <span class="label-text-alt text-base-content/60">(Optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="1234567890"
+                th:value="*{phoneNumber}"
+                pattern="[0-9]{10,15}"
+                class="input input-bordered w-full"
+                th:classappend="${#fields.hasErrors('phoneNumber')} ? 'input-error' : ''"
+              />
+              <label th:if="${#fields.hasErrors('phoneNumber')}" class="label">
+                <span
+                  class="label-text-alt text-error"
+                  th:text="${#fields.errors('phoneNumber')[0]}"
+                  >Error message</span
+                >
+              </label>
+              <label class="label">
+                <span class="label-text-alt text-base-content/60">10-15 digits only</span>
+              </label>
+            </div>
+
             <!-- Password Input -->
             <div class="form-control w-full">
               <label class="label">
@@ -144,6 +172,29 @@
                 <span
                   class="label-text-alt text-error"
                   th:text="${#fields.errors('password')[0]}"
+                  >Error message</span
+                >
+              </label>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text text-base font-medium">Confirm Password</span>
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="••••••••"
+                required
+                class="input input-bordered w-full"
+                th:classappend="${#fields.hasErrors('confirmPassword')} ? 'input-error' : ''"
+              />
+              <label th:if="${#fields.hasErrors('confirmPassword')}" class="label">
+                <span
+                  class="label-text-alt text-error"
+                  th:text="${#fields.errors('confirmPassword')[0]}"
                   >Error message</span
                 >
               </label>

@@ -21,6 +21,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <node.version>v24.11.0</node.version>
         <npm.version>11.6.1</npm.version>
+        <!-- Skip flags for Docker builds where Node is pre-installed -->
+        <skipNodeInstall>false</skipNodeInstall>
+        <skipFrontendBuild>false</skipFrontendBuild>
     </properties>
 
     <dependencies>
@@ -122,6 +125,8 @@
                         <configuration>
                             <nodeVersion>${node.version}</nodeVersion>
                             <npmVersion>${npm.version}</npmVersion>
+                            <!-- Skip if Node already available (Docker build) -->
+                            <skip>${skipNodeInstall}</skip>
                         </configuration>
                     </execution>
 
@@ -132,7 +137,8 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <arguments>install</arguments>
+                            <arguments>install --prefer-offline --no-audit</arguments>
+                            <skip>${skipFrontendBuild}</skip>
                         </configuration>
                     </execution>
 
@@ -144,6 +150,7 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <arguments>run build</arguments>
+                            <skip>${skipFrontendBuild}</skip>
                         </configuration>
                     </execution>
                 </executions>
@@ -152,6 +159,9 @@
                     <nodeVersion>${node.version}</nodeVersion>
                     <workingDirectory>src/main/frontend</workingDirectory>
                     <installDirectory>target</installDirectory>
+                    <!-- Use system Node.js if available -->
+                    <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
+                    <npmDownloadRoot>https://registry.npmjs.org/npm/-/</npmDownloadRoot>
                 </configuration>
             </plugin>
 

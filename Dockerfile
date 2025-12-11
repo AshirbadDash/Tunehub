@@ -2,26 +2,51 @@
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copy only pom first so dependency layer can be cached
+# Install Node.js for frontend build (using binary download for speed)
+ARG NODE_VERSION=24.11.0
+RUN curl -fsSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -xJ -C /usr/local --strip-components=1
+
+# ===== LAYER 1: Maven Dependencies (cached until pom.xml changes) =====
 COPY pom.xml ./
+# Create dummy structure to satisfy Maven and download dependencies
+RUN mkdir -p src/main/java src/main/resources src/test/java && \
+    echo "public class Dummy {}" > src/main/java/Dummy.java && \
+    mvn -B dependency:go-offline -DskipTests -Dfrontend-maven-plugin.skip=true || \
+    mvn -B dependency:resolve dependency:resolve-plugins -DskipTests || true
 
-# Download dependencies (offline mode) to speed up rebuilds
-RUN mvn -B -DskipTests dependency:go-offline
+# ===== LAYER 2: Frontend Dependencies (cached until package.json changes) =====
+COPY src/main/frontend/package*.json ./src/main/frontend/
+WORKDIR /app/src/main/frontend
+RUN npm ci --prefer-offline --no-audit || npm install --prefer-offline --no-audit
 
-# Copy source and build the executable jar
+# ===== LAYER 3: Source Code & Build (rebuilds when code changes) =====
+WORKDIR /app
+# Remove dummy files and copy real source
+RUN rm -rf src/
 COPY src ./src
-RUN mvn -B -DskipTests package
+
+# Build the application (skip Maven's Node installation, use system Node.js)
+RUN mvn -B -DskipTests -DskipNodeInstall=true clean package
 
 # ---------- runtime stage ----------
-FROM eclipse-temurin:21-jdk-jammy
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
-# Copy built jar from build stage (assumes Spring Boot produces an executable jar in target/)
-COPY --from=build /app/target/*.jar ./app.jar
+# Create non-root user for security
+RUN groupadd -r spring && useradd -r -g spring spring
 
-# Default PORT used by Render is 10000; keep PORT configurable
+# Copy built jar from build stage
+COPY --from=build --chown=spring:spring /app/target/*.jar ./app.jar
+
+# Switch to non-root user
+USER spring
+
+# Default PORT used by Render
 ENV PORT=10000
 EXPOSE 10000
 
-# Allow extra JVM options via JAVA_OPTS; ensure Spring Boot uses the PORT env var.
+# Optimized JVM options for containerized environment
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
+
+# Run the application
 ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -Dserver.port=${PORT:-10000} -jar /app/app.jar"]

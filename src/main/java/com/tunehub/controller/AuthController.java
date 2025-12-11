@@ -53,25 +53,37 @@ public class AuthController {
                                      RedirectAttributes ra,
                                      Model model) {
 
+        // Check for validation errors
         if (bindingResult.hasErrors()) {
             log.info("Registration failed due to validation errors: {}", bindingResult.getAllErrors());
             return "users/register";
         }
 
-        Optional<User> existingUser = userService.findByEmail(newUserRequest.getEmail());
-
-        if (existingUser.isPresent()) {
-            String message = "Email already exists. Please use a different email.";
-            log.info("Registration failed: Email {} already exists.", newUserRequest.getEmail());
-            model.addAttribute("message", message);
+        // Check password confirmation
+        if (!newUserRequest.isPasswordMatch()) {
+            log.info("Registration failed: Password confirmation does not match");
+            model.addAttribute("message", "Password and confirmation password do not match.");
             return "users/register";
         }
 
-        userService.newUser(newUserRequest);
-        log.info("User registered successfully with email: {}", newUserRequest.getEmail());
+        // Check if email already exists
+        Optional<User> existingUser = userService.findByEmail(newUserRequest.getEmail());
+        if (existingUser.isPresent()) {
+            log.info("Registration failed: Email {} already exists", newUserRequest.getEmail());
+            model.addAttribute("message", "Email already exists. Please use a different email.");
+            return "users/register";
+        }
 
-        ra.addFlashAttribute("message", "Registration successful! Please login.");
-        return "redirect:/login";
+        try {
+            userService.newUser(newUserRequest);
+            log.info("User registered successfully with email: {}", newUserRequest.getEmail());
+            ra.addFlashAttribute("message", "Registration successful! Please login.");
+            return "redirect:/login";
+        } catch (Exception e) {
+            log.error("Registration failed for email {}: {}", newUserRequest.getEmail(), e.getMessage());
+            model.addAttribute("message", "Registration failed. Please try again.");
+            return "users/register";
+        }
     }
 
     // ==================== LOGIN ====================
@@ -92,8 +104,7 @@ public class AuthController {
     public String processLogin(@RequestParam String email,
                               @RequestParam String password,
                               HttpServletRequest request,
-                              HttpSession session,
-                              RedirectAttributes ra) {
+                              Model model) {
 
         // Normalize email
         String normalizedEmail = email == null ? "" : email.trim().toLowerCase();
@@ -105,8 +116,8 @@ public class AuthController {
         Optional<User> optionalUser = userService.findByEmail(normalizedEmail);
         if (optionalUser.isEmpty()) {
             log.info("Login failed for email: {}. Email not found.", normalizedEmail);
-            ra.addFlashAttribute("message", invalidMsg);
-            return "redirect:/login";
+            model.addAttribute("message", invalidMsg);
+            return "users/login";
         }
 
         User user = optionalUser.get();
@@ -114,17 +125,23 @@ public class AuthController {
         // Verify password
         if (!BCrypt.checkpw(password, user.getHashedPassword())) {
             log.info("Login failed for email: {}. Incorrect password.", normalizedEmail);
-            ra.addFlashAttribute("message", invalidMsg);
-            return "redirect:/login";
+            model.addAttribute("message", invalidMsg);
+            return "users/login";
         }
 
         // Successful login - protect against session fixation
+        HttpSession session;
         try {
             request.changeSessionId();
+            session = request.getSession(false);
         } catch (Exception e) {
-            session.invalidate();
+            request.getSession().invalidate();
             session = request.getSession(true);
         }
+
+        // Update last login timestamp
+        user.updateLastLogin();
+        userService.updateUser(user);
 
         // Store user info in session
         session.setAttribute("email", user.getEmail());
