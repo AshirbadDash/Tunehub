@@ -21,9 +21,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <node.version>v24.11.0</node.version>
         <npm.version>11.6.1</npm.version>
-        <!-- Skip flags for Docker builds where Node is pre-installed -->
-        <skipNodeInstall>false</skipNodeInstall>
-        <skipFrontendBuild>false</skipFrontendBuild>
     </properties>
 
     <dependencies>
@@ -125,8 +122,6 @@
                         <configuration>
                             <nodeVersion>${node.version}</nodeVersion>
                             <npmVersion>${npm.version}</npmVersion>
-                            <!-- Skip if Node already available (Docker build) -->
-                            <skip>${skipNodeInstall}</skip>
                         </configuration>
                     </execution>
 
@@ -138,7 +133,6 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <arguments>install --prefer-offline --no-audit</arguments>
-                            <skip>${skipFrontendBuild}</skip>
                         </configuration>
                     </execution>
 
