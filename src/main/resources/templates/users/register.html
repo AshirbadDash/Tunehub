@@ -129,8 +129,12 @@
             <!-- Phone Number Input (Optional) -->
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text text-base font-medium">Phone Number</span>
-                <span class="label-text-alt text-base-content/60">(Optional)</span>
+                <span class="label-text text-base font-medium"
+                  >Phone Number</span
+                >
+                <span class="label-text-alt text-base-content/60"
+                  >(Optional)</span
+                >
               </label>
               <input
                 type="tel"
@@ -150,7 +154,9 @@
                 >
               </label>
               <label class="label">
-                <span class="label-text-alt text-base-content/60">10-15 digits only</span>
+                <span class="label-text-alt text-base-content/60"
+                  >10-15 digits only</span
+                >
               </label>
             </div>
 
@@ -180,7 +186,9 @@
             <!-- Confirm Password Input -->
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text text-base font-medium">Confirm Password</span>
+                <span class="label-text text-base font-medium"
+                  >Confirm Password</span
+                >
               </label>
               <input
                 type="password"
@@ -191,7 +199,10 @@
                 class="input input-bordered w-full"
                 th:classappend="${#fields.hasErrors('confirmPassword')} ? 'input-error' : ''"
               />
-              <label th:if="${#fields.hasErrors('confirmPassword')}" class="label">
+              <label
+                th:if="${#fields.hasErrors('confirmPassword')}"
+                class="label"
+              >
                 <span
                   class="label-text-alt text-error"
                   th:text="${#fields.errors('confirmPassword')[0]}"
