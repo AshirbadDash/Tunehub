@@ -2,13 +2,36 @@ name: Keep Render App Alive
 
 on:
   schedule:
-    - cron: "*/10 * * * *"  # every 10 minutes (UTC)
-  workflow_dispatch:
+    # Run every 14 minutes (Render free tier spins down after 15min of inactivity)
+    - cron: "*/14 * * * *"
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
       - name: Ping Render App
         run: |
-          curl -fsS "${{ secrets.KEEPALIVE_URL }}" || true
+          echo "🔄 Pinging Render app..."
+          echo "⏰ Time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          
+          # Ping with timeout and show response
+          response=$(curl -w "\nHTTP:%{http_code}" \
+                          -sS "${{ secrets.KEEPALIVE_URL }}" \
+                          --max-time 60 \
+                          -H "User-Agent: GitHub-KeepAlive" \
+                          -o /dev/null) || {
+            echo "⚠️ Curl failed (app might be spinning up)"
+            exit 0
+          }
+          
+          http_code=$(echo "$response" | grep "HTTP:" | cut -d: -f2)
+          echo "📊 Status: $http_code"
+          
+          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 500 ]; then
+            echo "✅ App responded!"
+          else
+            echo "⚠️ Unusual status: $http_code"
+          fi
