@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Auth Layout Fragments</title>
+  </head>
+  <body>
+    <!-- Auth Layout Fragment for Login/Register Pages -->
+    <div th:fragment="authLayout(title, subtitle, content)">
+      <div
+        class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
+      >
+        <!-- Auth Card -->
+        <div
+          class="card w-full max-w-md bg-base-100 shadow-2xl border border-base-200"
+        >
+          <div class="card-body p-8 sm:p-10">
+            <!-- Logo Section -->
+            <div class="mb-8">
+              <a
+                th:href="@{/}"
+                class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-3xl font-bold tracking-wider capitalize"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 fill-amber-500"
+                >
+                  <title>Tunehub</title>
+                  <path
+                    d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"
+                  />
+                </svg>
+                <span>Tunehub</span>
+              </a>
+              <h2
+                class="text-2xl font-semibold text-base-content mt-6 mb-2"
+                th:text="${title}"
+              >
+                Title
+              </h2>
+              <p class="text-base-content/60" th:text="${subtitle}">Subtitle</p>
+            </div>
+
+            <!-- Content Slot -->
+            <div th:replace="${content}"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Background Decoration -->
+      <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div
+          class="absolute -top-40 -right-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+        ></div>
+        <div
+          class="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Simple Auth Card Fragment (without background) -->
+    <div th:fragment="authCard">
+      <div
+        class="card w-full max-w-md bg-base-100 shadow-2xl border border-base-200"
+      >
+        <div class="card-body p-8 sm:p-10">
+          <!-- Logo Section -->
+          <div class="mb-8">
+            <a
+              th:href="@{/}"
+              class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-3xl font-bold tracking-wider capitalize"
+            >
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 fill-amber-500"
+              >
+                <title>Tunehub</title>
+                <path
+                  d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"
+                />
+              </svg>
+              <span>Tunehub</span>
+            </a>
+          </div>
+
+          <!-- Content will be inserted by parent template -->
+          <div class="auth-content">
+            <!-- Form content goes here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background Decoration Fragment (can be used separately) -->
+    <div th:fragment="authBackground">
+      <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div
+          class="absolute -top-40 -right-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+        ></div>
+        <div
+          class="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

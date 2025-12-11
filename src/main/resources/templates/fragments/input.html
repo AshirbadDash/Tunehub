@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Input Fragments</title>
+  </head>
+  <body>
+    <!-- Text Input Fragment -->
+    <div
+      th:fragment="textInput(id, name, type, label, placeholder, value, required, error)"
+    >
+      <div class="form-control w-full">
+        <label th:if="${label != null}" class="label">
+          <span class="label-text text-base font-medium" th:text="${label}"
+            >Label</span
+          >
+          <span th:if="${required}" class="label-text-alt text-error">*</span>
+        </label>
+        <input
+          th:id="${id}"
+          th:name="${name}"
+          th:type="${type} ?: 'text'"
+          th:placeholder="${placeholder}"
+          th:value="${value}"
+          th:required="${required}"
+          class="input input-bordered w-full bg-base-100 focus:input-primary transition-all duration-200"
+          th:classappend="${error != null ? 'input-error' : ''}"
+        />
+        <label th:if="${error != null}" class="label">
+          <span class="label-text-alt text-error" th:text="${error}"
+            >Error message</span
+          >
+        </label>
+      </div>
+    </div>
+
+    <!-- Email Input Fragment -->
+    <div
+      th:fragment="emailInput(id, name, label, placeholder, value, required, error)"
+    >
+      <div class="form-control w-full">
+        <label th:if="${label != null}" class="label">
+          <span class="label-text text-base font-medium" th:text="${label}"
+            >Email</span
+          >
+          <span th:if="${required}" class="label-text-alt text-error">*</span>
+        </label>
+        <input
+          th:id="${id}"
+          th:name="${name}"
+          type="email"
+          th:placeholder="${placeholder}"
+          th:value="${value}"
+          th:required="${required}"
+          class="input input-bordered w-full bg-base-100 focus:input-primary transition-all duration-200"
+          th:classappend="${error != null ? 'input-error' : ''}"
+        />
+        <label th:if="${error != null}" class="label">
+          <span class="label-text-alt text-error" th:text="${error}"
+            >Error message</span
+          >
+        </label>
+      </div>
+    </div>
+
+    <!-- Password Input Fragment -->
+    <div
+      th:fragment="passwordInput(id, name, label, placeholder, required, error)"
+    >
+      <div class="form-control w-full">
+        <label th:if="${label != null}" class="label">
+          <span class="label-text text-base font-medium" th:text="${label}"
+            >Password</span
+          >
+          <span th:if="${required}" class="label-text-alt text-error">*</span>
+        </label>
+        <input
+          th:id="${id}"
+          th:name="${name}"
+          type="password"
+          th:placeholder="${placeholder}"
+          th:required="${required}"
+          class="input input-bordered w-full bg-base-100 focus:input-primary transition-all duration-200"
+          th:classappend="${error != null ? 'input-error' : ''}"
+        />
+        <label th:if="${error != null}" class="label">
+          <span class="label-text-alt text-error" th:text="${error}"
+            >Error message</span
+          >
+        </label>
+      </div>
+    </div>
+
+    <!-- Textarea Fragment -->
+    <div
+      th:fragment="textarea(id, name, label, placeholder, value, rows, required, error)"
+    >
+      <div class="form-control w-full">
+        <label th:if="${label != null}" class="label">
+          <span class="label-text text-base font-medium" th:text="${label}"
+            >Label</span
+          >
+          <span th:if="${required}" class="label-text-alt text-error">*</span>
+        </label>
+        <textarea
+          th:id="${id}"
+          th:name="${name}"
+          th:placeholder="${placeholder}"
+          th:rows="${rows} ?: 4"
+          th:required="${required}"
+          class="textarea textarea-bordered w-full bg-base-100 focus:textarea-primary transition-all duration-200"
+          th:classappend="${error != null ? 'textarea-error' : ''}"
+          th:text="${value}"
+        ></textarea>
+        <label th:if="${error != null}" class="label">
+          <span class="label-text-alt text-error" th:text="${error}"
+            >Error message</span
+          >
+        </label>
+      </div>
+    </div>
+
+    <!-- Select/Dropdown Fragment -->
+    <div th:fragment="select(id, name, label, options, value, required, error)">
+      <div class="form-control w-full">
+        <label th:if="${label != null}" class="label">
+          <span class="label-text text-base font-medium" th:text="${label}"
+            >Label</span
+          >
+          <span th:if="${required}" class="label-text-alt text-error">*</span>
+        </label>
+        <select
+          th:id="${id}"
+          th:name="${name}"
+          th:required="${required}"
+          class="select select-bordered w-full bg-base-100 focus:select-primary transition-all duration-200"
+          th:classappend="${error != null ? 'select-error' : ''}"
+        >
+          <option disabled selected th:if="${value == null}">
+            Select an option
+          </option>
+          <option
+            th:each="option : ${options}"
+            th:value="${option.value}"
+            th:text="${option.text}"
+            th:selected="${option.value == value}"
+          >
+            Option
+          </option>
+        </select>
+        <label th:if="${error != null}" class="label">
+          <span class="label-text-alt text-error" th:text="${error}"
+            >Error message</span
+          >
+        </label>
+      </div>
+    </div>
+
+    <!-- Checkbox Fragment -->
+    <div th:fragment="checkbox(id, name, label, checked, required)">
+      <div class="form-control">
+        <label class="label cursor-pointer justify-start gap-3">
+          <input
+            th:id="${id}"
+            th:name="${name}"
+            type="checkbox"
+            th:checked="${checked}"
+            th:required="${required}"
+            class="checkbox checkbox-primary"
+          />
+          <span class="label-text" th:text="${label}">Label</span>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
