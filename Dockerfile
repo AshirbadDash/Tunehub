@@ -4,7 +4,8 @@ WORKDIR /app
 
 # Install Node.js for frontend build (using binary download for speed)
 ARG NODE_VERSION=24.11.0
-RUN curl -fsSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -xJ -C /usr/local --strip-components=1
+RUN apt-get update && apt-get install -y xz-utils && rm -rf /var/lib/apt/lists/* && \
+    curl -fsSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -xJ -C /usr/local --strip-components=1
 
 # ===== LAYER 1: Maven Dependencies (cached until pom.xml changes) =====
 COPY pom.xml ./
