@@ -13,9 +13,6 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Create logs folder
-RUN mkdir -p logs
-
 # Copy the jar file from build step
 COPY --from=build /app/target/*.jar app.jar
 

@@ -11,9 +11,9 @@
 
 @layer base {
   /*
-    Compatibility: tailwind v4 changed default border color. Keep
-    old look by setting a fallback border color.
-  */
+      Compatibility: tailwind v4 changed default border color. Keep
+      old look by setting a fallback border color.
+    */
   *,
   ::after,
   ::before,
@@ -92,10 +92,53 @@
   }
 }
 
-/* theme variables (keeps your fonts available) */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk-v22-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk-v22-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-v20-latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-inter: 'Inter', sans-serif;
-  --font-manrope: 'Manrope', sans-serif;
-  --font-mono: 'Space Mono', monospace;
-  --font-lexend: 'Lexend', sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading), sans-serif;
+    letter-spacing: -0.01em;
+  }
 }

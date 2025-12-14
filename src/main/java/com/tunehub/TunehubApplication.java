@@ -9,11 +9,6 @@ import java.io.File;
 public class TunehubApplication {
 
     public static void main(String[] args) {
-        // Create logs directory if it doesn't exist
-        File logsDir = new File("logs");
-        if (!logsDir.exists()) {
-            logsDir.mkdirs();
-        }
 
         SpringApplication.run(TunehubApplication.class, args);
     }

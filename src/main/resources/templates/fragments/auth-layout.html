@@ -10,7 +10,6 @@
       <div
         class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
       >
-        <!-- Auth Card -->
         <div
           class="card w-full max-w-md bg-base-100 shadow-2xl border border-base-200"
         >
@@ -19,7 +18,7 @@
             <div class="mb-8">
               <a
                 th:href="@{/}"
-                class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-3xl font-bold tracking-wider capitalize"
+                class="inline-flex items-center gap-2 text-black cursor-pointer text-3xl font-semibold tracking-wider capitalize"
               >
                 <svg
                   role="img"
@@ -34,12 +33,14 @@
                 </svg>
                 <span>Tunehub</span>
               </a>
+
               <h2
                 class="text-2xl font-semibold text-base-content mt-6 mb-2"
                 th:text="${title}"
               >
                 Title
               </h2>
+
               <p class="text-base-content/60" th:text="${subtitle}">Subtitle</p>
             </div>
 
@@ -63,17 +64,16 @@
       </div>
     </div>
 
-    <!-- Simple Auth Card Fragment (without background) -->
+    <!-- Simple Auth Card Fragment -->
     <div th:fragment="authCard">
       <div
         class="card w-full max-w-md bg-base-100 shadow-2xl border border-base-200"
       >
         <div class="card-body p-8 sm:p-10">
-          <!-- Logo Section -->
           <div class="mb-8">
             <a
               th:href="@{/}"
-              class="inline-flex items-center gap-2 text-black cursor-pointer font-inter text-3xl font-bold tracking-wider capitalize"
+              class="inline-flex items-center gap-2 text-black cursor-pointer text-3xl font-semibold tracking-wider capitalize"
             >
               <svg
                 role="img"
@@ -90,26 +90,8 @@
             </a>
           </div>
 
-          <!-- Content will be inserted by parent template -->
-          <div class="auth-content">
-            <!-- Form content goes here -->
-          </div>
+          <div class="auth-content"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- Background Decoration Fragment (can be used separately) -->
-    <div th:fragment="authBackground">
-      <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div
-          class="absolute -top-40 -right-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
-        ></div>
-        <div
-          class="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
-        ></div>
-        <div
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
-        ></div>
       </div>
     </div>
   </body>

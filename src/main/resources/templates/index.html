@@ -10,60 +10,42 @@
     <title>TuneHub</title>
     <link th:href="@{/main.css}" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
-
-    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
-
-    <link rel="apple-touch-icon" th:href="@{/images/logo.png}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@300;400;500;600&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
   </head>
-  <!-- <body class="min-h-screen flex flex-col"> -->
+
   <body class="max-w-screen overflow-x-hidden">
     <th:block th:replace="~{fragments/header :: header}"></th:block>
 
     <main class="flex-1 pt-16">
       <div class="w-full">
-        <span
-          id="div"
-          class="text-4xl md:text-5xl font-extralight font-manrope tracking-tight text-neutral leading-tight flex justify-center items-center"
+        <!-- HERO HEADING -->
+        <h1
+          class="text-4xl md:text-5xl font-semibold tracking-tight text-neutral leading-tight flex justify-center items-center"
         >
           Turn up the
           <span
             class="text-rotate tracking-tight leading-relaxed font-semibold text-5xl px-2"
           >
-            <span class="">
+            <span>
               <span class="text-emerald-500">Volume</span>
               <span class="text-orange-500">Energy ▶︎▶︎</span>
-              <span class="text-violet-400">︎Creativity</span>
+              <span class="text-violet-400">Creativity</span>
               <span class="text-rose-500">Emotion</span>
               <span class="text-fuchsia-400">Experience</span>
             </span>
           </span>
-        </span>
+        </h1>
       </div>
+
       <th:block th:replace="~{fragments/string :: string}"></th:block>
 
       <ul class="list bg-base-100 rounded-box">
-        <!-- <div class="relative w-full max-w-lg mx-auto mb-4 mt-8 h-40 flex items-center justify-center">
-        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-        <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-        <div class="absolute  -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-    </div> -->
-
         <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">
           Most played songs this week
         </li>
 
+        <!-- ROW 01 -->
         <li class="list-row">
-          <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
+          <div class="text-4xl font-normal opacity-40 tabular-nums">01</div>
           <div>
             <img
               class="size-10 rounded-box"
@@ -71,32 +53,21 @@
             />
           </div>
           <div class="list-col-grow">
-            <div>Dio Lupa</div>
+            <div>Dia Lupa</div>
             <div class="text-xs uppercase font-semibold opacity-60">
               Remaining Reason
             </div>
           </div>
           <button class="btn btn-square btn-ghost">
-            <svg
-              class="size-[1.2em]"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M6 3L20 12 6 21 6 3z"></path>
-              </g>
+            <svg class="size-[1.2em]" viewBox="0 0 24 24">
+              <path d="M6 3L20 12 6 21 6 3z" />
             </svg>
           </button>
         </li>
 
+        <!-- ROW 02 -->
         <li class="list-row">
-          <div class="text-4xl font-thin opacity-30 tabular-nums">02</div>
+          <div class="text-4xl font-normal opacity-40 tabular-nums">02</div>
           <div>
             <img
               class="size-10 rounded-box"
@@ -110,26 +81,15 @@
             </div>
           </div>
           <button class="btn btn-square btn-ghost">
-            <svg
-              class="size-[1.2em]"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M6 3L20 12 6 21 6 3z"></path>
-              </g>
+            <svg class="size-[1.2em]" viewBox="0 0 24 24">
+              <path d="M6 3L20 12 6 21 6 3z" />
             </svg>
           </button>
         </li>
 
+        <!-- ROW 03 -->
         <li class="list-row">
-          <div class="text-4xl font-thin opacity-30 tabular-nums">03</div>
+          <div class="text-4xl font-normal opacity-40 tabular-nums">03</div>
           <div>
             <img
               class="size-10 rounded-box"
@@ -143,26 +103,15 @@
             </div>
           </div>
           <button class="btn btn-square btn-ghost">
-            <svg
-              class="size-[1.2em]"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M6 3L20 12 6 21 6 3z"></path>
-              </g>
+            <svg class="size-[1.2em]" viewBox="0 0 24 24">
+              <path d="M6 3L20 12 6 21 6 3z" />
             </svg>
           </button>
         </li>
 
+        <!-- ROW 04 -->
         <li class="list-row">
-          <div class="text-4xl font-thin opacity-30 tabular-nums">04</div>
+          <div class="text-4xl font-normal opacity-40 tabular-nums">04</div>
           <div>
             <img
               class="size-10 rounded-box"
@@ -176,26 +125,15 @@
             </div>
           </div>
           <button class="btn btn-square btn-ghost">
-            <svg
-              class="size-[1.2em]"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M6 3L20 12 6 21 6 3z"></path>
-              </g>
+            <svg class="size-[1.2em]" viewBox="0 0 24 24">
+              <path d="M6 3L20 12 6 21 6 3z" />
             </svg>
           </button>
         </li>
 
+        <!-- ROW 05 -->
         <li class="list-row">
-          <div class="text-4xl font-thin opacity-30 tabular-nums">05</div>
+          <div class="text-4xl font-normal opacity-40 tabular-nums">05</div>
           <div>
             <img
               class="size-10 rounded-box"
@@ -209,20 +147,8 @@
             </div>
           </div>
           <button class="btn btn-square btn-ghost">
-            <svg
-              class="size-[1.2em]"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M6 3L20 12 6 21 6 3z"></path>
-              </g>
+            <svg class="size-[1.2em]" viewBox="0 0 24 24">
+              <path d="M6 3L20 12 6 21 6 3z" />
             </svg>
           </button>
         </li>
@@ -232,16 +158,13 @@
         th:replace="~{fragments/infinite-carosal :: card-gallary}"
       ></th:block>
     </main>
+
     <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
-      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     ></script>
-    <script
-      src="../static/animationGsap.js"
-      th:src="@{/animationGsap.js}"
-    ></script>
+    <script th:src="@{/animationGsap.js}"></script>
   </body>
 </html>

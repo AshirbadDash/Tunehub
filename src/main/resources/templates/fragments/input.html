@@ -11,9 +11,7 @@
     >
       <div class="form-control w-full">
         <label th:if="${label != null}" class="label">
-          <span class="label-text text-base font-medium" th:text="${label}"
-            >Label</span
-          >
+          <span class="label-text font-medium" th:text="${label}">Label</span>
           <span th:if="${required}" class="label-text-alt text-error">*</span>
         </label>
         <input
