@@ -1,37 +1,20 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 Not Found</title>
-    <style>
-      body {
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-
-      .container {
-        text-align: center;
-      }
-
-      h1 {
-        color: #d9534f;
-      }
-
-      p {
-        color: #333;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1 th:text="${error}">404 Not Found</h1>
-      <p th:text="${message}">
+<html
+        data-theme="light"
+        class="scroll-smooth"
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8" />
+  <title>TuneHub</title>
+  <link th:href="@{/main.css}" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
+</head>
+  <body class="flex bg-white m-0 p-0 content-center items-center h-screen">
+    <div class="container text-center">
+      <h1 class="text-error text-4xl" th:text="${error}">404 Not Found</h1>
+      <p class="text-neutral-400 text-3xl" th:text="${message}">
         Sorry, the page you are looking for might be in another castle.
       </p>
     </div>

@@ -1,11 +1,11 @@
 <nav
   th:fragment="header"
-  class="navbar fixed inset-x-0 top-0 z-10 bg-white/30 backdrop-blur-lg transition-all"
+  class="navbar fixed inset-x-0 top-0 z-10  backdrop-blur-lg transition-all"
 >
   <div id="nav" class="flex-1">
     <a
       th:href="@{/}"
-      class="inline-flex items-center gap-2 text-black cursor-pointer text-2xl font-medium tracking-wide capitalize pointer-events-auto"
+      class="inline-flex items-center gap-2 text-base-content cursor-pointer text-2xl font-medium tracking-wide capitalize pointer-events-auto"
     >
       <svg
         role="img"
@@ -27,9 +27,9 @@
       <div
         tabindex="0"
         role="button"
-        class="btn btn-ghost btn-circle avatar hover:bg-gray-100 transition-all duration-200 ring-2 ring-transparent hover:ring-amber-200"
+        class="btn btn-ghost btn-circle avatar hover:bg-base-content transition-all duration-200 ring-2 ring-transparent hover:ring-neutral-content"
       >
-        <div class="w-10 rounded-full ring-2 ring-white shadow-sm">
+        <div class="w-10 rounded-full">
           <img
             alt="Profile"
             th:src="@{/avatars/default/notion_1.png}"
@@ -40,7 +40,7 @@
 
       <div
         tabindex="0"
-        class="dropdown-content bg-white rounded-xl z-[1] mt-3 w-64 p-2 shadow-2xl border border-gray-200 animate-in fade-in slide-in-from-top-2 duration-200"
+        class="dropdown-content bg-base-100  rounded-xl z-[1] mt-3 w-64 p-2  border border-base-300  animate-in fade-in slide-in-from-top-2 duration-200"
       >
         <div class="px-4 py-3 mb-1">
           <div class="flex items-center gap-3">
@@ -53,13 +53,13 @@
             </div>
             <div class="flex-1 min-w-0">
               <p
-                class="text-sm text-gray-900 truncate"
+                class="text-sm text-base-content truncate"
                 th:text="${session.username}"
               >
                 Username
               </p>
               <p
-                class="text-xs text-gray-500 truncate"
+                class="text-xs text-base-content truncate"
                 th:text="${session.email}"
               >
                 user@email.com
@@ -68,7 +68,7 @@
           </div>
         </div>
 
-        <div class="h-px bg-gray-200 my-1"></div>
+        <div class="h-px bg- my-1"></div>
 
         <div class="space-y-1 p-1">
           <a
