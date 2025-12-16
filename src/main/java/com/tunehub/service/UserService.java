@@ -1,20 +1,39 @@
 package com.tunehub.service;
 
-import com.tunehub.dto.UserRegisterRequestDTO;
 import com.tunehub.model.entity.User;
+import com.tunehub.model.enums.Role;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Service interface for managing Users.
  */
 public interface UserService {
 
-    User newUser(UserRegisterRequestDTO newUserRequest);
+    // -------- Creation --------
+    User createUser(User user);
+
+    // -------- Lookup --------
+    Optional<User> findById(Long id);
 
     Optional<User> findByEmail(String email);
 
+    Optional<User> findByUsername(String username);
+
+    boolean existsByEmail(String email);
+
+    boolean existsByUsername(String username);
+
+    // -------- Update --------
     User updateUser(User user);
 
-    Optional<User> findById(Long id);
+    // -------- Admin --------
+    List<User> getAllUsers();
+
+    List<User> getUsersByRole(Role role);
+
+    List<User> getActiveUsers();
+
+    List<User> getInactiveUsers();
 }

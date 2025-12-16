@@ -1,7 +1,9 @@
 package com.tunehub.controller;
 
 import com.tunehub.common.SessionHelper;
+import com.tunehub.dto.UserLoginRequestDTO;
 import com.tunehub.dto.UserRegisterRequestDTO;
+import com.tunehub.mapper.UserMapper;
 import com.tunehub.model.entity.User;
 import com.tunehub.model.enums.Role;
 import com.tunehub.service.UserService;
@@ -46,42 +48,36 @@ public class AuthController {
         model.addAttribute("newUser", new UserRegisterRequestDTO());
         return "users/register";
     }
-
     @PostMapping("/register")
-    public String processRegistration(@Valid @ModelAttribute("newUser") UserRegisterRequestDTO newUserRequest,
-                                     BindingResult bindingResult,
-                                     RedirectAttributes ra,
-                                     Model model) {
+    public String processRegistration(
+            @Valid @ModelAttribute("newUser") UserRegisterRequestDTO dto,
+            BindingResult bindingResult,
+            RedirectAttributes ra,
+            Model model) {
 
-        // Check for validation errors
         if (bindingResult.hasErrors()) {
-            log.info("Registration failed due to validation errors: {}", bindingResult.getAllErrors());
             return "users/register";
         }
 
-        // Check password confirmation
-        if (!newUserRequest.isPasswordMatch()) {
-            log.info("Registration failed: Password confirmation does not match");
+        if (!dto.isPasswordMatch()) {
             model.addAttribute("message", "Password and confirmation password do not match.");
             return "users/register";
         }
 
-        // Check if email already exists
-        Optional<User> existingUser = userService.findByEmail(newUserRequest.getEmail());
-        if (existingUser.isPresent()) {
-            log.info("Registration failed: Email {} already exists", newUserRequest.getEmail());
-            model.addAttribute("message", "Email already exists. Please use a different email.");
-            return "users/register";
-        }
-
         try {
-            userService.newUser(newUserRequest);
-            log.info("User registered successfully with email: {}", newUserRequest.getEmail());
-            ra.addFlashAttribute("message", "Registration successful! Please login.");
+            User user = UserMapper.toUser(dto);
+
+            userService.createUser(user);
+
+            ra.addFlashAttribute("message", "Registration successful. Please log in.");
             return "redirect:/login";
-        } catch (Exception e) {
-            log.error("Registration failed for email {}: {}", newUserRequest.getEmail(), e.getMessage());
-            model.addAttribute("message", "Registration failed. Please try again.");
+
+        } catch (IllegalStateException e) {
+            model.addAttribute("message", e.getMessage());
+            return "users/register";
+
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("message", "Invalid registration data.");
             return "users/register";
         }
     }
@@ -89,74 +85,73 @@ public class AuthController {
     // ==================== LOGIN ====================
 
     @GetMapping("/login")
-    public String showLoginForm(HttpSession session) {
-        // Redirect if already logged in
+    public String showLoginForm(Model model, HttpSession session) {
+
         if (SessionHelper.isLoggedIn(session)) {
-            log.info("User already logged in with email: {}. Redirecting to dashboard.",
-                    SessionHelper.getCurrentUserEmail(session));
+            Long userId = SessionHelper.getCurrentUserId(session);
+            log.info("Authenticated user attempted to access login page. userId={}", userId);
             return "redirect:/users/dashboard";
         }
 
+        model.addAttribute("loginRequest", new UserLoginRequestDTO());
         return "users/login";
     }
 
     @PostMapping("/login")
-    public String processLogin(@RequestParam String email,
-                              @RequestParam String password,
-                              HttpServletRequest request,
-                              Model model) {
+    public String processLogin(
+            @Valid @ModelAttribute("loginRequest") UserLoginRequestDTO dto,
+            BindingResult bindingResult,
+            HttpServletRequest request,
+            Model model) {
 
-        // Normalize email
-        String normalizedEmail = email == null ? "" : email.trim().toLowerCase();
+        if (bindingResult.hasErrors()) {
+            return "users/login";
+        }
 
-        // Generic error message to prevent user enumeration
-        final String invalidMsg = "Invalid email or password. Please try again.";
+        final String invalidMsg = "Invalid username/email or password.";
 
-        // Find user
-        Optional<User> optionalUser = userService.findByEmail(normalizedEmail);
+        // Normalize identifier
+        String identifier = dto.getUsernameOrEmail().trim();
+
+        Optional<User> optionalUser;
+        if (identifier.contains("@")) {
+            optionalUser = userService.findByEmail(identifier.toLowerCase());
+        } else {
+            optionalUser = userService.findByUsername(identifier);
+        }
+
         if (optionalUser.isEmpty()) {
-            log.info("Login failed for email: {}. Email not found.", normalizedEmail);
             model.addAttribute("message", invalidMsg);
             return "users/login";
         }
 
         User user = optionalUser.get();
 
-        // Verify password
-        if (!BCrypt.checkpw(password, user.getHashedPassword())) {
-            log.info("Login failed for email: {}. Incorrect password.", normalizedEmail);
+        if (!BCrypt.checkpw(dto.getPassword(), user.getHashedPassword())) {
             model.addAttribute("message", invalidMsg);
             return "users/login";
         }
 
-        // Successful login - protect against session fixation
-        HttpSession session;
-        try {
-            request.changeSessionId();
-            session = request.getSession(false);
-        } catch (Exception e) {
-            request.getSession().invalidate();
-            session = request.getSession(true);
-        }
+        // Protect against session fixation
+        request.changeSessionId();
+        HttpSession session = request.getSession();
 
-        // Update last login timestamp
+        // Update last login
         user.updateLastLogin();
         userService.updateUser(user);
 
-        // Store user info in session
-        session.setAttribute("email", user.getEmail());
-        session.setAttribute("username", user.getUsername());
-        session.setAttribute("role", user.getRole());
+        // Store MINIMAL session data
+        session.setAttribute("USER_ID", user.getId());
+        session.setAttribute("ROLE", user.getRole());
+        session.setAttribute("USERNAME", user.getUsername());
 
-        log.info("Login successful for user: {} with role: {}", user.getUsername(), user.getRole());
+        log.info("Login successful. userId={}, role={}", user.getId(), user.getRole());
 
-        // Redirect based on role
-        if (Role.ADMIN.equals(user.getRole())) {
-            return "redirect:/admin/dashboard";
-        } else {
-            return "redirect:/users/dashboard";
-        }
+        return Role.ADMIN.equals(user.getRole())
+                ? "redirect:/admin/dashboard"
+                : "redirect:/users/dashboard";
     }
+
 
     // ==================== LOGOUT ====================
 

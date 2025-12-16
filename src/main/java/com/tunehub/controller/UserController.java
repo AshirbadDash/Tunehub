@@ -1,6 +1,7 @@
 package com.tunehub.controller;
 
 import com.tunehub.common.SessionHelper;
+import com.tunehub.model.enums.Role;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * UserController handles user-specific operations.
- * Authentication is handled by AuthenticationInterceptor.
+ * Authentication is enforced by an interceptor.
  */
 @Controller
 @RequestMapping("/users")
@@ -23,13 +24,15 @@ public class UserController {
      */
     @GetMapping("/dashboard")
     public String showDashboard(HttpSession session, Model model) {
-        String username = SessionHelper.getCurrentUsername(session);
-        log.info("User {} accessed the dashboard", username);
 
-        // Add user info to model
-        model.addAttribute("username", username);
-        model.addAttribute("email", SessionHelper.getCurrentUserEmail(session));
-        model.addAttribute("role", SessionHelper.getCurrentUserRole(session));
+        Long userId = SessionHelper.getCurrentUserId(session);
+        String username = SessionHelper.getCurrentUsername(session);
+        Role role = SessionHelper.getCurrentUserRole(session);
+
+        log.info("User dashboard accessed. userId={}", userId);
+
+        model.addAttribute("username", username); // display only
+        model.addAttribute("role", role);
 
         return "users/dashboard";
     }
@@ -40,14 +43,16 @@ public class UserController {
      */
     @GetMapping("/profile")
     public String showProfile(HttpSession session, Model model) {
+
+        Long userId = SessionHelper.getCurrentUserId(session);
         String username = SessionHelper.getCurrentUsername(session);
-        log.info("User {} accessed their profile", username);
+        Role role = SessionHelper.getCurrentUserRole(session);
+
+        log.info("User profile accessed. userId={}", userId);
 
         model.addAttribute("username", username);
-        model.addAttribute("email", SessionHelper.getCurrentUserEmail(session));
-        model.addAttribute("role", SessionHelper.getCurrentUserRole(session));
+        model.addAttribute("role", role);
 
         return "users/profile";
     }
 }
-

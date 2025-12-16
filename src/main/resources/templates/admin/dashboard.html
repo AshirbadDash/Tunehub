@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" data-theme="light" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - TuneHub</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
+</head>
+<body class="min-h-screen">
+<!-- Header -->
+<header th:replace="~{fragments/header :: header}"></header>
+
+<!-- Main Dashboard -->
+
+<main class="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Welcome Section -->
+        <section class="mb-8">
+            <div class="text-center">
+                <h1
+                        class="text-4xl font-bold text-gray-900 mb-2"
+                        th:text="'Welcome back, ' + ${username}"
+                >
+                    Welcome back, User
+                </h1>
+                <p class="text-lg text-gray-600">Your music dashboard</p>
+            </div>
+        </section>
+
+        <!-- Stats Cards -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Total Songs Card -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 rounded-md p-6 border-2 border-black hover:border-amber-500 shadow-[4px_4px_0px_0px_rgba(251,191,36,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(251,191,36,0.5)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                >
+                    <!-- Animated gradient overlay -->
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-amber-100/0 via-amber-100/0 to-amber-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative flex items-center justify-between">
+                        <div>
+                            <p
+                                    class="text-amber-700 text-xs font-semibold uppercase tracking-wider mb-2"
+                            >
+                                Total Songs
+                            </p>
+                            <p
+                                    class="text-4xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent"
+                            >
+                                0
+                            </p>
+                            <p class="text-xs text-amber-600 mt-1 font-medium">
+                                In your library
+                            </p>
+                        </div>
+                        <div
+                                class="group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-14 w-14 text-amber-400 group-hover:text-amber-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playlists Card -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 rounded-md p-6 border-2 border-black hover:border-purple-500 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(168,85,247,0.5)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                >
+                    <!-- Animated gradient overlay -->
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-purple-100/0 via-purple-100/0 to-purple-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative flex items-center justify-between">
+                        <div>
+                            <p
+                                    class="text-purple-700 text-xs font-semibold uppercase tracking-wider mb-2"
+                            >
+                                Playlists
+                            </p>
+                            <p
+                                    class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                            >
+                                0
+                            </p>
+                            <p class="text-xs text-purple-600 mt-1 font-medium">
+                                Custom collections
+                            </p>
+                        </div>
+                        <div
+                                class="group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-14 w-14 text-purple-400 group-hover:text-purple-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Favorites Card -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 rounded-md p-6 border-2 border-black hover:border-rose-500 shadow-[4px_4px_0px_0px_rgba(244,63,94,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(244,63,94,0.5)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                >
+                    <!-- Animated gradient overlay -->
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-rose-100/0 via-rose-100/0 to-rose-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative flex items-center justify-between">
+                        <div>
+                            <p
+                                    class="text-rose-700 text-xs font-semibold uppercase tracking-wider mb-2"
+                            >
+                                Favorites
+                            </p>
+                            <p
+                                    class="text-4xl font-bold bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent"
+                            >
+                                0
+                            </p>
+                            <p class="text-xs text-rose-600 mt-1 font-medium">
+                                Loved tracks
+                            </p>
+                        </div>
+                        <div
+                                class="group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-14 w-14 text-rose-400 group-hover:text-rose-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Upload Music -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-md p-6 border-2 border-black hover:border-amber-500 shadow-[4px_4px_0px_0px_rgba(251,191,36,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(251,191,36,0.5)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden"
+                >
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-amber-100/0 to-amber-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative">
+                        <div
+                                class="mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-12 w-12 text-amber-400 group-hover:text-amber-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                                class="text-base font-bold text-gray-900 mb-1 group-hover:text-amber-700 transition-colors"
+                        >
+                            Upload Music
+                        </h3>
+                        <p class="text-xs text-gray-600">
+                            Add new songs to your library
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Create Playlist -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-md p-6 border-2 border-black hover:border-purple-500 shadow-[4px_4px_0px_0px_rgba(168,85,247,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(168,85,247,0.5)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden"
+                >
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-purple-100/0 to-purple-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative">
+                        <div
+                                class="mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-12 w-12 text-purple-400 group-hover:text-purple-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 4v16m8-8H4"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                                class="text-base font-bold text-gray-900 mb-1 group-hover:text-purple-700 transition-colors"
+                        >
+                            Create Playlist
+                        </h3>
+                        <p class="text-xs text-gray-600">
+                            Organize your favorite tracks
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Browse Music -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-md p-6 border-2 border-black hover:border-blue-500 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(59,130,246,0.5)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden"
+                >
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-100/0 to-blue-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative">
+                        <div
+                                class="mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-12 w-12 text-blue-400 group-hover:text-blue-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                                class="text-base font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors"
+                        >
+                            Browse Music
+                        </h3>
+                        <p class="text-xs text-gray-600">Discover new songs</p>
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div
+                        class="group relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-md p-6 border-2 border-black hover:border-emerald-500 shadow-[4px_4px_0px_0px_rgba(16,185,129,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(16,185,129,0.5)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden"
+                >
+                    <div
+                            class="absolute inset-0 bg-gradient-to-br from-emerald-100/0 to-emerald-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+
+                    <div class="relative">
+                        <div
+                                class="mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+                        >
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-12 w-12 text-emerald-400 group-hover:text-emerald-500 transition-colors duration-300"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                />
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                                class="text-base font-bold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors"
+                        >
+                            Settings
+                        </h3>
+                        <p class="text-xs text-gray-600">Manage your account</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empty State -->
+        <section>
+            <div
+                    class="group relative bg-gradient-to-br from-gray-50 via-white to-slate-50 rounded-md p-12 border-2 border-black hover:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] transition-all duration-300 text-center overflow-hidden"
+            >
+                <!-- Animated gradient overlay -->
+                <div
+                        class="absolute inset-0 bg-gradient-to-br from-gray-100/0 via-gray-100/0 to-gray-100/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+
+                <div class="relative">
+                    <div
+                            class="w-20 h-20 bg-gradient-to-br from-gray-200 to-slate-300 rounded-md flex items-center justify-center mx-auto mb-5 shadow-lg group-hover:scale-105 transition-transform duration-300 border-2 border-black"
+                    >
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10 text-gray-500"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                        >
+                            <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                            />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        Your music library is empty
+                    </h3>
+                    <p class="text-gray-600 mb-6 max-w-md mx-auto text-sm">
+                        Start building your collection by uploading your favorite songs
+                        or browse our music library.
+                    </p>
+                    <button
+                            class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-md shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.4)] border-2 border-black transition-all duration-300 hover:-translate-y-0.5"
+                    >
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

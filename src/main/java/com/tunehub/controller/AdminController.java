@@ -1,6 +1,7 @@
 package com.tunehub.controller;
 
 import com.tunehub.common.SessionHelper;
+import com.tunehub.model.enums.Role;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * AdminController handles admin-specific operations.
- * Authentication and authorization handled by AuthenticationInterceptor.
+ * Authentication and authorization are enforced by an interceptor.
  */
 @Controller
 @RequestMapping("/admin")
@@ -23,15 +24,17 @@ public class AdminController {
      */
     @GetMapping("/dashboard")
     public String showAdminDashboard(HttpSession session, Model model) {
+
+        Long userId = SessionHelper.getCurrentUserId(session);
         String username = SessionHelper.getCurrentUsername(session);
-        log.info("Admin user {} accessed the admin panel", username);
+        Role role = SessionHelper.getCurrentUserRole(session);
 
-        // Add admin info to model
-        model.addAttribute("username", username);
-        model.addAttribute("email", SessionHelper.getCurrentUserEmail(session));
-        model.addAttribute("role", SessionHelper.getCurrentUserRole(session));
+        log.info("Admin dashboard accessed. userId={}", userId);
 
-        return "users/adminController";
+        model.addAttribute("username", username); // display only
+        model.addAttribute("role", role);
+
+        return "admin/dashboard";
     }
 
     /**
@@ -40,7 +43,9 @@ public class AdminController {
      */
     @GetMapping("/users")
     public String manageUsers(HttpSession session, Model model) {
-        log.info("Admin {} accessed user management", SessionHelper.getCurrentUsername(session));
+
+        Long userId = SessionHelper.getCurrentUserId(session);
+        log.info("Admin user management accessed. userId={}", userId);
 
         model.addAttribute("username", SessionHelper.getCurrentUsername(session));
         return "admin/userManagement";
@@ -52,10 +57,11 @@ public class AdminController {
      */
     @GetMapping("/music")
     public String manageMusic(HttpSession session, Model model) {
-        log.info("Admin {} accessed music management", SessionHelper.getCurrentUsername(session));
+
+        Long userId = SessionHelper.getCurrentUserId(session);
+        log.info("Admin music management accessed. userId={}", userId);
 
         model.addAttribute("username", SessionHelper.getCurrentUsername(session));
         return "admin/musicManagement";
     }
 }
-
