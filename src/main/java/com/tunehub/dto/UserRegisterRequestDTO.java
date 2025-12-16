@@ -37,7 +37,10 @@ public class UserRegisterRequestDTO {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String confirmPassword;
 
-    @Pattern(regexp = "^[0-9]{10,15}$", message = "Phone number must be 10-15 digits")
+    @Pattern(
+            regexp = "^$|^[0-9]{10,15}$",
+            message = "Phone number must be 10-15 digits"
+    )
     private String phoneNumber;
 
     /**

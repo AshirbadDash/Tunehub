@@ -32,7 +32,10 @@ public final class UserMapper {
         );
 
         // Optional fields
-        user.setPhoneNumber(trimToNull(dto.getPhoneNumber()));
+        String phone = dto.getPhoneNumber();
+        user.setPhoneNumber(
+                (phone == null || phone.isBlank()) ? null : phone.trim()
+        );
 
         // Defaults
         user.setRole(Role.CUSTOMER);
