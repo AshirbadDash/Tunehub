@@ -4,7 +4,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 
-public class StandardizedOffsetDateTIme {
+public class StandardizedOffsetDateTime {
     /**
      * Returns the current time in UTC with milliseconds precision.
      */

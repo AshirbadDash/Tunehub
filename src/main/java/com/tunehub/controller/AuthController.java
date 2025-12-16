@@ -1,7 +1,7 @@
 package com.tunehub.controller;
 
 import com.tunehub.common.SessionHelper;
-import com.tunehub.dto.RegisterRequestDTO;
+import com.tunehub.dto.UserRegisterRequestDTO;
 import com.tunehub.model.entity.User;
 import com.tunehub.model.enums.Role;
 import com.tunehub.service.UserService;
@@ -43,12 +43,12 @@ public class AuthController {
             return "redirect:/users/dashboard";
         }
 
-        model.addAttribute("newUser", new RegisterRequestDTO());
+        model.addAttribute("newUser", new UserRegisterRequestDTO());
         return "users/register";
     }
 
     @PostMapping("/register")
-    public String processRegistration(@Valid @ModelAttribute("newUser") RegisterRequestDTO newUserRequest,
+    public String processRegistration(@Valid @ModelAttribute("newUser") UserRegisterRequestDTO newUserRequest,
                                      BindingResult bindingResult,
                                      RedirectAttributes ra,
                                      Model model) {

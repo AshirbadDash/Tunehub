@@ -1,9 +1,9 @@
-package com.tunehub.serviceimpl;
+package com.tunehub.service.impl;
 
-import com.tunehub.dto.RegisterRequestDTO;
+import com.tunehub.dto.UserRegisterRequestDTO;
+import com.tunehub.model.entity.User;
 import com.tunehub.model.enums.AccountType;
 import com.tunehub.model.enums.Role;
-import com.tunehub.model.entity.User;
 import com.tunehub.repository.UserRepository;
 import com.tunehub.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.Locale;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -25,18 +26,20 @@ public class UserServiceImpl implements UserService {
 
     private static String sanitizeEmail(String email) {
         if (email == null) return "";
-        return email.trim().toLowerCase();
+        return email.trim().toLowerCase(Locale.ROOT);
     }
 
 
     private static String sanitizeUsername(String username) {
         if (username == null) return "";
-        return username.trim();
+
+        String trimmed = username.trim();
+        return trimmed.isEmpty() ? "" : trimmed;
     }
 
     @Override
     @Transactional
-    public User newUser(RegisterRequestDTO newUserRequest) {
+    public User newUser(UserRegisterRequestDTO newUserRequest) {
         String email = sanitizeEmail(newUserRequest.getEmail());
         String username = sanitizeUsername(newUserRequest.getUsername());
 
@@ -92,7 +95,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findById(Integer id) {
+    public Optional<User> findById(Long id) {
         if (id == null) {
             throw new IllegalArgumentException("User ID cannot be null");
         }

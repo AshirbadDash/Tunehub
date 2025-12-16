@@ -3,7 +3,7 @@ services:
     image: mysql:9.2
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tunehub_app
+      MYSQL_DATABASE: tunehub_db
       # optional: create a non-root user
       MYSQL_USER: tunehub
       MYSQL_PASSWORD: tunehub_password
