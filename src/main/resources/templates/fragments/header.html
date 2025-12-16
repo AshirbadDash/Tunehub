@@ -1,22 +1,22 @@
 <nav
-        th:fragment="header"
-        class="navbar fixed inset-x-0 top-0 z-10 backdrop-blur-lg transition-all"
+  th:fragment="header"
+  class="navbar fixed inset-x-0 top-0 z-10 backdrop-blur-lg transition-all"
 >
   <!-- LEFT: LOGO -->
   <div id="nav" class="flex-1">
     <a
-            th:href="@{/}"
-            class="inline-flex items-center gap-2 text-base-content cursor-pointer text-2xl font-medium tracking-wide capitalize pointer-events-auto"
+      th:href="@{/}"
+      class="inline-flex items-center gap-2 text-base-content cursor-pointer text-2xl font-medium tracking-wide capitalize pointer-events-auto"
     >
       <svg
-              role="img"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 fill-amber-500"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 fill-amber-500"
       >
         <title>Tunehub</title>
         <path
-                d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"
+          d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Zm4.855 6.07a.971.971 0 0 1 .917-.65h8.337a.486.486 0 0 1 .458.645l-1.245 3.56a.971.971 0 0 1-.917.65H5.341a.486.486 0 0 1-.458-.646Zm2.698 6.068a.971.971 0 0 1 .917-.65h3.482a.486.486 0 0 1 .458.646l-1.246 3.56a.971.971 0 0 1-.916.65H8.039a.486.486 0 0 1-.458-.646Z"
         />
       </svg>
       Tunehub
@@ -25,51 +25,49 @@
 
   <!-- RIGHT: AUTH AREA -->
   <div class="flex-none gap-2">
-
     <!-- ================= LOGGED IN ================= -->
     <div th:if="${session.USER_ID != null}" class="dropdown dropdown-end">
-
       <!-- Avatar -->
       <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost btn-circle avatar hover:bg-base-content transition-all duration-200 ring-2 ring-transparent hover:ring-neutral-content"
+        tabindex="0"
+        role="button"
+        class="btn btn-ghost btn-circle avatar hover:bg-base-content transition-all duration-200 ring-2 ring-transparent hover:ring-neutral-content"
       >
         <div class="w-10 rounded-full">
           <img
-                  alt="Profile"
-                  th:src="@{/avatars/default/notion_1.png}"
-                  class="w-full h-full object-cover"
+            alt="Profile"
+            th:src="@{/avatars/default/notion_1.png}"
+            class="w-full h-full object-cover"
           />
         </div>
       </div>
 
       <!-- Dropdown -->
       <div
-              tabindex="0"
-              class="dropdown-content bg-base-100 rounded-xl z-[1] mt-3 w-64 p-2 border border-base-300 animate-in fade-in slide-in-from-top-2 duration-200"
+        tabindex="0"
+        class="dropdown-content bg-base-100 rounded-xl z-[1] mt-3 w-64 p-2 border border-base-300 animate-in fade-in slide-in-from-top-2 duration-200"
       >
         <!-- User Info -->
         <div class="px-4 py-3 mb-1">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full ring-2 ring-amber-100 shadow-sm">
               <img
-                      alt="Profile"
-                      th:src="@{/avatars/default/notion_1.png}"
-                      class="w-full h-full object-cover rounded-full"
+                alt="Profile"
+                th:src="@{/avatars/default/notion_1.png}"
+                class="w-full h-full object-cover rounded-full"
               />
             </div>
 
             <div class="flex-1 min-w-0">
               <p
-                      class="text-sm text-base-content truncate"
-                      th:text="${session.USERNAME}"
+                class="text-sm text-base-content truncate"
+                th:text="${session.USERNAME}"
               >
                 Username
               </p>
               <p
-                      class="text-xs text-base-content/60 truncate"
-                      th:text="${session.ROLE}"
+                class="text-xs text-base-content/60 truncate"
+                th:text="${session.ROLE}"
               >
                 CUSTOMER
               </p>
@@ -82,24 +80,24 @@
         <!-- Dashboard -->
         <div class="space-y-1 p-1">
           <a
-                  th:href="@{/users/dashboard}"
-                  class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-blue-50 transition-all duration-150 group cursor-pointer"
+            th:href="@{/users/dashboard}"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-blue-50 transition-all duration-150 group cursor-pointer"
           >
             <div
-                    class="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors"
+              class="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors"
             >
               <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
                 <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 />
               </svg>
             </div>
@@ -116,24 +114,24 @@
         <div class="p-1">
           <form th:action="@{/logout}" method="post" class="m-0">
             <button
-                    type="submit"
-                    class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-all duration-150 group text-left"
+              type="submit"
+              class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-all duration-150 group text-left"
             >
               <div
-                      class="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors"
+                class="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors"
               >
                 <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5 text-red-600"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-red-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
                   <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                   />
                 </svg>
               </div>
@@ -150,9 +148,9 @@
     <!-- ================= LOGGED OUT ================= -->
     <div th:if="${session.USER_ID == null}">
       <th:block
-              th:insert="~{fragments/button :: exploreButton('login', '/login')}">
+        th:insert="~{fragments/button :: exploreButton('login', '/login')}"
+      >
       </th:block>
     </div>
-
   </div>
 </nav>
