@@ -1,10 +1,5 @@
 <!doctype html>
-<html
-  data-theme="white"
-  class="scroll-smooth"
-  lang="en"
-  xmlns:th="http://www.thymeleaf.org"
->
+<html class="scroll-smooth" lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <title>TuneHub</title>
@@ -12,31 +7,31 @@
     <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
   </head>
 
-  <body class="max-w-screen overflow-x-hidden">
+  <body class="max-w-screen overflow-x-hidden bg-bg-page text-text-primary">
     <th:block th:replace="~{fragments/header :: header}"></th:block>
 
     <main class="flex-1 pt-16">
       <div class="w-full">
         <!-- HERO HEADING -->
         <h1
-          class="text-4xl md:text-5xl font-semibold tracking-tight text-base-content leading-tight flex justify-center items-center"
+          class="text-4xl md:text-6xl font-semibold tracking-tighter text-balance text-text-secondary leading-tight flex justify-center items-center"
         >
           Turn up the
           <span
-            class="text-rotate tracking-tight leading-relaxed font-semibold text-5xl px-2"
+            class="text-rotate tracking-tighter leading-relaxed text-balance font-semibold text-6xl px-2"
           >
             <span>
-              <span class="text-pink-400">Volume</span>
-              <span class="text-orange-400">Energy</span>
-              <span class="text-purple-400">Creativity</span>
-              <span class="text-emerald-400">Emotion</span>
-              <span class="text-rose-500">Experience</span>
+              <span class="text-brand-red">Volume</span>
+              <span class="text-brand-blue">Energy</span>
+              <span class="text-brand-green">Creativity</span>
+              <span class="text-brand-yellow">Emotion</span>
+              <span class="text-brand-purple">Experience</span>
             </span>
           </span>
         </h1>
       </div>
 
-      <th:block th:replace="~{fragments/string :: string}"></th:block>
+      <th:block th:replace="~{fragments/string :: string}"> </th:block>
 
       <ul class="list bg-base-100 rounded-box">
         <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">
@@ -153,10 +148,6 @@
           </button>
         </li>
       </ul>
-
-      <th:block
-        th:replace="~{fragments/infinite-carosal :: card-gallery}"
-      ></th:block>
     </main>
 
     <th:block th:replace="~{fragments/footer :: footer}"></th:block>

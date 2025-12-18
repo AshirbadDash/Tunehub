@@ -2,15 +2,15 @@
   <a
     th:href="@{${href}}"
     th:id="${id}"
-    class="group relative overflow-hidden border-2 rounded-full px-10 py-3 w-full flex items-center justify-center cursor-pointer bg-transparent border-green-500"
+    class="group relative overflow-hidden border-2 rounded-full px-10 py-3 w-full flex items-center justify-center cursor-pointer bg-transparent border-brand-green"
   >
     <span
       aria-hidden="true"
-      class="circle absolute w-[175%] aspect-square bg-green-500 rounded-full -translate-x-1/2 -translate-y-1/2 origin-top-left scale-0 transition-transform duration-200 ease-in-out pointer-events-none group-hover:scale-100"
+      class="circle absolute w-[175%] aspect-square bg-brand-green rounded-full -translate-x-1/2 -translate-y-1/2 origin-top-left scale-0 transition-transform duration-300 ease-in-out pointer-events-none group-hover:scale-100"
     ></span>
 
     <span
-      class="relative text-green-600 text-lg font-medium transition-colors duration-150 capitalize group-hover:text-[#0e100f]"
+      class="relative z-10 text-text-primary text-lg font-medium transition-colors duration-200 capitalize group-hover:text-bg-page"
       th:text="${id}"
     >
       Explore Text
@@ -40,6 +40,64 @@
       });
 
       requestAnimationFrame(updateRect);
+    })();
+    /*]]>*/
+  </script>
+</div>
+
+<div th:fragment="submitButton(id, text)">
+  <button
+    type="submit"
+    th:id="${id}"
+    class="group relative overflow-hidden border-2 rounded-lg px-10 py-3 w-full flex items-center justify-center cursor-pointer bg-transparent border-brand-blue hover:bg-brand-blue transition-colors duration-300"
+  >
+    <span
+      aria-hidden="true"
+      class="circle absolute w-[175%] aspect-square bg-brand-blue rounded-full -translate-x-1/2 -translate-y-1/2 origin-top-left scale-0 transition-transform duration-500 ease-out pointer-events-none group-hover:scale-100 z-0"
+    ></span>
+
+    <span
+      class="relative z-10 text-text-primary text-lg font-medium transition-colors duration-300 capitalize group-hover:text-white"
+      th:text="${text}"
+    >
+      Submit Text
+    </span>
+  </button>
+
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    (function () {
+      const fragmentRoot = /*[[${id}]]*/ "submit-btn";
+      const btn = document.getElementById(fragmentRoot);
+      if (!btn) return;
+
+      const circle = btn.querySelector(".circle");
+      if (!circle) return;
+
+      let btnRect = btn.getBoundingClientRect();
+
+      function updateRect() {
+        btnRect = btn.getBoundingClientRect();
+      }
+
+      window.addEventListener("resize", updateRect, { passive: true });
+      window.addEventListener("scroll", updateRect, { passive: true });
+
+      btn.addEventListener("mouseenter", (e) => {
+        const top = e.clientY - btnRect.y;
+        const left = e.clientX - btnRect.x;
+        circle.style.top = `${top}px`;
+        circle.style.left = `${left}px`;
+      });
+
+      btn.addEventListener("mousemove", (e) => {
+        const top = e.clientY - btnRect.y;
+        const left = e.clientX - btnRect.x;
+        circle.style.top = `${top}px`;
+        circle.style.left = `${left}px`;
+      });
+
+      updateRect();
     })();
     /*]]>*/
   </script>

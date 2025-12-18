@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,14 +10,12 @@
     <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
   </head>
 
-  <body
-    class="min-h-screen bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100"
-  >
+  <body class="min-h-screen bg-bg-page text-text-primary">
     <div
       class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
     >
       <div
-        class="w-full max-w-md bg-white rounded-md border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.15)] transition-all duration-300"
+        class="w-full max-w-md bg-bg-page/80 rounded-none border border-border-default shadow-brutal-black-md hover:shadow-brutal-black-lg transition-all duration-300"
       >
         <div class="p-8 sm:p-10">
           <!-- Logo -->
@@ -26,18 +24,18 @@
               th:href="@{/}"
               class="inline-flex items-center gap-2 text-black font-inter text-3xl font-bold tracking-wider"
             >
-              <svg viewBox="0 0 24 24" class="w-8 h-8 fill-amber-500">
-                <path
-                  d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Z"
-                />
-              </svg>
+              <img
+                th:src="@{/images/logo.svg}"
+                alt="TuneHub Logo"
+                class="w-8 h-8"
+              />
               <span>TuneHub</span>
             </a>
 
-            <h2 class="text-2xl font-semibold mt-6 mb-2">
+            <h2 class="text-2xl text-text-secondary font-semibold mt-6 mb-2">
               Create your account
             </h2>
-            <p class="text-base-content/60">
+            <p class="text-text-secondary/75">
               Sign up to start your music journey
             </p>
           </div>
@@ -50,7 +48,10 @@
             class="space-y-5"
           >
             <!-- Flash Message -->
-            <div th:if="${message}" class="alert alert-error shadow-lg">
+            <div
+              th:if="${message}"
+              class="alert bg-hover-green border-border-muted shadow-lg"
+            >
               <span th:text="${message}">Error</span>
             </div>
 
@@ -63,12 +64,12 @@
                 type="text"
                 th:field="*{username}"
                 placeholder="johndoe"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('username')} ? 'input-error' : ''"
+                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                th:classappend="${#fields.hasErrors('username')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('username')}" class="label">
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red wrap-break-word whitespace-normal"
                   th:errors="*{username}"
                 ></span>
               </label>
@@ -83,12 +84,12 @@
                 type="email"
                 th:field="*{email}"
                 placeholder="john@example.com"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('email')} ? 'input-error' : ''"
+                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                th:classappend="${#fields.hasErrors('email')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('email')}" class="label">
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red break-words whitespace-normal"
                   th:errors="*{email}"
                 ></span>
               </label>
@@ -104,12 +105,12 @@
                 type="tel"
                 th:field="*{phoneNumber}"
                 placeholder="1234567890"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('phoneNumber')} ? 'input-error' : ''"
+                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                th:classappend="${#fields.hasErrors('phoneNumber')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('phoneNumber')}" class="label">
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red break-words whitespace-normal"
                   th:errors="*{phoneNumber}"
                 ></span>
               </label>
@@ -124,12 +125,12 @@
                 type="password"
                 th:field="*{password}"
                 placeholder="••••••••"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('password')} ? 'input-error' : ''"
+                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                th:classappend="${#fields.hasErrors('password')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('password')}" class="label">
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red break-words whitespace-normal"
                   th:errors="*{password}"
                 ></span>
               </label>
@@ -144,42 +145,51 @@
                 type="password"
                 th:field="*{confirmPassword}"
                 placeholder="••••••••"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('confirmPassword')} ? 'input-error' : ''"
+                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                th:classappend="${#fields.hasErrors('confirmPassword')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label
                 th:if="${#fields.hasErrors('confirmPassword')}"
                 class="label"
               >
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red break-words whitespace-normal"
                   th:errors="*{confirmPassword}"
                 ></span>
               </label>
             </div>
 
-            <!-- Password Rules -->
-            <div class="text-xs text-base-content/60">
-              Password must contain at least:
-              <ul class="list-disc list-inside ml-2">
+            <!-- Password Rules - Only show when there's a validation error -->
+            <div
+              th:if="${#fields.hasErrors('password')}"
+              class="text-xs text-base-content/60 bg-red-50 border border-red-200 rounded-lg p-3"
+            >
+              <strong class="text-brand-red"
+                >Password must contain at least:</strong
+              >
+              <ul class="list-disc list-inside ml-2 mt-1">
                 <li>8 characters</li>
                 <li>1 uppercase letter</li>
                 <li>1 lowercase letter</li>
                 <li>1 number</li>
-                <li>1 special character</li>
+                <li>1 special character (@$!%*?&)</li>
               </ul>
             </div>
 
-            <!-- Submit -->
-            <button type="submit" class="btn btn-primary w-full mt-4">
-              Create Account
-            </button>
-
+            <!-- Login Button -->
+            <th:block
+              th:replace="~{fragments/button :: submitButton('register-btn', 'Sign Up')}"
+            ></th:block>
             <div class="divider">OR</div>
 
             <p class="text-center">
               Already have an account?
-              <a th:href="@{/login}" class="link link-primary"> Sign in </a>
+              <a
+                th:href="@{/login}"
+                class="link text-brand-blue font-semibold hover:text-brand-blue/80"
+              >
+                Sign in
+              </a>
             </p>
           </form>
         </div>

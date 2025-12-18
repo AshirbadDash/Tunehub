@@ -213,4 +213,17 @@
   .hover\:shadow-brutal-lg:hover {
     box-shadow: 8px 8px 0px 0px currentColor;
   }
+
+  /* Hover variants for black shadows */
+  .hover\:shadow-brutal-black-sm:hover {
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .hover\:shadow-brutal-black-md:hover {
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .hover\:shadow-brutal-black-lg:hover {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.2);
+  }
 }

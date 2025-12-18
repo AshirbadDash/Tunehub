@@ -1,18 +1,18 @@
 <nav
   th:fragment="header"
-  class="navbar fixed inset-x-0 top-0 z-10 backdrop-blur-lg transition-all"
+  class="navbar fixed inset-x-0 top-0 z-10 transition-all backdrop-blur-md border-b border-border-default h-16 px-4 md:px-8 lg:px-16"
 >
   <!-- LEFT: LOGO -->
   <div id="nav" class="flex-1">
     <a
       th:href="@{/}"
-      class="inline-flex items-center gap-2 text-base-content cursor-pointer text-2xl font-medium tracking-wide capitalize pointer-events-auto"
+      class="inline-flex items-center gap-2 text-primary cursor-pointer text-2xl font-medium tracking-wide capitalize pointer-events-auto"
     >
       <svg
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
-        class="w-6 fill-amber-500"
+        class="w-6 fill-brand-yellow"
       >
         <title>Tunehub</title>
         <path
@@ -24,16 +24,18 @@
   </div>
 
   <!-- RIGHT: AUTH AREA -->
-  <div class="flex-none gap-2">
+  <div class="flex flex-none gap-2">
     <!-- ================= LOGGED IN ================= -->
     <div th:if="${session.USER_ID != null}" class="dropdown dropdown-end">
       <!-- Avatar -->
       <div
         tabindex="0"
         role="button"
-        class="btn btn-ghost btn-circle avatar hover:bg-base-content transition-all duration-200 ring-2 ring-transparent hover:ring-neutral-content"
+        class="cursor-pointer transition-all duration-200 rounded-full p-2 hover:bg-bg-surface-muted/40 bg-transparent"
       >
-        <div class="w-10 rounded-full">
+        <div
+          class="w-10 h-10 rounded-full ring-2 ring-inset ring-transparent focus:ring-gray-400 transition-all duration-200 overflow-hidden"
+        >
           <img
             alt="Profile"
             th:src="@{/avatars/default/notion_1.png}"
@@ -45,28 +47,30 @@
       <!-- Dropdown -->
       <div
         tabindex="0"
-        class="dropdown-content bg-base-100 rounded-xl z-[1] mt-3 w-64 p-2 border border-base-300 animate-in fade-in slide-in-from-top-2 duration-200"
+        class="dropdown-content bg-white shadow-brutal-black-sm rounded-none z-1000 mt-3 w-64 p-2 border border-border-default outline-none hover:shadow-brutal-md hover:text-text-secondary transition-all duration-150"
       >
         <!-- User Info -->
         <div class="px-4 py-3 mb-1">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full ring-2 ring-amber-100 shadow-sm">
+            <div
+              class="w-10 h-10 rounded-full ring-2 ring-hover-blue overflow-hidden"
+            >
               <img
                 alt="Profile"
                 th:src="@{/avatars/default/notion_1.png}"
-                class="w-full h-full object-cover rounded-full"
+                class="w-full h-full object-cover"
               />
             </div>
 
             <div class="flex-1 min-w-0">
               <p
-                class="text-sm text-base-content truncate"
+                class="text-sm text-text-secondary truncate"
                 th:text="${session.USERNAME}"
               >
                 Username
               </p>
               <p
-                class="text-xs text-base-content/60 truncate"
+                class="text-xs text-text-secondary/60 truncate"
                 th:text="${session.ROLE}"
               >
                 CUSTOMER
@@ -75,20 +79,20 @@
           </div>
         </div>
 
-        <div class="h-px bg-base-300 my-1"></div>
+        <div class="h-px bg-bg-surface my-1"></div>
 
         <!-- Dashboard -->
         <div class="space-y-1 p-1">
           <a
             th:href="@{/users/dashboard}"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-blue-50 transition-all duration-150 group cursor-pointer"
+            class="flex items-center gap-3 px-3 py-2.5 hover:bg-blue-50 transition-all duration-150 group cursor-pointer"
           >
             <div
-              class="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors"
+              class="w-9 h-9 rounded-none bg-code-function/60 flex items-center justify-center group-hover:bg-hover-blue transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-brand-blue"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -102,27 +106,27 @@
               </svg>
             </div>
             <div class="flex-1">
-              <p class="text-sm font-medium text-gray-900">Dashboard</p>
-              <p class="text-xs text-gray-500">View your dashboard</p>
+              <p class="text-sm text-brand-blue">Dashboard</p>
+              <p class="text-xs text-text-secondary">View your dashboard</p>
             </div>
           </a>
         </div>
 
-        <div class="h-px bg-base-300 my-1"></div>
+        <div class="h-px bg-bg-surface my-1"></div>
 
         <!-- Logout -->
         <div class="p-1">
           <form th:action="@{/logout}" method="post" class="m-0">
             <button
               type="submit"
-              class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 transition-all duration-150 group text-left"
+              class="w-full flex items-center gap-3 px-3 py-2.5 rounded-none hover:bg-red-50 transition-all duration-150 group text-left"
             >
               <div
-                class="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors"
+                class="w-9 h-9 rounded-none bg-code-class/60 flex items-center justify-center group-hover:bg-hover-red transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-red-600"
+                  class="h-5 w-5 text-brand-red"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -136,8 +140,10 @@
                 </svg>
               </div>
               <div class="flex-1">
-                <p class="text-sm text-red-600">Sign out</p>
-                <p class="text-xs text-gray-500">Log out of your account</p>
+                <p class="text-sm text-brand-red">Sign out</p>
+                <p class="text-xs text-text-secondary">
+                  Log out of your account
+                </p>
               </div>
             </button>
           </form>

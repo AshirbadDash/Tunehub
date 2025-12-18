@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,32 +10,37 @@
     <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
   </head>
 
-  <body
-    class="min-h-screen bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100"
-  >
+  <body class="min-h-screen bg-bg-page text-text-primary">
     <div
       class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
     >
       <div
-        class="w-full max-w-md bg-white rounded-md border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.15)] transition-all duration-300"
+        class="w-full max-w-md bg-bg-page/80 rounded-none border-2 border-border-default shadow-brutal-black-md hover:shadow-brutal-black-lg transition-all duration-300"
       >
         <div class="p-8 sm:p-10">
           <!-- Logo -->
           <div class="mb-8">
             <a
               th:href="@{/}"
-              class="inline-flex items-center gap-2 text-black font-inter text-3xl font-bold tracking-wider"
+              class="inline-flex items-center gap-2 text-text-primary font-inter text-3xl font-bold tracking-wider"
             >
-              <svg viewBox="0 0 24 24" class="w-8 h-8 fill-amber-500">
+              <!-- <svg viewBox="0 0 24 24" class="w-8 h-8 fill-amber-500">
                 <path
                   d="M1.273 4.153a.971.971 0 0 1 .917-.65h21.325a.486.486 0 0 1 .458.646l-1.245 3.56a.971.971 0 0 1-.917.65H.486a.486.486 0 0 1-.459-.646Z"
                 />
-              </svg>
+              </svg> -->
+              <img
+                th:src="@{/images/logo.svg}"
+                alt="TuneHub Logo"
+                class="w-8 h-8"
+              />
               <span>TuneHub</span>
             </a>
 
-            <h2 class="text-2xl font-semibold mt-6 mb-2">Welcome back</h2>
-            <p class="text-base-content/60">
+            <h2 class="text-2xl text-text-secondary font-semibold mt-6 mb-2">
+              Welcome back
+            </h2>
+            <p class="text-text-secondary/75">
               Sign in to continue to your account
             </p>
           </div>
@@ -48,19 +53,25 @@
             class="space-y-6"
           >
             <!-- Success Message (logout / registration) -->
-            <div th:if="${message}" class="alert alert-success shadow-lg">
+            <div
+              th:if="${message}"
+              class="alert bg-hover-green border-border-muted shadow-lg"
+            >
               <span th:text="${message}">Message</span>
             </div>
 
             <!-- Global Error (invalid credentials) -->
-            <div th:if="${error}" class="alert alert-error shadow-lg">
+            <div
+              th:if="${error}"
+              class="alert bg-hover-red border-border-muted shadow-lg"
+            >
               <span th:text="${error}">Invalid credentials</span>
             </div>
 
             <!-- Username or Email -->
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text text-base font-medium">
+                <span class="label-text text-text-secondary/90 font-medium">
                   Username or Email
                 </span>
               </label>
@@ -68,15 +79,15 @@
                 type="text"
                 th:field="*{usernameOrEmail}"
                 placeholder="johndoe or john@example.com"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('usernameOrEmail')} ? 'input-error' : ''"
+                class="input w-full border-2 border-gray-300 bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
+                th:classappend="${#fields.hasErrors('usernameOrEmail')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label
                 th:if="${#fields.hasErrors('usernameOrEmail')}"
                 class="label"
               >
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red"
                   th:errors="*{usernameOrEmail}"
                 ></span>
               </label>
@@ -85,18 +96,20 @@
             <!-- Password -->
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text text-base font-medium"> Password </span>
+                <span class="label-text text-text-secondary/80 font-medium">
+                  Password
+                </span>
               </label>
               <input
                 type="password"
                 th:field="*{password}"
                 placeholder="••••••••"
-                class="input input-bordered w-full"
-                th:classappend="${#fields.hasErrors('password')} ? 'input-error' : ''"
+                class="input w-full border-2 border-gray-300 bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
+                th:classappend="${#fields.hasErrors('password')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('password')}" class="label">
                 <span
-                  class="label-text-alt text-error"
+                  class="label-text-alt text-brand-red"
                   th:errors="*{password}"
                 ></span>
               </label>
@@ -106,19 +119,16 @@
             <div class="flex justify-end">
               <a
                 th:href="@{#}"
-                class="label-text-alt link link-primary hover:link-hover"
+                class="label-text-alt link text-brand-blue hover:text-brand-blue/80 font-medium"
               >
                 Forgot password?
               </a>
             </div>
 
             <!-- Login Button -->
-            <button
-              type="submit"
-              class="btn btn-primary w-full text-base font-semibold hover:scale-[1.02] transition-transform duration-200"
-            >
-              Sign In
-            </button>
+            <th:block
+              th:replace="~{fragments/button :: submitButton('login-btn', 'Sign In')}"
+            ></th:block>
 
             <div class="divider text-sm">OR</div>
 
@@ -127,7 +137,7 @@
               Don’t have an account?
               <a
                 th:href="@{/register}"
-                class="link link-primary font-semibold hover:link-hover"
+                class="link text-brand-blue font-semibold hover:text-brand-blue/80"
               >
                 Create an account
               </a>
