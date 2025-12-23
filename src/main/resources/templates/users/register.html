@@ -11,11 +11,58 @@
   </head>
 
   <body class="min-h-screen bg-bg-page text-text-primary">
+    <!-- Theme Toggle -->
+    <div class="absolute top-4 right-4 z-50">
+      <style>
+        /* Manual fix for dark mode hover since Tailwind is configured for system preference */
+        html.dark #theme-toggle:hover {
+          background-color: oklch(80.9% 0.105 251.813); /* blue-300 */
+        }
+      </style>
+      <button
+        id="theme-toggle"
+        class="p-2 rounded-full text-primary focus:outline-none cursor-pointer hover:bg-bg-surface-muted/40 transition-all duration-200"
+        aria-label="Toggle Dark Mode"
+      >
+        <!-- Sun icon (shown in dark mode) -->
+        <svg
+          id="theme-toggle-sun"
+          class="w-6 h-6 hidden"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          ></path>
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg
+          id="theme-toggle-moon"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          ></path>
+        </svg>
+      </button>
+    </div>
     <div
       class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
     >
       <div
-        class="w-full max-w-md bg-bg-page/80 rounded-none border border-border-default shadow-brutal-black-md hover:shadow-brutal-black-lg transition-all duration-300"
+        class="w-full max-w-md bg-surface/60 rounded-none border border-border-default text-text-primary/60 hover:text-text-primary shadow-brutal-md hover:shadow-brutal-lg transition-all duration-300"
       >
         <div class="p-8 sm:p-10">
           <!-- Logo -->
@@ -64,7 +111,7 @@
                 type="text"
                 th:field="*{username}"
                 placeholder="johndoe"
-                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                class="input w-full border-2 border-border-default bg-bg-surface text-text-primary focus:border-text-primary focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
                 th:classappend="${#fields.hasErrors('username')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('username')}" class="label">
@@ -84,7 +131,7 @@
                 type="email"
                 th:field="*{email}"
                 placeholder="john@example.com"
-                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                class="input w-full border-2 border-border-default bg-bg-surface text-text-primary focus:border-text-primary focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
                 th:classappend="${#fields.hasErrors('email')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('email')}" class="label">
@@ -105,7 +152,7 @@
                 type="tel"
                 th:field="*{phoneNumber}"
                 placeholder="1234567890"
-                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                class="input w-full border-2 border-border-default bg-bg-surface text-text-primary focus:border-text-primary focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
                 th:classappend="${#fields.hasErrors('phoneNumber')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('phoneNumber')}" class="label">
@@ -125,7 +172,7 @@
                 type="password"
                 th:field="*{password}"
                 placeholder="••••••••"
-                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                class="input w-full border-2 border-border-default bg-bg-surface text-text-primary focus:border-text-primary focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
                 th:classappend="${#fields.hasErrors('password')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label th:if="${#fields.hasErrors('password')}" class="label">
@@ -145,7 +192,7 @@
                 type="password"
                 th:field="*{confirmPassword}"
                 placeholder="••••••••"
-                class="input border-2 border-gray-300 bg-white w-full rounded-lg px-4 py-3 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:bg-blue-50/30 focus:outline-none transition-all duration-200"
+                class="input w-full border-2 border-border-default bg-bg-surface text-text-primary focus:border-text-primary focus:outline-none rounded-lg px-4 py-3 transition-all duration-200"
                 th:classappend="${#fields.hasErrors('confirmPassword')} ? '!border-red-500 !bg-red-50' : ''"
               />
               <label
@@ -195,5 +242,6 @@
         </div>
       </div>
     </div>
+    <script th:src="@{/js/theme-toggle.js}"></script>
   </body>
 </html>

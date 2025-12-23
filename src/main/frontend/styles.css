@@ -162,14 +162,6 @@
     background-color: var(--color-hover-red);
   }
 
-  .code-block {
-    background-color: var(--color-code-bg);
-    color: var(--color-code-text);
-    padding: 1rem;
-    border-radius: 0.375rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-
   /* Custom Shadow Utilities */
   /* Usage: shadow-brutal-{size} with text-{color} or shadow-brutal-black-{size} */
 
