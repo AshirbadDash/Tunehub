@@ -7,10 +7,16 @@
     <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}" />
   </head>
 
-  <body class="max-w-screen overflow-x-hidden bg-bg-page text-text-primary">
+  <!-- <body class="max-w-screen overflow-x-hidden bg-bg-page text-text-primary">
+     -->
+
+   <body
+  class="min-h-screen flex flex-col max-w-screen overflow-x-hidden bg-bg-page text-text-primary"
+>
+  
     <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-    <main class="flex-1 pt-16">
+    <main class="flex-1 pt-16 pb-8">
       <div class="w-full">
         <!-- HERO HEADING -->
         <h1
@@ -18,7 +24,7 @@
         >
           Turn up the
           <span
-            class="text-rotate tracking-tighter leading-relaxed text-balance font-semibold text-6xl px-2"
+            class="text-4xl md:text-6xl text-rotate tracking-tighter leading-relaxed text-balance font-semibold px-2"
           >
             <span>
               <span class="text-brand-red">Volume</span>
@@ -30,8 +36,6 @@
           </span>
         </h1>
       </div>
-
-      <th:block th:replace="~{fragments/string :: string}"> </th:block>
 
       <ul class="list bg-base-100 rounded-box">
         <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">
@@ -156,6 +160,5 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
       crossorigin="anonymous"
     ></script>
-    <script th:src="@{/animationGsap.js}"></script>
   </body>
 </html>

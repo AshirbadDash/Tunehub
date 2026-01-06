@@ -26,17 +26,19 @@
   <!-- RIGHT: AUTH AREA -->
   <div class="flex flex-none gap-2 items-center">
     <!-- Theme Toggle -->
-    <style>
-      /* Manual fix for dark mode hover since Tailwind is configured for system preference */
+    <!-- <style>
       html.dark #theme-toggle:hover {
-        background-color: var(--color-gray-700); /* blue-300 */
+        background-color: var(--color-zinc-700); 
       }
-    </style>
-    <button
-      id="theme-toggle"
-      class="p-2 rounded-full text-primary focus:outline-none cursor-pointer hover:bg-bg-surface-muted/40 transition-all duration-200"
-      aria-label="Toggle Dark Mode"
-    >
+    </style> -->
+<button
+  id="theme-toggle"
+  class="p-2 rounded-full cursor-pointer
+         bg-transparent
+         focus:outline-none"
+  aria-label="Toggle theme"
+>
+
       <!-- Sun icon (shown in dark mode) -->
       <svg
         id="theme-toggle-sun"
@@ -206,7 +208,7 @@
       <a
         th:href="@{/login}"
         id="login"
-        class="text-text-primary hover:text-text-primary/60 dark:hover:text-text-primary/60 cursor-pointer text-xl font-normal p-2"
+        class="text-text-primary hover:text-text-primary/60 cursor-pointer text-xl font-normal p-2"
       >
         Login
       </a>
